@@ -46,12 +46,11 @@ export default {
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-bottom: 50px;
+  margin: 25px 15px 25px 15px;
   width: 40vh;
 }
 </style>
