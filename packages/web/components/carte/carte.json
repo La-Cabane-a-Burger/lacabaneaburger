@@ -1,0 +1,86 @@
+[
+    {
+        "productType": "burger",
+        "productName": "Le Savoyard",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "boisson",
+        "productName": "Coca",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    },
+    {
+        "productType": "burger",
+        "productName": "Le Nantais",
+        "price_alone": 10.90,
+        "price_menu": 12.90,
+        "ingredient": "lorem ipsum"
+    }
+]
