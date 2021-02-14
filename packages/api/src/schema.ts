@@ -1,14 +1,88 @@
-import * as path from 'path';
-import * as types from './types'
+import { Context } from './context'
+import { hash, compare } from 'bcryptjs'
+import { sign } from "jsonwebtoken"
 
-import { makeSchema } from '@nexus/schema'
-import { nexusSchemaPrisma } from 'nexus-plugin-prisma/schema'
+export const typeDefs = `
+type User {
+  id: ID!
+  email: String!
+  password: String!
+}
 
-export const schema = makeSchema({
-    types,
-    plugins: [nexusSchemaPrisma()],
-    outputs: {
-        schema: path.join(__dirname, './../schema.graphql'),
-        typegen: path.join(__dirname, './generated.nexus.ts')
+type AuthPayload {
+  token: String!
+  user: User
+}
+
+type Query {
+  getUsers: [User]
+  getUser(id: ID!): User
+}
+
+type Mutation {
+  signUp(input: SignUpInput!): AuthPayload!
+  signIn(input: SignInInput!): AuthPayload!
+  deleteAccount(input: SignInInput!): String!
+}
+
+input SignUpInput {
+  email: String!
+  password: String!
+}
+
+input SignInInput {
+  email: String!
+  password: String!
+}
+`
+
+export const resolvers = {
+  Query: {
+    getUsers: (parent, args, ctx: Context) => {
+      return ctx.prisma.user.findMany()
+    },
+    getUser: (parent, args, ctx: Context) => {
+      return ctx.prisma.user.findUnique({
+        where: { id: args.id },
+      })
+    },
+  },
+  Mutation: {
+    signUp: async (parent, args, ctx: Context) => {
+      const { email, password } = args.input
+      let user = await ctx.prisma.user.create({
+        data: {
+          email,
+          password: await hash(password, 10),
+        }
+      })
+      return {
+        token: sign({ userId: user.id }, "secret", {expiresIn: "15m"}),
+        user,
+      }
+    },
+    signIn: async (parent, args, ctx: Context) => {
+      const { email, password } = args.input
+      const user = await ctx.prisma.user.findUnique({
+        where: { email }
+      })
+      if (!user) {
+        throw new Error(`No user found for email: ${email}`)
+      }
+      let match = await compare(password, user.password)
+      if (!match) {
+        throw new Error('Invalid password')
+      }
+      return {
+        token: sign({ userId: user.id }, "secret", {expiresIn: "15m"}),
+        user,
+      }
+    },
+    deleteAccount: (parent, args, ctx: Context) => {
+      const { email } = args.input
+      return ctx.prisma.user.delete({
+        where: { email },
+      })
     }
-})
+  },
+}
