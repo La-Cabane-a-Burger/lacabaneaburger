@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server",
+    "start": "ts-node --transpile-only src/server",
+    "build": "tsc -p src/server",
     "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev --preview-feature",
     "migrate:deploy": "prisma migrate deploy --preview-feature"
