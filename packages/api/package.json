@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server",
     "start": "ts-node --transpile-only src/server",
-    "build": "tsc --build",
+    "build": "prisma generate && tsc --build",
     "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev --preview-feature",
     "migrate:deploy": "prisma migrate deploy --preview-feature"
