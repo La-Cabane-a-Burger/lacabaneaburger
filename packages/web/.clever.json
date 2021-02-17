@@ -6,6 +6,20 @@
       "deploy_url": "https://push-par-clevercloud-customers.services.clever-cloud.com/app_51dd04cc-d097-48af-bd0d-35d4768bea70.git",
       "name": "cab-web-dev",
       "alias": "cab-web-dev"
+    },
+    {
+      "app_id": "app_c86c509e-08c4-4e24-9948-deaa30dd1ce6",
+      "org_id": "orga_db4c237e-5ae5-423a-923f-113e59244ed5",
+      "deploy_url": "https://push-par-clevercloud-customers.services.clever-cloud.com/app_c86c509e-08c4-4e24-9948-deaa30dd1ce6.git",
+      "name": "cab-web-staging",
+      "alias": "cab-web-staging"
+    },
+    {
+      "app_id": "app_422ba4ac-b43b-43c5-9aa8-10eb89304097",
+      "org_id": "orga_db4c237e-5ae5-423a-923f-113e59244ed5",
+      "deploy_url": "https://push-par-clevercloud-customers.services.clever-cloud.com/app_422ba4ac-b43b-43c5-9aa8-10eb89304097.git",
+      "name": "cab-web-prod",
+      "alias": "cab-web-prod"
     }
   ]
 }
