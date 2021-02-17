@@ -6,6 +6,6 @@ new ApolloServer({ typeDefs, resolvers, context: createContext }).listen(
   { port: 8080 },
   () =>
     console.log(
-      `🚀 Server ready at: http://localhost:4000\n⭐️`,
+      `🚀 Server ready at: http://localhost:8080\n⭐️`,
     ),
 )
