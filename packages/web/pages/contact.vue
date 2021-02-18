@@ -1,7 +1,7 @@
 
 <template>
 	<div>
-		<div class="card-form">
+		<div class="flex items-center justify-center h-screen card-form">
 			<div class="card-form__inner">
 				<InputForm label="Nom" id="value" for="value" style="width: 45%; display:inline-block" />
 				<InputForm label="Prénom" id="value1" for="value1" style="width: 45%; float:right" />

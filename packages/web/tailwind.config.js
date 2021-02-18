@@ -9,6 +9,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    minHeight: {
+      '0': '0',
+      '131': '131px'
+     }
   },
   variants: {
     extend: {},
