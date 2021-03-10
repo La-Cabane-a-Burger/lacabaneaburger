@@ -1,8 +1,19 @@
 <template>
   <div>
     <Nuxt />
+    <FooterComp/>
   </div>
 </template>
+
+<script>
+import FooterComp from "~/components/footer.vue";
+
+export default {
+  components: {
+    FooterComp
+  }
+}
+</script>
 
 <style>
 html {
