@@ -1,8 +1,8 @@
 <template>
-  <div class="card-container">
-    <div v-for="data in myJson">
+  <div class="flex flex-wrap">
+    <div v-for="data in myJson" v-bind:key="data">
       <vs-card
-        class="card"
+        class="card xl:text-white"
         v-if="data.productType === 'burger' && burger === true"
       >
         <template #title>
@@ -24,7 +24,7 @@
         </template>
       </vs-card>
       <vs-avatar v-if="data.productType === 'boisson' && burger === false">
-        <template #text> Lily </template>
+        <template #text> sahh </template>
       </vs-avatar>
     </div>
   </div>
@@ -48,9 +48,8 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .card {
   margin: 25px 15px 25px 15px;
-  width: 40vh;
+  width: 50vh;
 }
 </style>

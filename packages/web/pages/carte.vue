@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="sidebar">
+  <div class="flex container">
+    <div class="w-full">
       <SelectProduct />
     </div>
     <CardMenu />
@@ -22,12 +22,4 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.sidebar {
-  width: 100%;
-}
 </style>

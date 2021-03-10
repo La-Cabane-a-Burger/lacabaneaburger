@@ -3,33 +3,53 @@
     <vs-sidebar class="sidebar" v-model="active" absolute open>
       <vs-sidebar-item id="burger">
         <template #icon>
-          <img class="svg" src="~/assets/img/hamburger.svg" />
+          <img
+            @click="getResponse('burger')"
+            class="svg"
+            src="~/assets/img/hamburger.svg"
+          />
         </template>
-        Nos Burgers
+        <div @click="getResponse('burger')">Nos Burgers</div>
       </vs-sidebar-item>
       <vs-sidebar-item id="nuggets">
         <template #icon>
-          <img class="svg" src="~/assets/img/chicken.svg" />
+          <img
+            @click="getResponse('nuggets')"
+            class="svg"
+            src="~/assets/img/chicken.svg"
+          />
         </template>
-        Nos Nuggets
+        <div @click="getResponse('nuggets')">Nuggets</div>
       </vs-sidebar-item>
       <vs-sidebar-item id="cake">
         <template #icon>
-          <img class="svg" src="~/assets/img/cake.svg" />
+          <img
+            @click="getResponse('cake')"
+            class="svg"
+            src="~/assets/img/cake.svg"
+          />
         </template>
-        Nos Desserts
+        <div @click="getResponse('cake')">Nos Desserts</div>
       </vs-sidebar-item>
       <vs-sidebar-item id="unit">
         <template #icon>
-          <img class="svg" src="~/assets/img/french-fries.svg" />
+          <img
+            @click="getResponse('unit')"
+            class="svg"
+            src="~/assets/img/french-fries.svg"
+          />
         </template>
-        A l’unité
+        <div @click="getResponse('unit')">A l’unité</div>
       </vs-sidebar-item>
-      <vs-sidebar-item id="dring">
+      <vs-sidebar-item id="drink">
         <template #icon>
-          <img class="svg" src="~/assets/img/coke.svg" />
+          <img
+            @click="getResponse('drink')"
+            class="svg"
+            src="~/assets/img/coke.svg"
+          />
         </template>
-        Nos Boissons
+        <div @click="getResponse('drink')">Nos Boissons</div>
       </vs-sidebar-item>
     </vs-sidebar>
   </div>
@@ -39,7 +59,13 @@
 export default {
   data: () => ({
     active: "home",
+    food: "burger",
   }),
+  methods: {
+    getResponse(productType) {
+      console.log(productType);
+    },
+  },
 };
 </script>
 
@@ -52,5 +78,9 @@ export default {
 
 .sidebar {
   padding-top: 35px;
+}
+
+.vs-sidebar__item.active {
+  color: #ef7202;
 }
 </style>
