@@ -1,12 +1,12 @@
 <template>
     <div class="card-input">
     	<label :for="value" class="card-input__label">{{ label }}</label>
-    	<input type="text" :id="value" class="card-input__input"><!-- v-model="value" -->
+    	<input :type="type" :id="value" class="card-input__input"><!-- v-model="value" -->
     </div>
 </template>
 <script>
 export default {
-    props: ['value', 'label']
+    props: ['value', 'label', 'type']
 }
 </script>
 <style>

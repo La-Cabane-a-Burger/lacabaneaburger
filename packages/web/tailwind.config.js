@@ -12,7 +12,14 @@ module.exports = {
     minHeight: {
       '0': '0',
       '131': '131px'
-     }
+    },
+    textColor: theme => theme('colors'),
+    textColor: {
+       'primary': '#3490dc',
+       'secondary': '#ffed4a',
+       'orange-cab': '#EF7202',
+       'white-color': '#000000',
+    }
   },
   variants: {
     extend: {},

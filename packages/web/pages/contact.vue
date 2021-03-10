@@ -3,10 +3,10 @@
 	<div>
 		<div class="flex items-center justify-center h-screen card-form">
 			<div class="card-form__inner">
-				<InputForm label="Nom" id="value" for="value" style="width: 45%; display:inline-block" />
-				<InputForm label="Prénom" id="value1" for="value1" style="width: 45%; float:right" />
-				<InputForm label="Email" id="value2" for="value2" />
-				<InputForm label="Sujet" id="value3" for="value3" />
+				<InputForm type="text" label="Nom" id="value" for="value" style="width: 45%; display:inline-block" />
+				<InputForm type="text" label="Prénom" id="value1" for="value1" style="width: 45%; float:right" />
+				<InputForm type="text" label="Email" id="value2" for="value2" />
+				<InputForm type="text" label="Sujet" id="value3" for="value3" />
 				<TextareaForm label="Message" id="value4" for="value4" />
 				<vs-button
 				class="card-form__button"
@@ -31,7 +31,8 @@ export default {
 		value4: '',
 	}),
 	components: {
-		InputForm
+		InputForm,
+		TextareaForm
 	},
 	computed: {
 		validEmail() {
