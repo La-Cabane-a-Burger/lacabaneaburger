@@ -22,6 +22,5 @@
     "release": "lerna version --conventional-commits",
     "hotfix": "lerna version patch --conventional-commits",
     "diff": "lerna diff"
-  },
-  "dependencies": {}
+  }
 }
