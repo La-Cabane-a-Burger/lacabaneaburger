@@ -1,0 +1,60 @@
+name: deploy-staging
+
+on:
+  push:
+    branches: [release/**]
+
+jobs:
+  deploy-api:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out project
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Git fetch
+        run: git fetch --prune --unshallow
+
+      - name: Setting up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Installing Clever CLI
+        run: npm install -g clever-tools
+
+      - name: Login to Clever
+        run: clever login --token ${{ secrets.CLEVER_TOKEN }} --secret ${{ secrets.CLEVER_SECRET }}
+
+      - name: Deploying to Clever
+        run: clever deploy --alias cab-api-staging --quiet
+        working-directory: ./packages/api
+
+  deploy-web:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out project
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Git fetch
+        run: git fetch --prune --unshallow
+
+      - name: Setting up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Installing Clever CLI
+        run: npm install -g clever-tools
+
+      - name: Login to Clever
+        run: clever login --token ${{ secrets.CLEVER_TOKEN }} --secret ${{ secrets.CLEVER_SECRET }}
+
+      - name: Deploying to Clever
+        run: clever deploy --alias cab-web-staging --quiet
+        working-directory: ./packages/web
