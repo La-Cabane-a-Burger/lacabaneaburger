@@ -14,7 +14,7 @@ module.exports = {
         primaryLight: "#FBD69F",
         dark: "#2B2B2B",
         darkLight: "#6C6C6C",
-        navbar: "#523D32"
+        navbar: "#3C2116"
       },
       spacing: {
         "160": "40rem"

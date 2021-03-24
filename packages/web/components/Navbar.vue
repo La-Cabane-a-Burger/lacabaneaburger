@@ -1,7 +1,8 @@
 <template>
   <div
-    class="fixed z-50 flex flex-col w-full h-auto bg-transparent ellipse"
+    class="fixed z-50 flex flex-col w-full h-auto bg-transparent bg-opacity-95 ellipse"
     :class="{ 'bg-navbar': isMenuOpen || scrollPosition > 0 }"
+    style="transition: 0.4s"
   >
     <div class="flex justify-between mx-2 my-6 sm:mx-16">
       <div class="flex-row items-center flex-1 hidden text-xs lg:flex">
@@ -30,15 +31,17 @@
         </div>
       </div>
     </div>
-    <div
-      v-if="isMenuOpen"
-      class="flex flex-col justify-start w-full pb-10 bg-navbar"
-    >
-      <div class="m-4 text-white font-text">Carte</div>
-      <div class="m-4 text-white font-text">Informations</div>
-      <div class="m-4 text-white font-text">Concept</div>
-      <div class="m-4 text-white font-text">Franchise</div>
-    </div>
+      <div
+        v-if="isMenuOpen"
+        class="flex flex-col justify-start w-full pb-10 bg-opacity-95"
+        style="transition: 0.4s"
+      >
+        <div class="m-4 text-white font-text">Carte</div>
+        <div class="m-4 text-white font-text">Informations</div>
+        <div class="m-4 text-white font-text">Concept</div>
+        <div class="m-4 text-white font-text">Franchise</div>
+      </div>
+
   </div>
 </template>
 
