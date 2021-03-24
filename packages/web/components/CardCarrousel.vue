@@ -6,7 +6,7 @@
     />
     <div
       ref="carrousel"
-      class="flex items-center justify-between overflow-y-auto"
+      class="flex items-center justify-between overflow-y-auto scrollbar"
     >
       <div class="flex flex-row justify-between flex-1 py-5">
         <Card
@@ -59,4 +59,19 @@ export default {
 </script>
 
 <style>
+.scrollbar::-webkit-scrollbar {
+  width: 11px;
+}
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #90a4ae #ffffff;
+}
+.scrollbar::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #90a4ae;
+  border-radius: 999px;
+  border: 3px solid #ffffff;
+}
 </style>
