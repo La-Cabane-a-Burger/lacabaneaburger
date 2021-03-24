@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <div
       class="z-40 w-full h-screen"
       :style="{
