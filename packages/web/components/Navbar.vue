@@ -12,8 +12,8 @@
         <div class="m-4 text-white font-text">Franchise</div>
       </div>
       <div class="flex items-center flex-1 lg:hidden">
-        <Menu v-if="!isMenuOpen" class="text-primary" @click="onToggleMenu" />
-        <Cross v-if="isMenuOpen" class="text-primary" @click="onToggleMenu" />
+        <Menu v-if="!isMenuOpen" class="w-full fill-current text-primary" @click="onToggleMenu" />
+        <Cross v-if="isMenuOpen" class="w-full fill-current text-primary" @click="onToggleMenu" />
       </div>
       <div class="flex items-center justify-center flex-1">
         <img src="~/assets/images/cab-logo.png" alt="La Cabane à Burger logo" />
@@ -26,7 +26,7 @@
         </div>
         <div class="hidden lg:block">
           <vs-button class="font-text" color="#EF7202" relief icon
-            ><User />
+            ><User class="w-full" />
           </vs-button>
         </div>
       </div>

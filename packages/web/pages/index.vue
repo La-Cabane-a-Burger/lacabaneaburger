@@ -88,7 +88,7 @@
         </div>
         <ul class="justify-between hidden mt-20 lg:flex">
           <li class="flex flex-col items-center justify-center">
-            <Bun class="pb-4 text-dark" />
+            <Bun class="pb-4 text-dark w-full fill-current text-dark" />
             <Subtitle
               class="items-center"
               topText="Pains bio"
@@ -96,10 +96,10 @@
             />
           </li>
           <li class="flex flex-col items-center justify-center">
-            <Bullet class="text-dark" />
+            <Bullet class="text-dark w-full fill-current text-dark" />
           </li>
           <li class="flex flex-col items-center justify-center">
-            <Steak class="pb-4 text-dark" />
+            <Steak class="pb-4 text-dark w-full fill-current text-dark" />
             <Subtitle
               class="items-center"
               topText="Viande bovine"
@@ -107,10 +107,10 @@
             />
           </li>
           <li class="flex flex-col items-center justify-center">
-            <Bullet class="text-dark" />
+            <Bullet class="text-black w-full fill-current text-dark" />
           </li>
           <li class="flex flex-col items-center justify-center">
-            <Potatoes class="pb-4 text-dark" />
+            <Potatoes class="pb-4 w-full fill-current text-dark" />
             <Subtitle
               class="items-center"
               topText="Frites fraîches"
