@@ -129,4 +129,7 @@ dist
 # and uncomment the following lines
 # .pnp.*
 
+# idea folder
+.idea
+
 # End of https://www.toptal.com/developers/gitignore/api/yarn,node

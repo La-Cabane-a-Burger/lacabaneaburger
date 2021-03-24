@@ -38,17 +38,17 @@ input SignInInput {
 
 export const resolvers = {
   Query: {
-    getUsers: (parent, args, ctx: Context) => {
+    getUsers: (_parent: any, _args: any, ctx: Context) => {
       return ctx.prisma.user.findMany()
     },
-    getUser: (parent, args, ctx: Context) => {
+    getUser: (_parent: any, args: { id: any }, ctx: Context) => {
       return ctx.prisma.user.findUnique({
         where: { id: args.id },
       })
     },
   },
   Mutation: {
-    signUp: async (parent, args, ctx: Context) => {
+    signUp: async (_parent: any, args: { input: { email: any; password: any } }, ctx: Context) => {
       const { email, password } = args.input
       let user = await ctx.prisma.user.create({
         data: {
@@ -61,7 +61,7 @@ export const resolvers = {
         user,
       }
     },
-    signIn: async (parent, args, ctx: Context) => {
+    signIn: async (_parent: any, args: { input: { email: any; password: any } }, ctx: Context) => {
       const { email, password } = args.input
       const user = await ctx.prisma.user.findUnique({
         where: { email }
@@ -78,7 +78,7 @@ export const resolvers = {
         user,
       }
     },
-    deleteAccount: (parent, args, ctx: Context) => {
+    deleteAccount: (_parent: any, args: { input: { email: any } }, ctx: Context) => {
       const { email } = args.input
       return ctx.prisma.user.delete({
         where: { email },
