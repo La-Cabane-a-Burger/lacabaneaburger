@@ -39,6 +39,9 @@ export default {
       myJson: json,
     };
   },
+  props: {
+    activeMenu: String,
+  },
 };
 </script>
 

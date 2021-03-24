@@ -1,9 +1,9 @@
 <template>
   <div class="flex container">
     <div class="w-full">
-      <SelectProduct />
+      <SelectProduct @changeMenu="changeMenu" />
     </div>
-    <CardMenu />
+    <CardMenu :activeMenu="activeMenu" />
     <Order />
   </div>
 </template>
@@ -17,6 +17,14 @@ export default {
     CardMenu,
     SelectProduct,
     Order,
+  },
+  data: () => ({
+    activeMenu: "burger",
+  }),
+  methods: {
+    changeMenu(newMenu) {
+      this.activeMenu = newMenu;
+    },
   },
 };
 </script>

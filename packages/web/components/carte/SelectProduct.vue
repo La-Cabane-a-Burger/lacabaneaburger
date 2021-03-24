@@ -3,53 +3,34 @@
     <vs-sidebar class="sidebar" v-model="active" absolute open>
       <vs-sidebar-item id="burger">
         <template #icon>
-          <img
-            @click="getResponse('burger')"
-            class="svg"
-            src="~/assets/img/hamburger.svg"
-          />
+          <img class="svg" src="~/assets/img/hamburger.svg" />
+          {{ text }}
         </template>
-        <div @click="getResponse('burger')">Nos Burgers</div>
+        <div>Nos Burgers</div>
       </vs-sidebar-item>
       <vs-sidebar-item id="nuggets">
         <template #icon>
-          <img
-            @click="getResponse('nuggets')"
-            class="svg"
-            src="~/assets/img/chicken.svg"
-          />
+          <img class="svg" src="~/assets/img/chicken.svg" />
         </template>
-        <div @click="getResponse('nuggets')">Nuggets</div>
+        <div>Nuggets</div>
       </vs-sidebar-item>
       <vs-sidebar-item id="cake">
         <template #icon>
-          <img
-            @click="getResponse('cake')"
-            class="svg"
-            src="~/assets/img/cake.svg"
-          />
+          <img class="svg" src="~/assets/img/cake.svg" />
         </template>
-        <div @click="getResponse('cake')">Nos Desserts</div>
+        <div>Nos Desserts</div>
       </vs-sidebar-item>
       <vs-sidebar-item id="unit">
         <template #icon>
-          <img
-            @click="getResponse('unit')"
-            class="svg"
-            src="~/assets/img/french-fries.svg"
-          />
+          <img class="svg" src="~/assets/img/french-fries.svg" />
         </template>
-        <div @click="getResponse('unit')">A l’unité</div>
+        <div>A l’unité</div>
       </vs-sidebar-item>
       <vs-sidebar-item id="drink">
         <template #icon>
-          <img
-            @click="getResponse('drink')"
-            class="svg"
-            src="~/assets/img/coke.svg"
-          />
+          <img class="svg" src="~/assets/img/coke.svg" />
         </template>
-        <div @click="getResponse('drink')">Nos Boissons</div>
+        <div>Nos Boissons</div>
       </vs-sidebar-item>
     </vs-sidebar>
   </div>
@@ -61,9 +42,28 @@ export default {
     active: "home",
     food: "burger",
   }),
-  methods: {
-    getResponse(productType) {
-      console.log(productType);
+  computed: {
+    text() {
+      if (this.active === "burger") {
+        return "burger";
+      }
+      if (this.active === "nuggets") {
+        return "nuggets";
+      }
+      if (this.active === "cake") {
+        return "nuggets";
+      }
+      if (this.active === "unit") {
+        return "nuggets";
+      }
+      if (this.active === "drink") {
+        return "nuggets";
+      }
+    },
+  },
+  watch: {
+    active(newMenu) {
+      this.$emit("changeMenu", newMenu);
     },
   },
 };
