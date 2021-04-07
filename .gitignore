@@ -2,6 +2,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/yarn,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=yarn,node
 
+### WebStorm ###
+.idea
+
 ### Node ###
 # Logs
 logs

@@ -1,8 +1,22 @@
 <template>
   <div>
+    <Navbar/>
     <Nuxt />
+    <FooterComp/>
   </div>
 </template>
+
+<script>
+import Navbar from "~/components/Navbar";
+import FooterComp from "~/components/footer.vue";
+
+export default {
+  components: {
+    Navbar,
+    FooterComp
+  }
+}
+</script>
 
 <style>
 html {
