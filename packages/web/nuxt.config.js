@@ -26,6 +26,11 @@ export default {
     "@nuxtjs/tailwindcss"
   ],
 
+  // Env variables accessible for both the client and the server
+  publicRuntimeConfig: {},
+  // Env variables only accessible for the server
+  privateRuntimeConfig: {},
+
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
