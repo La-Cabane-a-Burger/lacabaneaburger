@@ -4,83 +4,87 @@
         "productName": "Le Savoyard",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredients": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"],
+        "supplements": []
     },
     {
         "productType": "boisson",
         "productName": "Coca",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredients": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"],
+        "supplements": []
+
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredients": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"],
+        "supplements": []
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredients": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"]
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredient": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"]
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredient": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"]
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredient": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"]
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredient": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"]
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredient": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"]
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredient": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"]
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredient": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"]
     },
     {
         "productType": "burger",
         "productName": "Le Nantais",
         "price_alone": 10.90,
         "price_menu": 12.90,
-        "ingredient": "lorem ipsum"
+        "ingredient": ["Salade", "Rondelle de tomate", "Saumon fumé", "Galette de pomme de terre", "sauce tartare"]
     }
 ]

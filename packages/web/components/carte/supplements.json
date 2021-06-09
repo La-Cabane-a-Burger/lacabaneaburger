@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Cheddar",
+        "price": "1,50"
+    },
+    {
+        "id": 2,
+        "name": "Reblochon",
+        "price": "1,50"
+    },
+    {
+        "id": 3,
+        "name": "Raclette",
+        "price": "1,50"
+    },
+    {
+        "id": 4,
+        "name": "Chèvre",
+        "price": "1,50"
+    },
+    {
+        "id": 5,
+        "name": "Curé Nantais",
+        "price": "1,50"
+    },
+    {
+        "id": 6,
+        "name": "Camembert",
+        "price": "1,50"
+    },
+    {
+        "id": 7,
+        "name": "Galette de pomme de terre",
+        "price": "1,50"
+    },
+    {
+        "id": 8,
+        "name": "Boeuf haché",
+        "price": "3,00"
+    },
+    {
+        "id": 9,
+        "name": "Poitrine",
+        "price": "1,50"
+    }
+]
