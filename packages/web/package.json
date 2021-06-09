@@ -13,7 +13,11 @@
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/pwa": "^3.0.2",
+    "@turf/distance": "^6.3.0",
+    "@turf/helpers": "^6.3.0",
     "core-js": "^3.6.5",
+    "install": "^0.13.0",
+    "npm": "^7.16.0",
     "nuxt": "^2.14.6",
     "vuesax": "^4.0.1-alpha.25"
   },
