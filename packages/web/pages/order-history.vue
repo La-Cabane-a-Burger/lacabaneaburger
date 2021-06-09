@@ -1,8 +1,17 @@
 <template>
-  <div class="order-history font-extrabold p-4 text-center">
-    <h2>Vos commandes</h2>
-    {{data.orders}}
-    <order-history-card :date="data.orders[0].date" :price="data.orders[0].price" :items="data.orders[0].items" />
+  <div class="order-history p-4 flex flex-col items-center"       :style="{
+        backgroundImage: `url(${require('~/assets/backgrounds/background-transparent.png')})`,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }">
+    <br><br><br><br><br><br><br><br>
+    <h2 class="text-3xl mb-10">Vos commandes</h2>
+    <order-history-card class="w-full" v-for="order of data.orders" :key="order.id" :date="order.date" :price="order.price" :items="order.items" />
+      <vs-button class="font-text" color="#EF7202" relief
+      >Voir plus
+      </vs-button>
+
   </div>
 </template>
 
