@@ -6,6 +6,6 @@ export interface Context {
   prisma: PrismaClient,
 }
 
-export function createContext(): Context {
+export function context(): Context {
   return { prisma }
 }
