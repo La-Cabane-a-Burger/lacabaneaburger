@@ -7,8 +7,8 @@
     "start": "ts-node --transpile-only src/server",
     "build": "prisma generate && tsc --build",
     "generate": "prisma generate",
-    "migrate:dev": "prisma migrate dev --preview-feature",
-    "migrate:deploy": "prisma migrate deploy --preview-feature"
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^3.4.2",
@@ -16,6 +16,8 @@
     "bcryptjs": "2.4.3",
     "graphql": "16.0.0",
     "jsonwebtoken": "8.5.1",
+    "@types/lodash": "^4.14.176",
+    "lodash": "^4.17.21",
     "lerna": "^4.0.0"
   },
   "devDependencies": {
