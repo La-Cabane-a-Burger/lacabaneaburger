@@ -1,157 +1,214 @@
 <template>
-  <div class="container">
-    <div>
-      <header class="content-logos">
-        <logo />
-        <span class="plus">+</span>
-        <VuesaxLogo />
-      </header>
-      <h1 class="title">
-        Nuxt.js + Vuesax
-      </h1>
-      <h2 class="subtitle">
-        <a href="https://vuesax.com/">Vuesax</a> is a framework of ui components for <a href="https://vuejs.org/">Vuejs</a>, It was created to make new interfaces that have a new trend and are visually beautiful
-      </h2>
-      <div class="links">
-        <h3 class="h3">
-          Vuesax
-        </h3>
-        <a
-          href="https://vuesax.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
+  <div>
+    <div
+      class="z-40 w-full h-screen"
+      :style="{
+        backgroundImage: `url(${image})`,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }"
+    >
+      <div class="absolute left-16 top-64 lg:top-auto lg:bottom-32 lg:left-32">
+        <div>
+          <p class="font-bold uppercase text-primary font-text">Nouveau</p>
+          <p class="flex flex-col text-white uppercase text-8xl font-header">
+            <span>Le Breizh</span>
+            <span>Burger</span>
+          </p>
+        </div>
+        <div
+          class="flex-row justify-between hidden h-20 p-4 rounded-lg w-160 lg:flex bg-primary"
         >
-          Documentation
-        </a>
-        <a
-          href="https://discordapp.com/invite/9dsKtvB"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          Discord
-        </a>
-        <a
-          href="https://github.com/lusaxweb/vuesax"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+          <ul
+            class="grid grid-flow-col grid-rows-2 list-disc list-inside gap-y-2 gap-x-6"
+          >
+            <li class="text-sm font-semibold text-white font-text">Salade</li>
+            <li class="text-sm font-semibold text-white font-text">
+              Sauce poivre
+            </li>
+            <li class="text-sm font-semibold text-white font-text">
+              Viande hachée
+            </li>
+            <li class="text-sm font-semibold text-white font-text">
+              Andouille au lard
+            </li>
+            <li class="text-sm font-semibold text-white font-text">
+              Confit d'oignons
+            </li>
+            <li class="text-sm font-semibold text-white font-text">
+              Roquefort
+            </li>
+          </ul>
+          <div class="w-px bg-white"></div>
+          <div class="grid grid-flow-col grid-rows-2 gap-y-2 gap-x-6">
+            <p class="text-xl font-bold text-white font-text">10.90€</p>
+            <p class="text-white font-text">
+              <span class="text-xs uppercase">Menu</span
+              ><span class="ml-1 text-sm font-bold">13.50€</span>
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="links">
-        <h3 class="h3">
-          Nuxt.js
-        </h3>
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
+    </div>
+    <div
+      class="flex justify-center w-full"
+      :style="{
+        backgroundImage: `url(${require('~/assets/backgrounds/background-transparent.png')})`,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundColor: '#FBD69F',
+      }"
+    >
+      <div class="w-10/12 py-20">
+        <div class="flex flex-col items-start lg:flex-row">
+          <div class="flex flex-col items-center flex-1 mb-10 lg:items-start">
+            <Subtitle
+              class="text-center lg:text-left"
+              topText="Les burgers gourmets"
+              bottomText="à coté de chez vous"
+            />
+            <p class="pb-10 text-center lg:text-left text-md font-text">
+              Pour déguster des burgers gourmets, préparés à la demande et sur
+              commande au coin de la rue, rendez-vous à La Cabane à Burger !
+              Notre pain bio, créé uniquement pour notre carte, s’accorde avec
+              des produits frais sélectionnés par nos soins pour vous régaler et
+              réveiller vos papilles. Chaque mois, retrouvez une recette
+              originale de saison, accompagnée de frites fraiches de La Cabane.
+            </p>
+            <vs-button color="#EF7202" border size="l"
+              >Intérréssé par la franchise ? C’est par ici !
+            </vs-button>
+          </div>
+          <div class="flex justify-center flex-1 w-full lg:justify-end">
+            <img src="~/assets/images/burger.png" alt="" />
+          </div>
+        </div>
+        <ul class="justify-between hidden mt-20 lg:flex">
+          <li class="flex flex-col items-center justify-center">
+            <Bun class="pb-4 text-dark w-full fill-current text-dark" />
+            <Subtitle
+              class="items-center"
+              topText="Pains bio"
+              bottomText="recette Spéciale"
+            />
+          </li>
+          <li class="flex flex-col items-center justify-center">
+            <Bullet class="text-dark w-full fill-current text-dark" />
+          </li>
+          <li class="flex flex-col items-center justify-center">
+            <Steak class="pb-4 text-dark w-full fill-current text-dark" />
+            <Subtitle
+              class="items-center"
+              topText="Viande bovine"
+              bottomText="française"
+            />
+          </li>
+          <li class="flex flex-col items-center justify-center">
+            <Bullet class="text-black w-full fill-current text-dark" />
+          </li>
+          <li class="flex flex-col items-center justify-center">
+            <Potatoes class="pb-4 w-full fill-current text-dark" />
+            <Subtitle
+              class="items-center"
+              topText="Frites fraîches"
+              bottomText="de la cabane"
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="flex justify-center w-full h-screen"
+      :style="{
+        backgroundImage: `url(${require('~/assets/backgrounds/background-transparent.png')})`,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }"
+    >
+      <div class="w-10/12 py-20">
+        <Subtitle topText="Decouvrez" bottomText="nos burgers" />
+        <CardCarrousel :cards="burgers" />
+        <div
+          class="flex-row justify-between hidden p-10 my-20 lg:flex rounded-3xl bg-primaryLight"
         >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+          <div class="flex-1">
+            <h4 class="mb-2 text-lg font-semibold text-dark">
+              Le Burger du Mois
+            </h4>
+            <p class="text-xs text-dark lg:text-base">
+              Chaque mois une nouvelle recette, imaginée par nos chefs pour vous
+              proposer un burger de saison.
+            </p>
+          </div>
+          <div class="flex items-center justify-center flex-1">
+            <img
+              src="~/assets/images/burger-board.png"
+              alt="Burger sur une planche en bois"
+            />
+          </div>
+          <div class="flex items-center justify-end flex-1">
+            <vs-button color="#EF7202" border
+              >Découvrir le burger du mois
+            </vs-button>
+          </div>
+        </div>
+        <div class="flex justify-center w-full">
+          <vs-button color="#EF7202">Voir la carte</vs-button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuesaxLogo from '~/components/VuesaxLogo.vue'
+import Subtitle from "../components/Subtitle.vue";
+import CardCarrousel from "../components/CardCarrousel.vue";
+
+import Bun from "~/assets/icons/bun.svg?inline";
+import Steak from "~/assets/icons/steak.svg?inline";
+import Potatoes from "~/assets/icons/potatoes.svg?inline";
+import Bullet from "~/assets/icons/bullet.svg?inline";
 
 export default {
   components: {
-    Logo,
-    VuesaxLogo
-  }
-}
+    Subtitle,
+    CardCarrousel,
+    Bun,
+    Steak,
+    Potatoes,
+    Bullet,
+  },
+  computed: {
+    image() {
+      return require(`~/assets/images/breizh-burger.png`);
+    },
+  },
+  data() {
+    return {
+      burgers: [
+        {
+          title: "Le Montagnard",
+          image: "montagnard.png",
+          text:
+            "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
+        },
+        {
+          title: "Le Savoyard",
+          image: "savoyard.png",
+          text:
+            "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
+        },
+        {
+          title: "Le Gaulois",
+          image: "gaulois.png",
+          text:
+            "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
+        },
+      ],
+    };
+  },
+};
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 55px;
-  color: #35495e;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-  margin: 25px 0;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 1.1rem;
-  color: #526488;
-  word-spacing: 2px;
-  padding-bottom: 15px;
-  max-width: 600px;
-}
-
-.subtitle a {
-  font-weight: 500;
-  color: inherit;
-}
-
-.links {
-  padding-top: 15px;
-  margin-bottom: 20px;
-}
-
-.content-logos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 500px;
-}
-
-.plus {
-  font-size: 2.5rem;
-  margin: 15px;
-  color: #35495e;
-}
-
-.h3 {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-weight: 400;
-  margin: 10px;
-}
-</style>

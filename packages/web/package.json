@@ -13,17 +13,22 @@
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/pwa": "^3.0.2",
+    "@turf/distance": "^6.3.0",
+    "@turf/helpers": "^6.3.0",
     "core-js": "^3.6.5",
+    "install": "^0.13.0",
+    "npm": "^7.16.0",
     "nuxt": "^2.14.6",
     "vuesax": "^4.0.1-alpha.25"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.3",
+    "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^3.4.2",
     "@tailwindcss/postcss7-compat": "^2.0.2",
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }

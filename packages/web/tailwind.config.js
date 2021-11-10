@@ -1,44 +1,32 @@
 module.exports = {
   purge: [
-    './components/**/*.{vue,js}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}'
+    "./components/**/*.{vue,js}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.{js,ts}"
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      inset: {
-        '43': '43%',
+      colors: {
+        primary: "#EF7202",
+        primaryLight: "#FBD69F",
+        dark: "#2B2B2B",
+        darkLight: "#6C6C6C",
+        navbar: "#3C2116"
       },
-    },
-    fontSize: {
-      's': '.275rem',
-      'xs': '.75rem',
-      'sm': '.875rem',
-      'tiny': '.875rem',
-      'base': '1rem',
-      'lg': '1.125rem',
-      'xl': '1.25rem',
-      '2xl': '1.5rem',
-      '3xl': '1.875rem',
-      '4xl': '2.25rem',
-      '5xl': '3rem',
-      '6xl': '4rem',
-      '7xl': '5rem',
-    },
-    screens: {
-      'custom': '900px',
-      'md': '768px',
-      'sm': '640px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
+      spacing: {
+        "160": "40rem"
+      },
+      fontFamily: {
+        header: ["Bebas Neue", "cursive"],
+        text: ["Poppins", "sans-serif"]
+      }
     }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
-}
+  plugins: []
+};

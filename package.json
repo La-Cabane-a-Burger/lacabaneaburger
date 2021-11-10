@@ -10,6 +10,7 @@
     "lerna": "^3.22.1"
   },
   "scripts": {
+    "nuke": "rm -r node_modules; for d in packages/*/node_modules; do echo $d; rm -rf $d; done",
     "clean": "lerna run clean && rm -rf node_modules",
     "dev": "lerna run dev --stream",
     "dev:api": "yarn workspace @lacabaneaburger/api dev",
@@ -22,6 +23,5 @@
     "release": "lerna version --conventional-commits",
     "hotfix": "lerna version patch --conventional-commits",
     "diff": "lerna diff"
-  },
-  "dependencies": {}
+  }
 }
