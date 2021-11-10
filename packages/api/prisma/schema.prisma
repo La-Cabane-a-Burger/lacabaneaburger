@@ -3,14 +3,135 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  MANAGER
+  ADMIN
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
-  role     String @default("")
-  phone    String @default("")
+  id            String  @id @default(uuid())
+  email         String  @unique
+  password      String
+  role          Role    @default(USER)
+  phone         String
+  reward_points Int     @default(0)
+  orders        Order[]
+}
+
+model Store {
+  id          String    @id @default(uuid())
+  city        String
+  phone       String
+  postal_code Int
+  address     String
+  latitude    Decimal
+  lontitude   Decimal
+  openings    Opening[]
+  orders      Order[]
+}
+
+model Opening {
+  id      String  @id @default(uuid())
+  weekday String
+  start   String
+  end     String
+  Store   Store?  @relation(fields: [storeId], references: [id])
+  storeId String?
+}
+
+model Order {
+  id        String      @id @default(uuid())
+  price     Float
+  date      DateTime
+  Store     Store?      @relation(fields: [storeId], references: [id])
+  storeId   String?
+  User      User?       @relation(fields: [userId], references: [id])
+  userId    String?
+  OrderItem OrderItem[]
+}
+
+model OrderMenus {
+  menu        Menu      @relation(fields: [menuId], references: [id])
+  menuId      String
+  orderItem   OrderItem @relation(fields: [orderItemId], references: [id])
+  orderItemId String
+
+  @@id([menuId, orderItemId])
+}
+
+model OrderItem {
+  id           String         @id @default(uuid())
+  order        Order          @relation(fields: [orderId], references: [id])
+  orderId      String
+  item         Item           @relation(fields: [itemId], references: [id])
+  itemId       String
+  OrderRecipes OrderRecipes[]
+  OrderMenus   OrderMenus[]
+}
+
+model OrderRecipes {
+  orderItem    OrderItem  @relation(fields: [orderItemId], references: [id])
+  orderItemId  String
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  ingredientId String
+
+  @@id([orderItemId, ingredientId])
+}
+
+model Menu {
+  id          String       @id @default(uuid())
+  name        String
+  price       Float
+  category    String
+  description String
+  MenuItems   MenuItems[]
+  OrderMenus  OrderMenus[]
+}
+
+model MenuItems {
+  menu     Menu    @relation(fields: [menuId], references: [id])
+  menuId   String
+  item     Item    @relation(fields: [itemId], references: [id])
+  itemId   String
+  pickable Boolean @default(false)
+
+  @@id([menuId, itemId])
+}
+
+model Item {
+  id          String      @id @default(uuid())
+  name        String
+  price       Float
+  category    String
+  description String
+  ingredients Recipe[]
+  MenuItems   MenuItems[]
+  OrderItem   OrderItem[]
+}
+
+model Ingredient {
+  id           String         @id @default(uuid())
+  name         String
+  price        Float
+  category     String
+  item         Recipe[]
+  OrderRecipes OrderRecipes[]
+}
+
+model Recipe {
+  item         Item       @relation(fields: [itemId], references: [id])
+  itemId       String
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  ingredientId String
+  pickable     Boolean    @default(false)
+  number       Int        @default(1)
+  quantity     Float      @default(0)
+  energy       Float      @default(0)
+
+  @@id([itemId, ingredientId])
 }
