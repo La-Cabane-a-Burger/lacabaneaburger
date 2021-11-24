@@ -46,14 +46,16 @@ model Opening {
 }
 
 model Order {
-  id        String      @id @default(uuid())
-  price     Float
-  date      DateTime
-  Store     Store?      @relation(fields: [storeId], references: [id])
-  storeId   String?
-  User      User?       @relation(fields: [userId], references: [id])
-  userId    String?
-  OrderItem OrderItem[]
+  id         String       @id @default(uuid())
+  price      Float
+  date       DateTime
+  Store      Store?       @relation(fields: [storeId], references: [id])
+  storeId    String?
+  User       User?        @relation(fields: [userId], references: [id])
+  userId     String?
+  OrderItem  OrderItem[]
+  OrderMenus OrderMenus[]
+
 }
 
 model OrderMenus {
@@ -61,7 +63,8 @@ model OrderMenus {
   menuId      String
   orderItem   OrderItem @relation(fields: [orderItemId], references: [id])
   orderItemId String
-
+  Order       Order?    @relation(fields: [orderId], references: [id])
+  orderId     String?
   @@id([menuId, orderItemId])
 }
 
