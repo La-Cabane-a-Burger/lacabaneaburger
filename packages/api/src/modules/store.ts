@@ -74,18 +74,16 @@ export const StoreResolver = {
         Mutation: {
             createStore: async (_parent: any, args: { input: CreateStoreInput }, ctx: Context) => {
 
-                let store = await ctx.prisma.store.create({
+                return await ctx.prisma.store.create({
                     data: {...args.input}
                 })
 
-                return store;
             },
             updateStore: async (_parent: any, args: { id: string, input: UpdateStoreInput }, ctx: Context) => {
-                const store = await ctx.prisma.store.update({
+                return await ctx.prisma.store.update({
                     where: {id: args.id},
                     data: {...args.input},
                 })
-                return store;
             },
             deleteStore: (_parents: any, args: { id: string }, ctx: Context) => {
                 return ctx.prisma.store.delete({
