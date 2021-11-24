@@ -42,11 +42,11 @@ input SignInInput {
 
 export const UserResolver = {
     Query: {
-        getUsers: (_parent: any, _args: any, ctx: Context) => {
-            return ctx.prisma.user.findMany()
+        getUsers: async (_parent: any, _args: any, ctx: Context) => {
+            return await ctx.prisma.user.findMany()
         },
-        getUser: (_parent: any, args: { id: string }, ctx: Context) => {
-            return ctx.prisma.user.findUnique({
+        getUser: async (_parent: any, args: { id: string }, ctx: Context) => {
+            return await ctx.prisma.user.findUnique({
                 where: {id: args.id},
             })
         },
