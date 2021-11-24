@@ -13,6 +13,29 @@ enum Role {
   ADMIN
 }
 
+enum Allergen {
+  GLUTEN
+  PEANUTS
+  SOY
+  SHELLFISH
+  EGGS
+  MILK
+  NUTS
+  SESAME
+  WHEAT
+  CORN
+  SULFUR
+  LUPIN
+  MUSHROOMS
+  CELERY
+  MUSTARD
+  LAC
+  TURKEY
+  PORK
+  CHICKEN
+  FISH
+}
+
 model User {
   id            String   @id @default(uuid())
   createdAt     DateTime @default(now())
@@ -125,12 +148,7 @@ model Ingredient {
   category     String
   item         Recipe[]
   OrderRecipes OrderRecipes[]
-}
-
-model Allergen {
-  id           String         @id @default(uuid())
-  name         String
-  category     String
+  allergens    Allergen[]
 }
 
 model Recipe {
