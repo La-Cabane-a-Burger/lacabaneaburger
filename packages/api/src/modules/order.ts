@@ -1,8 +1,8 @@
 export const Order = `
     type Order {
         id: ID!
-        user_id: ID!
-        store_id: ID!
+        user: User
+        store: Store
         price: Int!
         date: String!
     }

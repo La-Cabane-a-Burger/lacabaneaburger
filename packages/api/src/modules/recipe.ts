@@ -1,7 +1,7 @@
 export const Recipe = `
     type Recipe {
         id: ID!
-        item_id: ID!
+        item: Item
         number: Int
         quantity: Int
         energy: Int
