@@ -127,6 +127,12 @@ model Ingredient {
   OrderRecipes OrderRecipes[]
 }
 
+model Allergens {
+  id           String         @id @default(uuid())
+  name         String
+  category     String
+}
+
 model Recipe {
   item         Item       @relation(fields: [itemId], references: [id])
   itemId       String
