@@ -9,6 +9,7 @@ export const Store = `
         address: String
         latitude: Int
         longitude: Int
+        openings: [Opening]
     }
     
     type Query {

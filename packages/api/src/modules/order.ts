@@ -5,6 +5,7 @@ export const Order = `
         store: Store
         price: Int!
         date: String!
+        items: [Item]
     }
 `
 

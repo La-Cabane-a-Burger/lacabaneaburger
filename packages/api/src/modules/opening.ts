@@ -4,6 +4,7 @@ export const Opening = `
         weekday: Int
         start: String
         end: String
+        store: Store
     }
 `
 

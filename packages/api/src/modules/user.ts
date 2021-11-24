@@ -9,6 +9,7 @@ export const User = `
     password: String!
     role: String
     phone: String
+    orders: [Order]
   }
   
   type AuthPayload {

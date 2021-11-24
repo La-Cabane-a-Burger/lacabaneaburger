@@ -5,6 +5,7 @@ export const Menu = `
         price: String
         category: String
         description: String
+        items: [Item]
     }
 `
 
