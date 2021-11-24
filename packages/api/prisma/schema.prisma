@@ -14,12 +14,13 @@ enum Role {
 }
 
 model User {
-  id            String  @id @default(uuid())
-  email         String  @unique
+  id            String   @id @default(uuid())
+  createdAt     DateTime @default(now())
+  email         String   @unique
   password      String
-  role          Role    @default(USER)
+  role          Role     @default(USER)
   phone         String
-  reward_points Int     @default(0)
+  reward_points Int      @default(0)
   orders        Order[]
 }
 
@@ -30,7 +31,7 @@ model Store {
   postal_code Int
   address     String
   latitude    Decimal
-  lontitude   Decimal
+  longitude   Decimal
   openings    Opening[]
   orders      Order[]
 }

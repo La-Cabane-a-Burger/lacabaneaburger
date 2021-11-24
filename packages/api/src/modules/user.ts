@@ -31,12 +31,12 @@ type Mutation {
 input SignUpInput {
   email: String!
   password: String!
+  phone: String!
 }
 
 input SignInInput {
   email: String!
   password: String!
-  phone: String!
 }
 `;
 
@@ -45,30 +45,38 @@ export const UserResolver = {
         getUsers: (_parent: any, _args: any, ctx: Context) => {
             return ctx.prisma.user.findMany()
         },
-        getUser: (_parent: any, args: { id: number }, ctx: Context) => {
+        getUser: (_parent: any, args: { id: string }, ctx: Context) => {
             return ctx.prisma.user.findUnique({
-                where: { id: toInteger(args.id) },
+                where: {id: args.id},
             })
         },
     },
     Mutation: {
-        signUp: async (_parent: any, args: { input: { email: any, password: any } }, ctx: Context) => {
-            const { email, password } = args.input
+        signUp: async (_parent: any, args: { input: { email: any, password: any, phone: any } }, ctx: Context) => {
+            const {email, password, phone} = args.input
+
+            const existingUser = await ctx.prisma.user.findUnique({
+                where: {email}
+            })
+            if (existingUser) {
+                throw new Error(`Email ${email} already exists.`)
+            }
             let user = await ctx.prisma.user.create({
                 data: {
                     email,
-                    password: await hash(password, 10)
+                    password: await hash(password, 10),
+                    phone
                 }
             })
             return {
-                token: sign({ userId: user.id }, "secret", {expiresIn: "15m"}),
+                token: sign({userId: user.id}, "secret", {expiresIn: "15m"}),
                 user,
             }
         },
         signIn: async (_parent: any, args: { input: { email: any; password: any } }, ctx: Context) => {
-            const { email, password } = args.input
+            const {email, password} = args.input
             const user = await ctx.prisma.user.findUnique({
-                where: { email }
+                where: {email}
             })
             if (!user) {
                 throw new Error(`No user found for email: ${email}`)
@@ -78,14 +86,14 @@ export const UserResolver = {
                 throw new Error('Invalid password')
             }
             return {
-                token: sign({ userId: user.id }, "secret", {expiresIn: "15m"}),
+                token: sign({userId: user.id}, "secret", {expiresIn: "15m"}),
                 user,
             }
         },
         deleteAccount: (_parent: any, args: { input: { email: any } }, ctx: Context) => {
-            const { email } = args.input
+            const {email} = args.input
             return ctx.prisma.user.delete({
-                where: { email },
+                where: {email},
             })
         }
     },
