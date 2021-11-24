@@ -76,12 +76,12 @@ model Order {
   storeId    String?
   User       User?        @relation(fields: [userId], references: [id])
   userId     String?
-  OrderItem  OrderItem[]
-  OrderMenus OrderMenus[]
+  OrderItems  OrderItem[]
+  OrderMenus OrderMenu[]
 
 }
 
-model OrderMenus {
+model OrderMenu {
   menu        Menu      @relation(fields: [menuId], references: [id])
   menuId      String
   orderItem   OrderItem @relation(fields: [orderItemId], references: [id])
@@ -97,11 +97,11 @@ model OrderItem {
   orderId      String
   item         Item           @relation(fields: [itemId], references: [id])
   itemId       String
-  OrderRecipes OrderRecipes[]
-  OrderMenus   OrderMenus[]
+  OrderRecipes OrderRecipe[]
+  OrderMenus   OrderMenu[]
 }
 
-model OrderRecipes {
+model OrderRecipe {
   orderItem    OrderItem  @relation(fields: [orderItemId], references: [id])
   orderItemId  String
   ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
@@ -116,11 +116,11 @@ model Menu {
   price       Float
   category    String
   description String
-  MenuItems   MenuItems[]
-  OrderMenus  OrderMenus[]
+  MenuItems   MenuItem[]
+  OrderMenus  OrderMenu[]
 }
 
-model MenuItems {
+model MenuItem {
   menu     Menu    @relation(fields: [menuId], references: [id])
   menuId   String
   item     Item    @relation(fields: [itemId], references: [id])
@@ -137,7 +137,7 @@ model Item {
   category    String
   description String
   ingredients Recipe[]
-  MenuItems   MenuItems[]
+  MenuItems   MenuItem[]
   OrderItem   OrderItem[]
 }
 
@@ -147,7 +147,7 @@ model Ingredient {
   price        Float
   category     String
   item         Recipe[]
-  OrderRecipes OrderRecipes[]
+  OrderRecipes OrderRecipe[]
   allergens    Allergen[]
 }
 
