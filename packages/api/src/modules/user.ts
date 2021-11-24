@@ -26,6 +26,8 @@ type Mutation {
   signUp(input: SignUpInput!): AuthPayload!
   signIn(input: SignInInput!): AuthPayload!
   deleteAccount(input: SignInInput!): String!
+  updateUser(id: ID!, input: UpdateUserInput!): User
+
 }
 
 input SignUpInput {
@@ -39,6 +41,12 @@ input SignInInput {
   password: String!
 }
 `;
+
+interface UpdateUserInput {
+    email: string
+    password: string
+    phone: string
+}
 
 export const UserResolver = {
     Query: {
@@ -90,10 +98,20 @@ export const UserResolver = {
                 user,
             }
         },
-        deleteAccount: (_parent: any, args: { input: { email: any } }, ctx: Context) => {
+        deleteAccount: async (_parent: any, args: { input: { email: any } }, ctx: Context) => {
             const {email} = args.input
-            return ctx.prisma.user.delete({
+            return await ctx.prisma.user.delete({
                 where: {email},
+            })
+        },
+        updateUser: async (_parent: any, args: {
+            id: string,
+            input: UpdateUserInput
+        }, ctx: Context) => {
+            return await ctx.prisma.user.update({
+                where: {id: args.id},
+                data: {...args.input}
+
             })
         }
     },

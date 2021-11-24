@@ -82,7 +82,7 @@ export const StoreResolver = {
             updateStore: async (_parent: any, args: { id: string, input: UpdateStoreInput }, ctx: Context) => {
                 return await ctx.prisma.store.update({
                     where: {id: args.id},
-                    data: {...args.input},
+                    data: {...args.input}
                 })
             },
             deleteStore: (_parents: any, args: { id: string }, ctx: Context) => {
