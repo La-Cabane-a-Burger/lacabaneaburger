@@ -1,3 +1,5 @@
+import {Context} from "../context";
+
 export const Opening = `
     type Opening {
         id: ID!

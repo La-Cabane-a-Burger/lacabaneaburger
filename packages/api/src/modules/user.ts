@@ -40,11 +40,15 @@ input SignInInput {
   email: String!
   password: String!
 }
+
+input UpdateUserInput {
+  email: String
+  phone: String
+}
 `;
 
 interface UpdateUserInput {
     email: string
-    password: string
     phone: string
 }
 
