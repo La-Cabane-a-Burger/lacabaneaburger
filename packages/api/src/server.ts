@@ -2,6 +2,7 @@ import {ApolloServer} from 'apollo-server'
 import {createContext} from './context'
 import {UserResolver, User} from "./modules/user";
 import {IngredientResolver, Ingredient} from "./modules/ingredient";
+import {AllergenResolver, Allergen} from "./modules/allergen";
 import {ItemResolver, Item} from "./modules/item";
 import {MenuResolver, Menu} from "./modules/menu";
 import {OpeningResolver, Opening} from "./modules/opening";
@@ -13,8 +14,8 @@ import {merge} from "lodash";
 const usedPort = process.env.PORT || 4000;
 
 new ApolloServer({
-    typeDefs: [User, Ingredient, Item, Menu, Opening, Order, Recipe, Store],
-    resolvers: merge(UserResolver, IngredientResolver, ItemResolver, MenuResolver, OpeningResolver, OrderResolver, RecipeResolver, StoreResolver),
+    typeDefs: [Allergen, User, Ingredient, Item, Menu, Opening, Order, Recipe, Store],
+    resolvers: merge(AllergenResolver, UserResolver, IngredientResolver, ItemResolver, MenuResolver, OpeningResolver, OrderResolver, RecipeResolver, StoreResolver),
     context: createContext
 }).listen(
     {port: usedPort},

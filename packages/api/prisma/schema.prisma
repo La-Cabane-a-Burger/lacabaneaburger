@@ -127,7 +127,7 @@ model Ingredient {
   OrderRecipes OrderRecipes[]
 }
 
-model Allergens {
+model Allergen {
   id           String         @id @default(uuid())
   name         String
   category     String

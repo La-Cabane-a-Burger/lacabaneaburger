@@ -13,13 +13,14 @@
   },
   "dependencies": {
     "@prisma/client": "^3.4.2",
+    "@types/lodash": "^4.14.176",
     "apollo-server": "^3.5.0",
     "bcryptjs": "2.4.3",
     "graphql": "16.0.0",
     "jsonwebtoken": "8.5.1",
-    "@types/lodash": "^4.14.176",
+    "lerna": "^4.0.0",
     "lodash": "^4.17.21",
-    "lerna": "^4.0.0"
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.2",

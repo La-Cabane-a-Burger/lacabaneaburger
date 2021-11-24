@@ -23,5 +23,9 @@
     "release": "lerna version --conventional-commits",
     "hotfix": "lerna version patch --conventional-commits",
     "diff": "lerna diff"
+  },
+  "dependencies": {
+    "node": "^14.16.0",
+    "nvm": "0.0.4"
   }
 }
