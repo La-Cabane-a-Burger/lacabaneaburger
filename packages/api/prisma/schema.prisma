@@ -64,41 +64,30 @@ model Opening {
   weekday String
   start   String
   end     String
-  Store   Store?  @relation(fields: [storeId], references: [id])
+  store   Store?  @relation(fields: [storeId], references: [id])
   storeId String?
 }
 
 model Order {
-  id         String       @id @default(uuid())
+  id         String      @id @default(uuid())
   price      Float
   date       DateTime
-  Store      Store?       @relation(fields: [storeId], references: [id])
+  store      Store?      @relation(fields: [storeId], references: [id])
   storeId    String?
-  User       User?        @relation(fields: [userId], references: [id])
+  user       User?       @relation(fields: [userId], references: [id])
   userId     String?
-  OrderItems  OrderItem[]
-  OrderMenus OrderMenu[]
-
-}
-
-model OrderMenu {
-  menu        Menu      @relation(fields: [menuId], references: [id])
-  menuId      String
-  orderItem   OrderItem @relation(fields: [orderItemId], references: [id])
-  orderItemId String
-  Order       Order?    @relation(fields: [orderId], references: [id])
-  orderId     String?
-  @@id([menuId, orderItemId])
+  orderItems OrderItem[]
 }
 
 model OrderItem {
-  id           String         @id @default(uuid())
-  order        Order          @relation(fields: [orderId], references: [id])
+  id           String        @id @default(uuid())
+  order        Order         @relation(fields: [orderId], references: [id])
   orderId      String
-  item         Item           @relation(fields: [itemId], references: [id])
+  item         Item          @relation(fields: [itemId], references: [id])
   itemId       String
-  OrderRecipes OrderRecipe[]
-  OrderMenus   OrderMenu[]
+  orderRecipes OrderRecipe[]
+  menu         Menu?         @relation(fields: [menuId], references: [id])
+  menuId       String?
 }
 
 model OrderRecipe {
@@ -111,13 +100,14 @@ model OrderRecipe {
 }
 
 model Menu {
-  id          String       @id @default(uuid())
-  name        String
+  id          String      @id @default(uuid())
+  name        String      @unique
   price       Float
   category    String
   description String
-  MenuItems   MenuItem[]
-  OrderMenus  OrderMenu[]
+  menuItems   Item[]
+  orderMenus  OrderItem[]
+  MenuItem    MenuItem[]
 }
 
 model MenuItem {
@@ -132,19 +122,24 @@ model MenuItem {
 
 model Item {
   id          String      @id @default(uuid())
-  name        String
+  name        String      @unique
   price       Float
   category    String
   description String
   ingredients Recipe[]
-  MenuItems   MenuItem[]
-  OrderItem   OrderItem[]
+  menuItems   Item[]      @relation("ItemToItem")
+  orderItems  OrderItem[]
+  Menu        Menu?       @relation(fields: [menuId], references: [id])
+  menuId      String?
+  MenuItem    MenuItem[]
+  Item        Item?       @relation("ItemToItem", fields: [itemId], references: [id])
+  itemId      String?
 }
 
 model Ingredient {
-  id           String         @id @default(uuid())
-  name         String
-  price        Float
+  id           String        @id @default(uuid())
+  name         String        @unique
+  price        Float         @default(0.0)
   category     String
   item         Recipe[]
   OrderRecipes OrderRecipe[]

@@ -9,22 +9,23 @@
     "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
-    "db:push": "prisma db push"
+    "db:reset": "prisma migrate reset -f",
+    "db:push": "prisma db push",
+    "db:seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^3.5.0",
-    "@types/lodash": "^4.14.176",
     "apollo-server": "^3.5.0",
     "bcryptjs": "2.4.3",
     "graphql": "16.0.0",
     "jsonwebtoken": "8.5.1",
     "lerna": "^4.0.0",
-    "lodash": "^4.17.21",
-    "yarn": "^1.22.17"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.2",
     "@types/jsonwebtoken": "8.5.0",
+    "@types/lodash": "^4.14.177",
     "@types/node": "12.19.12",
     "prisma": "^3.5.0",
     "ts-node": "9.1.1",
@@ -37,6 +38,6 @@
     "trailingComma": "all"
   },
   "engines": {
-    "node": ">=12.13.0 <17.0"
+    "node": ">=12.16.0 <17.0"
   }
 }
