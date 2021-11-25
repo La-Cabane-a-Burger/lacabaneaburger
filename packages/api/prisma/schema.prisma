@@ -107,7 +107,7 @@ model Menu {
   description String
   menuItems   Item[]
   orderMenus  OrderItem[]
-  MenuItem    MenuItem[]
+  menuItem    MenuItem[]
 }
 
 model MenuItem {
@@ -129,10 +129,10 @@ model Item {
   ingredients Recipe[]
   menuItems   Item[]      @relation("ItemToItem")
   orderItems  OrderItem[]
-  Menu        Menu?       @relation(fields: [menuId], references: [id])
+  menu        Menu?       @relation(fields: [menuId], references: [id])
   menuId      String?
-  MenuItem    MenuItem[]
-  Item        Item?       @relation("ItemToItem", fields: [itemId], references: [id])
+  menuItem    MenuItem[]
+  item        Item?       @relation("ItemToItem", fields: [itemId], references: [id])
   itemId      String?
 }
 
@@ -142,7 +142,7 @@ model Ingredient {
   price        Float         @default(0.0)
   category     String
   item         Recipe[]
-  OrderRecipes OrderRecipe[]
+  orderRecipes OrderRecipe[]
   allergens    Allergen[]
 }
 
