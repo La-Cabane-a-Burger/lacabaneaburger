@@ -6,15 +6,14 @@ import {ItemResolver, Item} from "./modules/item";
 import {MenuResolver, Menu} from "./modules/menu";
 import {OpeningResolver, Opening} from "./modules/opening";
 import {OrderResolver, Order} from "./modules/order";
-import {RecipeResolver, Recipe} from "./modules/recipe";
 import {StoreResolver, Store} from "./modules/store";
 import {merge} from "lodash";
 
 const usedPort = process.env.PORT || 4000;
 
 new ApolloServer({
-    typeDefs: [User, Ingredient, Item, Menu, Opening, Order, Recipe, Store],
-    resolvers: merge(UserResolver, IngredientResolver, ItemResolver, MenuResolver, OpeningResolver, OrderResolver, RecipeResolver, StoreResolver),
+    typeDefs: [User, Ingredient, Item, Menu, Opening, Order, Store],
+    resolvers: merge(UserResolver, IngredientResolver, ItemResolver, MenuResolver, OpeningResolver, OrderResolver, StoreResolver),
     context: createContext
 }).listen(
     {port: usedPort},

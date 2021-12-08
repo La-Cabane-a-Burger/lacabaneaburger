@@ -10,14 +10,14 @@ export const Item = `
     }
     
     type Query {
-        getItems: [Store]
-        getItem(id: ID!): Store
+        getItems: [Item]
+        getItem(id: ID!): Item
         }
     
     type Mutation {
-        createItem(input: CreateItemInput!): Store
-        deleteItem(id: ID!): Store
-        updateItem(id: ID!, input: UpdateItemInput!): Store
+        createItem(input: CreateItemInput!): Item
+        deleteItem(id: ID!): Item
+        updateItem(id: ID!, input: UpdateItemInput!): Item
     }
     
     input CreateItemInput {
@@ -74,7 +74,7 @@ export const ItemResolver = {
             })
         },
         deleteItem: async (_parents: any, args: { id: string }, ctx: Context) => {
-            return ctx.prisma.store.delete({
+            return ctx.prisma.item.delete({
                 where: {id: args.id}
             })
         }
