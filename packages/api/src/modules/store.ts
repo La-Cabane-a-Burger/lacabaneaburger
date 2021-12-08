@@ -65,9 +65,9 @@ export const StoreResolver = {
             getStores: (_parents: any, _args: any, ctx: Context) => {
                 return ctx.prisma.store.findMany();
             },
-            getStore: (_parents: any, _args: { id: string }, ctx: Context) => {
+            getStore: (_parents: any, args: { id: string }, ctx: Context) => {
                 return ctx.prisma.store.findUnique({
-                    where: {id: _args.id}
+                    where: {id: args.id}
                 });
             }
         },

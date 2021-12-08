@@ -138,7 +138,7 @@ async function main() {
                 },
               },
             },
-            pickable: true,
+            pickable: true
           },
         ],
       },

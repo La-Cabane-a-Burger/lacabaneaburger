@@ -1,4 +1,5 @@
 import { Context } from '../context'
+import { Allergen } from '@prisma/client'
 
 export const Ingredient = `
     type Ingredient {
@@ -40,14 +41,14 @@ interface CreateIngredientInput {
   name: string
   category: string
   price: number
-  allergens: string[]
+  allergens: Array<Allergen>
 }
 
 interface UpdateIngredientInput {
   name: string
   category: string
   price: number
-  allergens: string[]
+  allergens: Array<Allergen>
 }
 
 export const IngredientResolver = {

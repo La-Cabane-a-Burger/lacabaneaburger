@@ -36,14 +36,14 @@ export const Opening = `
 `
 
 interface CreateOpeningInput {
-    weekday: number,
+    weekday: string,
     start: string,
     end: string,
     storeId: string
 }
 
 interface UpdateOpeningInput {
-    weekday: number,
+    weekday: string,
     start: string,
     end: string,
     storeId: string
