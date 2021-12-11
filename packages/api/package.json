@@ -2,6 +2,7 @@
   "name": "@lacabaneaburger/api",
   "license": "MIT",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server",
     "start": "ts-node --transpile-only src/server",
