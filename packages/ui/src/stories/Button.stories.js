@@ -7,6 +7,10 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
     onClick: {},
+    type: {
+      control: { type: 'select' },
+      options: ['default', 'border', 'flat'],
+    },
     size: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large'],

@@ -1,0 +1,48 @@
+{
+  "name": "@lacabaneaburger/ui",
+  "license": "MIT",
+  "version": "1.0.0",
+  "typings": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/cab-ui.umd.js",
+  "module": "./dist/cab-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/cab-ui.es.js",
+      "require": "./dist/cab-ui.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build --target lib src/index.ts",
+    "preview": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^2.0.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "vue": "^3.2.23"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@rollup/plugin-dynamic-import-vars": "^1.4.1",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/vue3": "^6.4.9",
+    "@vitejs/plugin-vue": "^1.10.2",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.0",
+    "vue-loader": "^16.8.3",
+    "vue-tsc": "^0.28.10"
+  }
+}
