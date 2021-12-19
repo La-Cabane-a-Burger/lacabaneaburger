@@ -5,7 +5,7 @@
       style="transition: 0.4s"
   >
     <div class="flex justify-between mx-2 my-6 sm:mx-16">
-      <div class="flex-row items-center flex-1 hidden lg:flex text-white gap-5" :class="{'text-gray-900' : !isHomePage }">
+      <div class="flex-row items-center flex-1 hidden lg:flex text-white gap-5" :class="{'text-gray-900' : !isTextWhite }">
         <nuxt-link class="transition hover:text-primary-600" to="/menu" active-class="text-primary-600 cursor-default" >Carte</nuxt-link>
         <nuxt-link class="transition hover:text-primary-600" to="/info" active-class="text-primary-600 cursor-default">Informations</nuxt-link>
         <nuxt-link class="transition hover:text-primary-600" to="/concept" active-class="text-primary-600 cursor-default" >Concept</nuxt-link>
@@ -60,6 +60,9 @@ import { useRouter, useRoute } from 'vue-router'
 
 
 const scrollPosition = ref(0);
+const handleScroll = () => {
+  return scrollPosition.value = window ? window.scrollY : 0;
+}
 
 export default defineComponent({
   components: {
@@ -73,10 +76,9 @@ export default defineComponent({
     const isMenuOpen = ref(false);
     const route = useRoute()
 
-    const isHomePage = computed(() => route.name === 'index');
+    const isTextWhite = computed(() => route.name === 'index' || route.name === 'franchise');
 
-    scrollPosition.value = 0;
-    window.addEventListener("scroll", () => scrollPosition.value = window.scrollY);
+
 
     const onToggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value
@@ -91,13 +93,16 @@ export default defineComponent({
       isMenuOpen,
       onScroll,
       scrollPosition,
-      isHomePage
+      isTextWhite
     }
 
 
   },
+  mounted() {
+      window.addEventListener("scroll", handleScroll);
+  },
   unmounted() {
-    window.removeEventListener("scroll", () => scrollPosition.value = window.scrollY);
+      window.removeEventListener("scroll", handleScroll);
   }
 })
 </script>

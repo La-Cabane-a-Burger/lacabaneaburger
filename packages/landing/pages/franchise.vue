@@ -1,7 +1,9 @@
 <template>
   <div class="mb-20">
-    <div class="pt-40 bg-gradient-to-t from-yellow-500 to-blue-500">
-      <div class=" relative w-full">
+    <StarsBackground />
+
+    <div class="pt-40">
+      <div class="relative w-full z-10">
         <CabDrawingImage class="mx-auto vertical-middle" style="width: 1200px" />
         <div class="absolute top-1/2 w-full mx-auto">
           <h1 class="uppercase text-s md:text-sm custom:text-base xl:text-xl font-extrabold tracking-tighter text-white text-center">Et si vous aussi,<br>vous aviez votre propre<br><span class="text-yellow-600">Cabane à Burger ?</span></h1>
@@ -87,7 +89,8 @@
 import Button from "../components/Button";
 import Subtitle from "../components/Subtitle";
 import CabDrawingImage from "../assets/img/CabDrawingImage";
+import StarsBackground from "../components/StarsBackground";
 export default {
-  components: {CabDrawingImage, Subtitle, Button}
+  components: {StarsBackground, CabDrawingImage, Subtitle, Button}
 }
 </script>
