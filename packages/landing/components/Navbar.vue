@@ -7,7 +7,7 @@
     <div class="flex justify-between mx-2 my-6 sm:mx-16">
       <div class="flex-row items-center flex-1 hidden lg:flex text-white gap-5" :class="{'text-gray-900' : !isTextWhite }">
         <nuxt-link class="transition hover:text-primary-600" to="/menu" active-class="text-primary-600 cursor-default" >Carte</nuxt-link>
-        <nuxt-link class="transition hover:text-primary-600" to="/info" active-class="text-primary-600 cursor-default">Informations</nuxt-link>
+        <nuxt-link class="transition hover:text-primary-600" to="/information" active-class="text-primary-600 cursor-default">Informations</nuxt-link>
         <nuxt-link class="transition hover:text-primary-600" to="/concept" active-class="text-primary-600 cursor-default" >Concept</nuxt-link>
         <nuxt-link class="transition hover:text-primary-600" to="/franchise" active-class="text-primary-600 cursor-default">Franchise</nuxt-link>
       </div>
@@ -56,7 +56,6 @@ import Cross from "assets/icons/CrossIcon.vue";
 import Logo from "~/assets/img/logo.vue";
 import Button from "~/components/Button.vue";
 import {computed, defineComponent, ref} from "vue";
-import { useRouter, useRoute } from 'vue-router'
 
 
 const scrollPosition = ref(0);
@@ -74,7 +73,7 @@ export default defineComponent({
   }, setup() {
 
     const isMenuOpen = ref(false);
-    const route = useRoute()
+    const route = useRoute();
 
     const isTextWhite = computed(() => route.name === 'index' || route.name === 'franchise');
 

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxi dev -r esm",
+    "dev": "nuxi dev",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs"
   },
@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@heroicons/vue": "1.0.5",
-    "esm": "^3.2.25"
+    "std-env": "^3.0.1",
+    "@turf/distance": "^6.3.0",
+    "@turf/helpers": "^6.3.0"
   }
 }

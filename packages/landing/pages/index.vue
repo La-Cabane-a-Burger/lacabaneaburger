@@ -1,5 +1,11 @@
 <template>
   <div>
+    <Html :lang="dynamic > 50 ? 'en-GB' : 'en-US'">
+    <Head>
+      <Title>La Cabane à Burger</Title>
+      <Meta name="description" content="Pour déguster des burgers gourmets, préparés à la demande et sur commande au coin de la rue, rendez-vous à La Cabane à Burger !" />
+    </Head>
+    </Html>
     <div
         class="z-40 w-full h-screen"
         :style="{
@@ -176,6 +182,7 @@ import {defineComponent} from 'vue';
 
 
 export default defineComponent({
+  name:'La Cabane à Burger',
   components: {
     Subtitle,
     CardCarrousel,
