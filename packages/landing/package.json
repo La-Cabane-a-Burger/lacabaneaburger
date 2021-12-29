@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@heroicons/vue": "1.0.5",
-    "std-env": "^3.0.1",
     "@turf/distance": "^6.3.0",
-    "@turf/helpers": "^6.3.0"
+    "@turf/helpers": "^6.3.0",
+    "std-env": "^3.0.1"
   }
 }

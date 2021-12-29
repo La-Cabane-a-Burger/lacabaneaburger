@@ -1,5 +1,4 @@
 <template>
-  <Map/>
   <div>
     <div
         class="flex items-center justify-center w-full h-screen"
@@ -59,7 +58,7 @@ export default defineComponent({
     LocationSearch,
   }, setup() {
 
-    const selected = ref(null);
+    const selected = ref(0);
     let position = {lat: 0, lng: 0};
     const locations = [
       {

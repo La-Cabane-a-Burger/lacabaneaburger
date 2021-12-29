@@ -1,9 +1,10 @@
 <template>
   <div>
-    <Html :lang="dynamic > 50 ? 'en-GB' : 'en-US'">
+    <Html>
     <Head>
       <Title>La Cabane à Burger</Title>
-      <Meta name="description" content="Pour déguster des burgers gourmets, préparés à la demande et sur commande au coin de la rue, rendez-vous à La Cabane à Burger !" />
+      <Meta name="description"
+            content="Pour déguster des burgers gourmets, préparés à la demande et sur commande au coin de la rue, rendez-vous à La Cabane à Burger !"/>
     </Head>
     </Html>
     <div
@@ -180,9 +181,8 @@ import Bullet from "assets/icons/BulletIcon.vue";
 
 import {defineComponent} from 'vue';
 
-
 export default defineComponent({
-  name:'La Cabane à Burger',
+  name: 'La Cabane à Burger',
   components: {
     Subtitle,
     CardCarrousel,
@@ -192,28 +192,29 @@ export default defineComponent({
     Bullet
   }, setup() {
     const burgers = [
-          {
-            title: "Le Montagnard",
-            image: "montagnard.png",
-            text:
-                "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
-          },
-          {
-            title: "Le Savoyard",
-            image: "savoyard.png",
-            text:
-                "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
-          },
-          {
-            title: "Le Gaulois",
-            image: "gaulois.png",
-            text:
-                "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
-          },
-        ]
+      {
+        title: "Le Montagnard",
+        image: "montagnard.png",
+        text:
+            "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
+      },
+      {
+        title: "Le Savoyard",
+        image: "savoyard.png",
+        text:
+            "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
+      },
+      {
+        title: "Le Gaulois",
+        image: "gaulois.png",
+        text:
+            "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
+      },
+    ]
 
-    return { burgers }
+    return {burgers}
   }
 })
+
 </script>
 
