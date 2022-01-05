@@ -1,86 +1,104 @@
 <template>
-  <div class="h-full w-full" id="map" ref="map"></div>
+  <div class="w-full h-full" id="map" ref="map"></div>
 </template>
 
 <script lang="ts">
-import {defineComponent, onMounted, watch, ref} from "vue";
+import { defineComponent, watch, ref } from "vue";
 
 export default defineComponent({
   props: {
+    maps: Object,
     locations: Array,
     position: Object,
     selected: Number,
   },
-  setup(props, { emit }) {
-    const map = ref(null);
-    const lat = 47.43081;
-    const lng = -2.07996;
-    const zoom = 7;
-    let markers = [];
-    let infowindow = null;
-    let user = null;
+  setup({ maps, locations, position, selected }, { emit }) {
+    const mapContainer = ref();
+    let map: google.maps.Map;
+    const mapOptions: google.maps.MapOptions = {
+      center: {
+        lat: 0,
+        lng: 0,
+      },
+      zoom: 4,
+    };
+    let markers: Array<google.maps.Marker> = [];
+    let infowindow: google.maps.InfoWindow;
+    let user: google.maps.Marker;
 
-    onMounted(() => {
-      map.value = new google.maps.Map(map.value, {
-        center: {lat: lat, lng: lng},
-        zoom: zoom,
-      });
-      markers = props.locations.map((location) => {
-        let marker = new google.maps.Marker({
+    const initializeMap = ({ Map, Marker }, locations) => {
+      map = new Map(mapContainer.value, mapOptions);
+
+      markers = locations.map((location) => {
+        let marker = new Marker({
           position: location.coords,
           map,
           title: location.city,
         });
-        marker.setMap(map.value);
+        marker.setMap(map);
         return marker;
       });
-    })
+      console.log(map);
+    };
 
-    const popup = (content, marker) => {
+    const createPopup = (
+      content: HTMLElement,
+      marker: google.maps.Marker,
+      { InfoWindow }: { InfoWindow: google.maps.InfoWindow }
+    ) => {
       if (infowindow) infowindow.close();
-      infowindow = new google.maps.InfoWindow({
+      infowindow = new InfoWindow({
         content: `<p>${content}</p>`,
       });
-      infowindow.open(map.value, marker);
+      infowindow.open(map, marker);
       google.maps.event.addListener(infowindow, "closeclick", () => {
         emit("close");
       });
-    }
+    };
 
     watch(
-        () => props.position,
-        (position) => {
-          if (position.lat != 0 || position.lng != 0) {
-            if (user) user.setMap(null);
-            map.value.panTo(position);
-            user = new google.maps.Marker({
-              position,
-              map,
-              title: "user",
-              icon: "../assets/images/user-position.png",
-            });
-            user.setMap(map.value);
-          }
+      () => position,
+      (position) => {
+        if (position.lat != 0 || position.lng != 0) {
+          if (user) user.setMap(null);
+          map.panTo(position);
+          user = new maps.Marker({
+            position,
+            map,
+            title: "user",
+            icon: "../assets/images/user-position.png",
+          });
+          user.setMap(map);
         }
-    )
+      }
+    );
 
     watch(
-        () => props.selected,
-        (selected) => {
-          if (selected !== null) {
-            map.value.panTo(props.locations[selected].coords);
-            popup(
-                props.locations[selected].city,
-                markers.find(
-                    (marker) => marker.getTitle() === props.locations[selected].city
-                )
-            );
-          }
+      () => maps,
+      (maps) => {
+        if (maps != null && maps != undefined) {
+          initializeMap(maps, locations);
         }
-    )
+      }
+    );
 
-    return {map}
+    watch(
+      () => selected,
+      (selected) => {
+        if (selected !== null && selected !== undefined) {
+          map.panTo(locations[selected].coords);
+          createPopup(
+            locations[selected].city,
+            markers.find(
+              (marker) => marker.getTitle() === locations[selected].city
+            ),
+            maps
+          );
+        }
+      }
+    );
 
-  }
+    return { mapContainer };
+  },
 });
 </script>
