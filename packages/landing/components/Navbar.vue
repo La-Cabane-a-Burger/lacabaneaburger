@@ -65,7 +65,7 @@ import User from "assets/icons/UserIcon.vue";
 import Menu from "assets/icons/MenuIcon.vue";
 import Cross from "assets/icons/CrossIcon.vue";
 import Logo from "~/assets/img/logo.vue";
-import Button from "~/components/Button.vue";
+import Button from "~/components/form/Button.vue";
 import {computed, ref} from "vue";
 
 

@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import Button from "../components/Button";
+import Button from "../components/form/Button";
 import Subtitle from "../components/Subtitle";
 import CabDrawingImage from "../assets/img/CabDrawingImage";
 import StarsBackground from "../components/StarsBackground";

@@ -121,7 +121,7 @@ import Logo from "~/assets/img/logo";
 import FacebookIcon from "~/assets/icons/FacebookIcon"
 import InstagramIcon from "~/assets/icons/InstagramIcon"
 import TwitterIcon from "~/assets/icons/TwitterIcon"
-import Button from "~/components/Button";
+import Button from "~/components/form/Button";
 
 export default {
   components: {Button, TwitterIcon, Logo, FacebookIcon, InstagramIcon}

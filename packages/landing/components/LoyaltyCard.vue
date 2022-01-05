@@ -39,7 +39,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .card-form__button {
   width: 50%;
   height: 50px;

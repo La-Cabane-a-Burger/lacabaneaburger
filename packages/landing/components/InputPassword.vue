@@ -13,7 +13,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style scoped>
 .card-input {
   margin-bottom: 20px;
 }

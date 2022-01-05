@@ -51,5 +51,3 @@ export default {
   components: {Subtitle}
 }
 </script>
-<style>
-</style>

@@ -40,7 +40,7 @@
 <script lang="ts">
 import PointIcon from "@/assets/icons/PointIcon";
 import PhoneIcon from "@/assets/icons/PhoneIcon";
-import Button from "@/components/Button"
+import Button from "~/components/form/Button.vue"
 import {defineComponent} from "vue";
 
 export default defineComponent({

@@ -97,7 +97,7 @@
 <script lang="ts">
 
 import {defineComponent, ref, reactive} from "vue";
-import Button from "~/components/Button.vue";
+import Button from "~/components/form/Button.vue";
 import FacebookIcon from "assets/icons/FacebookIcon.vue";
 
 export default defineComponent({
@@ -138,7 +138,7 @@ export default defineComponent({
 
 </script>
 
-<style>
+<style scoped>
 .card-form__button {
   width: 50%;
   height: 50px;
