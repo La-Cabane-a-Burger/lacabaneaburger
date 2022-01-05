@@ -173,6 +173,7 @@
 <script lang="ts">
 import Subtitle from "../components/Subtitle.vue";
 import CardCarrousel from "../components/CardCarrousel.vue";
+import Button from "~/components/form/Button.vue";
 
 import Bun from "assets/icons/BunIcon.vue";
 import Steak from "assets/icons/SteakIcon.vue";
@@ -184,6 +185,7 @@ import {defineComponent} from 'vue';
 export default defineComponent({
   name: 'La Cabane à Burger',
   components: {
+    Button,
     Subtitle,
     CardCarrousel,
     Bun,
