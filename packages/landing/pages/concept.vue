@@ -44,7 +44,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Subtitle from "../components/Subtitle";
 
 export default {

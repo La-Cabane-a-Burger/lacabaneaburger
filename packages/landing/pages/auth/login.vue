@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <form class="space-y-6" action="#" method="POST">
+    <form @submit="submit" class="space-y-6">
       <div>
-        <Input label="Adresse e-mail" id="email" name="email" type="email" autocomplete="email" required/>
+        <client-only>
+          <Input v-model:modelValue="loginFormData.email" label="Adresse e-mail" id="email" name="email" type="email"
+                 autocomplete="email" required/>        </client-only>
       </div>
 
       <div>
@@ -10,12 +11,15 @@
           Mot de passe
         </label>
         <div class="mt-1">
-          <Input id="password" name="password" type="password" autocomplete="current-password" required />
+          <client-only>
+            <Input v-model:modelValue="loginFormData.password" id="password" name="password" type="password"
+                   autocomplete="current-password" required/>          </client-only>
+
         </div>
       </div>
 
       <div class="flex items-center justify-between">
-        <Checkbox name="stayLogged" label="Rester connecté" />
+        <Checkbox name="stayLogged" label="Rester connecté"/>
 
         <div class="text-sm">
           <a href="#" class="font-medium text-primary-600 hover:text-primary-500">
@@ -25,22 +29,53 @@
       </div>
 
       <div>
-        <Button type="submit" class="w-full flex justify-center text-sm font-medium">
+        <Button @click="submit" class="w-full flex justify-center text-sm font-medium">
           Se connecter
         </Button>
       </div>
     </form>
-  </div>
 </template>
 
-<script>
-import {defineComponent} from "vue";
+<script lang="ts">
+import {defineComponent, ref} from "vue";
 import Button from "@/components/form/Button";
 import Input from "@/components/form/Input";
 import Checkbox from "@/components/form/Checkbox";
+import {useSignInMutation} from "../../generated/graphql";
 
-export default defineComponent({components: {
+export default defineComponent({
+  components: {
     Checkbox,
-  Button, Input
-  }})
+    Button, Input
+  },
+  setup(_props, { emit }) {
+    const loginFormData = ref({email: '', password: ''});
+
+    const {mutate: signInMutation} = useSignInMutation({});
+
+    const router = useRouter();
+
+    const submit = async () => {
+      try {
+        const data = await signInMutation({ input: loginFormData.value});
+        console.log(data);
+        router.push({ name: 'account' })
+
+        if (typeof localStorage !== 'undefined' && data.data.signIn.token) {
+          localStorage.setItem('auth-token', data.data.signIn.token);
+        }
+
+      } catch (e) {
+        emit('showError', true);
+        console.error(e);
+      }
+    }
+
+    return {
+      loginFormData,
+      submit
+    }
+
+  }
+})
 </script>

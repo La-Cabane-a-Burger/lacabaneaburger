@@ -1,9 +1,3 @@
-<script lang="ts" setup>
-import './assets/main.scss'
-import Footer from "~/components/Footer.vue";
-import Navbar from "~/components/Navbar.vue";
-</script>
-
 <template>
   <div>
     <Navbar/>
@@ -11,4 +5,19 @@ import Navbar from "~/components/Navbar.vue";
     <Footer/>
   </div>
 </template>
+
+<script lang="ts">
+import './assets/main.scss'
+import Footer from "~/components/Footer.vue";
+import Navbar from "~/components/Navbar.vue";
+import {defineComponent} from 'vue'
+
+defineComponent({
+  components: {
+    Footer, Navbar
+  },
+})
+
+
+</script>
 
