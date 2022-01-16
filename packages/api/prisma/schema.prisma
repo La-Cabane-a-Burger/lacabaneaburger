@@ -36,6 +36,16 @@ enum Allergen {
   FISH
 }
 
+enum Category {
+    BURGER
+    SALAD
+    NUGGETS
+    APPETIZER
+    DESSERT
+    SIDE
+    BEVERAGE
+}
+
 model User {
   id            String   @id @default(uuid())
   createdAt     DateTime @default(now())
@@ -124,7 +134,7 @@ model Item {
   id          String      @id @default(uuid())
   name        String      @unique
   price       Float
-  category    String
+  category    Category
   description String
   ingredients Recipe[]
   menuItems   Item[]      @relation("ItemToItem")
