@@ -4,46 +4,51 @@ export const Store = `
     type Store {
         id: ID!
         city: String!
+        slug: String!
         phone: String
         postal_code: Int
         address: String
-        latitude: Int
-        longitude: Int
+        latitude: Float
+        longitude: Float
         openings: [Opening]
     }
-    
+
     type Query {
         getStores: [Store]
         getStore(id: ID!): Store
+        getStoreBySlug(slug: String!): Store
     }
-    
+
     type Mutation {
         createStore(input: CreateStoreInput!): Store
         deleteStore(id: ID!): Store
         updateStore(id: ID!, input: UpdateStoreInput!): Store
     }
-    
+
     input CreateStoreInput {
         city: String!
+        slug: String!
         phone: String
         postal_code: Int
         address: String
-        latitude: Int
-        longitude: Int    
+        latitude: Float
+        longitude: Float
     }
-    
+
     input UpdateStoreInput {
         city: String
+        slug: String
         phone: String
         postal_code: Int
         address: String
-        latitude: Int
-        longitude: Int    
+        latitude: Float
+        longitude: Float
     }
 `
 
 interface CreateStoreInput {
     city: string,
+    slug: string,
     phone: string,
     postal_code: number,
     address: string,
@@ -53,6 +58,7 @@ interface CreateStoreInput {
 
 interface UpdateStoreInput {
     city: string,
+    slug: string,
     phone: string,
     postal_code: number,
     address: string,
@@ -67,7 +73,15 @@ export const StoreResolver = {
             },
             getStore: (_parents: any, args: { id: string }, ctx: Context) => {
                 return ctx.prisma.store.findUnique({
-                    where: {id: args.id}
+                    where: {id: args.id},
+                    include: {openings: true}
+
+                });
+            },
+            getStoreBySlug: (_parents: any, args: { slug: string }, ctx: Context) => {
+                return ctx.prisma.store.findUnique({
+                    where: {slug: args.slug},
+                    include: {openings: true}
                 });
             }
         },
