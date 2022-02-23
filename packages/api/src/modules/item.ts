@@ -1,12 +1,20 @@
 import {Context} from "../context";
+import {Category} from '@prisma/client'
 
 export const Item = `
+
+    type Recipe {
+        itemId: ID!
+        ingredient: Ingredient
+    }
+
     type Item {
         id: ID!
         name: String
         price: String
         category: String
         description: String
+        ingredients: [Recipe]
     }
     
     type Query {
@@ -25,6 +33,7 @@ export const Item = `
         price: Float,
         category: String,
         description: String 
+        ingredients: [String]
     }
     
     input UpdateItemInput {
@@ -38,14 +47,15 @@ export const Item = `
 interface CreateItemInput {
     name: string,
     price: number,
-    category: string,
-    description: string
+    category: Category,
+    description: string,
+    ingredients: [string]
 }
 
 interface UpdateItemInput {
     name: string,
     price: number,
-    category: string,
+    category: Category,
     description: string
 }
 
@@ -53,7 +63,16 @@ export const ItemResolver = {
 
     Query: {
         getItems: async (_parents: any, _args: any, ctx: Context) => {
-            return await ctx.prisma.item.findMany();
+            return await ctx.prisma.item.findMany({
+                include: {
+                    ingredients: {
+                        select: {
+                            itemId: true,
+                            ingredient:true
+                        }
+                    },
+                }
+            });
         },
         getItem: async (_parents: any, _args: { id: string }, ctx: Context) => {
             return await ctx.prisma.item.findUnique({
@@ -63,8 +82,24 @@ export const ItemResolver = {
     },
     Mutation: {
         createItem: async (_parents: any, args: { input: CreateItemInput }, ctx: Context) => {
+            const {ingredients: ingredientsData, ...itemData} = args.input;
+
+            const ingredients = {
+                create: ingredientsData.map((id: string) => ({
+                    ingredient: {
+                        connect: {
+                            id
+                        }
+                    }
+                }))
+            }
+
+
             return await ctx.prisma.item.create({
-                data: {...args.input}
+                data: {
+                    ...itemData,
+                    ingredients
+                }
             })
         },
         updateItem: async (_parents: any, args: { id: string, input: UpdateItemInput }, ctx: Context) => {

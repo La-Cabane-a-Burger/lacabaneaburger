@@ -1,0 +1,9 @@
+query GetIngredients {
+    getIngredients {
+        id
+        name
+        price
+        allergens
+        category
+    }
+}

@@ -29,7 +29,7 @@ enum Allergen {
   MUSHROOMS
   CELERY
   MUSTARD
-  LAC
+  MOLLUSCS
   TURKEY
   PORK
   CHICKEN

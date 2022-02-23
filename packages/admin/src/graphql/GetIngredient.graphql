@@ -1,0 +1,8 @@
+query GetIngredient($getIngredientId: String!) {
+    getIngredient(id: $getIngredientId) {
+        id
+        name
+        price
+        allergens
+    }
+}

@@ -1,18 +1,41 @@
-import { Context } from '../context'
-import { Allergen } from '@prisma/client'
+import {Context} from '../context'
+import {Allergen} from '@prisma/client'
 
 export const Ingredient = `
+enum Allergen {
+  GLUTEN
+  PEANUTS
+  SOY
+  SHELLFISH
+  EGGS
+  MILK
+  NUTS
+  SESAME
+  WHEAT
+  CORN
+  SULFUR
+  LUPIN
+  MUSHROOMS
+  CELERY
+  MUSTARD
+  MOLLUSCS
+  TURKEY
+  PORK
+  CHICKEN
+  FISH
+}
+
     type Ingredient {
         id: ID!
         name: String!
         category: String
         price: Float!
-        allergens: [String]
+        allergens: [Allergen]
     }
 
     type Query {
         getIngredients: [Ingredient]
-        getIngredient(id: ID!): Ingredient
+        getIngredient(id: String!): Ingredient
     }
 
     type Mutation {
@@ -25,73 +48,73 @@ export const Ingredient = `
         name: String!
         category: String
         price: Float!
-        allergens: [String]
+        allergens: [Allergen]
     }
 
     input UpdateIngredientInput {
-        id: ID!
         name: String
         category: String
         price: Float
-        allergens: [String]
+        allergens: [Allergen]
     }
         
 `
+
 interface CreateIngredientInput {
-  name: string
-  category: string
-  price: number
-  allergens: Array<Allergen>
+    name: string
+    category: string
+    price: number
+    allergens: Array<Allergen>
 }
 
 interface UpdateIngredientInput {
-  name: string
-  category: string
-  price: number
-  allergens: Array<Allergen>
+    name: string
+    category: string
+    price: number
+    allergens: Array<Allergen>
 }
 
 export const IngredientResolver = {
-  Query: {
-    getIngredients: async (_parent: any, _args: any, ctx: Context) => {
-      return ctx.prisma.ingredient.findMany()
+    Query: {
+        getIngredients: async (_parent: any, _args: any, ctx: Context) => {
+            return ctx.prisma.ingredient.findMany()
+        },
+        getIngredient: async (_parent: any, args: any, ctx: Context) => {
+            return ctx.prisma.ingredient.findUnique({
+                where: {id: args.id},
+            })
+        },
     },
-    getIngredient: async (_parent: any, args: any, ctx: Context) => {
-      return ctx.prisma.ingredient.findUnique({
-        where: { id: args.id },
-      })
+    Mutation: {
+        createIngredient: async (
+            _parent: any,
+            args: { input: CreateIngredientInput },
+            ctx: Context,
+        ) => {
+            let ingredient = await ctx.prisma.ingredient.create({
+                data: {...args.input},
+            })
+            return ingredient
+        },
+        updateIngredient: async (
+            _parent: any,
+            args: { id: string; input: UpdateIngredientInput },
+            ctx: Context,
+        ) => {
+            const ingredient = await ctx.prisma.ingredient.update({
+                where: {id: args.id},
+                data: {...args.input},
+            })
+            return ingredient
+        },
+        deleteIngredient: async (
+            _parent: any,
+            args: { id: string },
+            ctx: Context,
+        ) => {
+            return ctx.prisma.ingredient.delete({
+                where: {id: args.id},
+            })
+        },
     },
-  },
-  Mutation: {
-    createIngredient: async (
-      _parent: any,
-      args: { input: CreateIngredientInput },
-      ctx: Context,
-    ) => {
-      let ingredient = await ctx.prisma.ingredient.create({
-        data: { ...args.input },
-      })
-      return ingredient
-    },
-    updateIngredient: async (
-      _parent: any,
-      args: { id: string; input: UpdateIngredientInput },
-      ctx: Context,
-    ) => {
-      const ingredient = await ctx.prisma.ingredient.update({
-        where: { id: args.id },
-        data: { ...args.input },
-      })
-      return ingredient
-    },
-    deleteIngredient: async (
-      _parent: any,
-      args: { id: string },
-      ctx: Context,
-    ) => {
-      return ctx.prisma.ingredient.delete({
-        where: { id: args.id },
-      })
-    },
-  },
 }
