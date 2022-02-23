@@ -8,16 +8,19 @@
           </h2>
         </div>
 
+
+
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md shadow">
           <div class="w-full flex font-medium">
             <NuxtLink class="text-center py-2 mr-2 flex-1 cursor-default" :class="{'bg-gray-50 rounded-tl-lg rounded-br-lg transition hover:bg-gray-100 hover:cursor-pointer' : route.name === 'auth-login'}" to="/auth/register">Nous rejoindre</NuxtLink>
             <NuxtLink class="text-center py-2 flex-1 cursor-default" :class="{'bg-gray-50 rounded-tr-lg rounded-bl-lg transition hover:bg-gray-100 hover:cursor-pointer' : route.name === 'auth-register'}" to="/auth/login">Identifiez vous</NuxtLink>
           </div>
           <div class="bg-white py-8 px-4 sm:rounded-b-lg sm:px-10">
+            <Alert v-if="showError" type="error" class="mb-4">
+              <template #title> Une erreur est survenue</template>
+            </Alert>
 
-
-
-            <NuxtChild/>
+            <NuxtChild @showError="showError = true" />
             <div class="mt-6">
               <div class="relative">
                 <div class="absolute inset-0 flex items-center">
@@ -76,12 +79,17 @@
 </template>
 <script>
 
-import {defineComponent, computed} from "vue";
+import {defineComponent} from "vue";
+import Alert from "../components/Alert";
 
-export default defineComponent({setup(){
+export default defineComponent({
+  components: {Alert},
+  setup(){
   const route = useRoute();
 
-  return { route }
+  const showError = ref(false);
+
+  return { route, showError }
 
   }})
 </script>

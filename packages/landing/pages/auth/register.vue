@@ -2,8 +2,11 @@
   <div>
     <form class="space-y-6" action="#" method="POST">
       <div>
-        <Input label="Adresse e-mail" id="email" name="email" type="email" autocomplete="email" required/>
-        <Input label="Téléphone" id="phone" name="phone" type="phone" autocomplete="phone" required/>
+        <client-only>
+          <Input v-model:modelValue="loginFormData.email" label="Adresse e-mail" id="email" name="email" type="email" autocomplete="email" required/>
+          <Input v-model:modelValue="loginFormData.phone" label="Téléphone" id="phone" name="phone" type="phone" autocomplete="phone" required/>
+        </client-only>
+
       </div>
 
       <div>
@@ -11,7 +14,9 @@
           Mot de passe
         </label>
         <div class="mt-1">
-          <Input id="password" name="password" type="password" autocomplete="current-password" required/>
+          <client-only>
+            <Input v-model:modelValue="loginFormData.password" id="password" name="password" type="password" autocomplete="current-password" required/>
+          </client-only>
         </div>
       </div>
 
@@ -35,15 +40,42 @@
 </template>
 
 <script>
-import {defineComponent} from "vue";
+import {defineComponent, ref} from "vue";
 import Button from "@/components/form/Button";
 import Input from "@/components/form/Input";
 import Checkbox from "@/components/form/Checkbox";
+import {useSignInMutation} from "../../generated/graphql";
 
 export default defineComponent({
   components: {
     Checkbox,
-    Button, Input
+    Button,
+    Input
+  },
+  setup(_props, { emit }) {
+    const loginFormData = ref({email: '', password: '', phone: ''});
+
+    const {mutate: signInMutation} = useSignInMutation({});
+
+    const router = useRouter();
+
+    const submit = async () => {
+      try {
+        const data = await signInMutation({ input: loginFormData.value});
+        console.log(data);
+        router.push({ name: 'account' })
+
+      } catch (e) {
+        emit('showError', true);
+        console.error(e);
+      }
+    }
+
+    return {
+      loginFormData,
+      submit
+    }
+
   }
 })
 </script>
