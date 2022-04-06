@@ -27,21 +27,21 @@
           <hr class="w-full mt-5">
           <div class="mt-5 mb-5">
           <Accordion class="mb-4">
-            <template v-slot:title>
+            <template #title>
               <p>Voir les horaires d'ouverture</p>
             </template>
-            <template v-slot:content>
-              <table class="border-collapse border border-gray-400 ... m-auto mt-5">
+            <template #content>
+              <table class="border-collapse border border-gray-400 m-auto mt-5">
               <thead>
                 <tr>
-                  <th class="border border-white w-1/3 ..."></th>
-                  <th class="border border-white ..."></th>
+                  <th class="border border-white w-1/3"></th>
+                  <th class="border border-white"></th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="openning in formattedOpennings" v-bind:key="openning.day">
-                  <td class="border border-white w-1/2 ...">{{ openning.day }}</td>
-                  <td class="border border-white ...">{{ openning.time }}</td>
+                <tr v-for="openning in formattedOpennings" :key="openning.day">
+                  <td class="border border-white w-1/2">{{ openning.day }}</td>
+                  <td class="border border-white">{{ openning.time }}</td>
                 </tr>
               </tbody>
             </table>
@@ -58,7 +58,7 @@
             <div class="flex mr-2">
               <div class="w-6 h-6 rounded-full inline-flex items-center justify-center bg-green-500 text-white mr-2"><CheckIcon class="w-5 inline"/>
               </div>
-              <div>A emporter</div>
+              <div>À emporter</div>
             </div>
 
             <div class="flex mr-2">
