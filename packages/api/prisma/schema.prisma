@@ -60,6 +60,7 @@ model User {
 model Store {
   id          String    @id @default(uuid())
   city        String
+  slug        String    @unique
   phone       String
   postal_code Int
   address     String
