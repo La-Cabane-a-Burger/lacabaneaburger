@@ -30,10 +30,10 @@
         </nuxt-link>
       </div>
       <div class="flex items-center justify-end flex-1">
-        <Button class="font-text mr-4"
+        <Button class="font-text mr-4 hidden"
         >Commander
         </Button>
-        <div class="hidden lg:block">
+        <div class="hidden">
           <!--            <User class="rounded-full h-10 w-10"/>-->
           <div>
             <button type="button"
