@@ -1,5 +1,5 @@
 <template>
-  <div :v-if="myStore && !loading">
+  <div v-if="myStore && !loading">
     <div
         class="flex items-center justify-center w-full"
         :style="{
@@ -21,7 +21,6 @@
               <p>{{ myStore.address }}</p>
               <p>{{ myStore.postal_code }} {{ myStore.city }}</p>
               <p>{{ myStore.phone }}</p>
-              <span class="rounded-sm text-green-500"><CheckIcon class="w-7 inline"/>&nbsp;Ouvert</span>
             </div>
           </div>
           <hr class="w-full mt-5">
@@ -100,10 +99,18 @@ export default defineComponent({
   components: {LocationMarkerIcon, CheckIcon, Button, Accordion},
   setup() {
     const route = useRoute()
-    const { result, loading } = useGetStoreBySlugQuery({slug: route.params.name })
+    const router = useRouter();
+    const { result, loading, onResult } = useGetStoreBySlugQuery({slug: route.params.name })
     const myStore = useResult(result, {openings: []})
 
+    onResult(({data, loading}) => {
+      if(!loading && !data.getStoreBySlug) {
+        router.push('/404')
+      }
+    })
+
     const formattedOpennings = computed(() => {
+
       if(myStore.value?.openings){
         const weekdays = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
         const finalWeek: { day: string; time: string; }[] = []
