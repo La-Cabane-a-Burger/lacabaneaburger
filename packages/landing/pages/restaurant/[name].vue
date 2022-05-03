@@ -49,8 +49,7 @@
           </div>
           <hr class="w-full mt-5">
           <div class="w-full flex items-center	justify-center">
-            <Button class="mt-5 mx-5">J'Y VAIS</Button>
-            <Button class="mt-5 mx-5" secondary>COMMANDER</Button>
+            <Button class="mt-5 mx-5" @click="map(myStore.latitude, myStore.longitude)" >J'Y VAIS</Button>
           </div>
           <hr class="w-full mt-5">
           <div class="mt-5 flex justify-center flex-col sm:flex-row items-left">
@@ -184,7 +183,10 @@ export default defineComponent({
         return {}
       }
     });
-    return { myStore, loading, formattedOpennings }
+    function map(lat, long) {
+      window.open('https://www.google.com/maps/dir/?api=1&travelmode=driving&layer=traffic&destination=' +lat + ',' + long, '_blank').focus();
+    }
+    return { myStore, loading, formattedOpennings, map }
   }
 });
 </script>
