@@ -15,6 +15,7 @@ async function main() {
   const store = await prisma.store.create({
     data: {
       city: 'Pontchâteau',
+      slug: 'ponchateau',
       phone: '+33725078373',
       postal_code: 44160,
       address: '2A rue Gutenberg ZI du Landas',

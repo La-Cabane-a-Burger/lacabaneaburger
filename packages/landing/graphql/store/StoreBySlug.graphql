@@ -1,0 +1,17 @@
+query GetStoreBySlug($slug: String!) {
+  getStoreBySlug(slug: $slug) {
+    id
+    city
+    slug
+    phone
+    postal_code
+    address
+    latitude
+    longitude
+    openings {
+      weekday
+      start
+      end
+    }
+  }
+}

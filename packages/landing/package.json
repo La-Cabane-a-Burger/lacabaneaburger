@@ -16,7 +16,6 @@
     "@graphql-codegen/typescript": "2.4.2",
     "@graphql-codegen/typescript-operations": "2.2.2",
     "@types/google.maps": "^3.47.2",
-    "@types/leaflet": "^1.7.9",
     "@types/node": "13.11.1",
     "autoprefixer": "^10.4.0",
     "nuxt3": "latest",
@@ -27,6 +26,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
+    "@googlemaps/js-api-loader": "^1.13.1",
     "@graphql-codegen/typescript-vue-apollo": "^3.2.2",
     "@heroicons/vue": "1.0.5",
     "@lacabaneaburger/ui": "1.0.0",
@@ -35,6 +35,7 @@
     "@turf/helpers": "^6.3.0",
     "@vue/apollo-composable": "^4.0.0-alpha.16",
     "apollo-boost": "^0.4.9",
+    "apollo-client": "^2.6.10",
     "graphql": "^16.2.0",
     "graphql-tag": "^2.12.6",
     "leaflet": "^1.7.1",

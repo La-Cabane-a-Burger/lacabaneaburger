@@ -61,10 +61,11 @@ export type CreateOrderInput = {
 export type CreateStoreInput = {
   address?: InputMaybe<Scalars['String']>;
   city: Scalars['String'];
-  latitude?: InputMaybe<Scalars['Int']>;
-  longitude?: InputMaybe<Scalars['Int']>;
+  latitude?: InputMaybe<Scalars['Float']>;
+  longitude?: InputMaybe<Scalars['Float']>;
   phone?: InputMaybe<Scalars['String']>;
   postal_code?: InputMaybe<Scalars['Int']>;
+  slug: Scalars['String'];
 };
 
 export type Ingredient = {
@@ -257,6 +258,7 @@ export type Query = {
   getOrder?: Maybe<Order>;
   getOrders?: Maybe<Array<Maybe<Order>>>;
   getStore?: Maybe<Store>;
+  getStoreBySlug?: Maybe<Store>;
   getStores?: Maybe<Array<Maybe<Store>>>;
   getUser?: Maybe<User>;
   getUsers?: Maybe<Array<Maybe<User>>>;
@@ -293,6 +295,11 @@ export type QueryGetStoreArgs = {
 };
 
 
+export type QueryGetStoreBySlugArgs = {
+  slug: Scalars['String'];
+};
+
+
 export type QueryGetUserArgs = {
   id: Scalars['ID'];
 };
@@ -313,11 +320,12 @@ export type Store = {
   address?: Maybe<Scalars['String']>;
   city: Scalars['String'];
   id: Scalars['ID'];
-  latitude?: Maybe<Scalars['Int']>;
-  longitude?: Maybe<Scalars['Int']>;
+  latitude?: Maybe<Scalars['Float']>;
+  longitude?: Maybe<Scalars['Float']>;
   openings?: Maybe<Array<Maybe<Opening>>>;
   phone?: Maybe<Scalars['String']>;
   postal_code?: Maybe<Scalars['Int']>;
+  slug: Scalars['String'];
 };
 
 export type UpdateIngredientInput = {
@@ -353,10 +361,11 @@ export type UpdateOpeningInput = {
 export type UpdateStoreInput = {
   address?: InputMaybe<Scalars['String']>;
   city?: InputMaybe<Scalars['String']>;
-  latitude?: InputMaybe<Scalars['Int']>;
-  longitude?: InputMaybe<Scalars['Int']>;
+  latitude?: InputMaybe<Scalars['Float']>;
+  longitude?: InputMaybe<Scalars['Float']>;
   phone?: InputMaybe<Scalars['String']>;
   postal_code?: InputMaybe<Scalars['Int']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 export type UpdateUserInput = {
@@ -380,6 +389,13 @@ export type SignInMutationVariables = Exact<{
 
 
 export type SignInMutation = { __typename?: 'Mutation', signIn: { __typename?: 'AuthPayload', token: string } };
+
+export type GetStoreBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type GetStoreBySlugQuery = { __typename?: 'Query', getStoreBySlug?: { __typename?: 'Store', id: string, city: string, slug: string, phone?: string | null | undefined, postal_code?: number | null | undefined, address?: string | null | undefined, latitude?: number | null | undefined, longitude?: number | null | undefined, openings?: Array<{ __typename?: 'Opening', weekday?: string | null | undefined, start?: string | null | undefined, end?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined };
 
 
 export const SignInDocument = gql`
@@ -411,3 +427,42 @@ export function useSignInMutation(options: VueApolloComposable.UseMutationOption
   return VueApolloComposable.useMutation<SignInMutation, SignInMutationVariables>(SignInDocument, options);
 }
 export type SignInMutationCompositionFunctionResult = VueApolloComposable.UseMutationReturn<SignInMutation, SignInMutationVariables>;
+export const GetStoreBySlugDocument = gql`
+    query GetStoreBySlug($slug: String!) {
+  getStoreBySlug(slug: $slug) {
+    id
+    city
+    slug
+    phone
+    postal_code
+    address
+    latitude
+    longitude
+    openings {
+      weekday
+      start
+      end
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetStoreBySlugQuery__
+ *
+ * To run a query within a Vue component, call `useGetStoreBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetStoreBySlugQuery` returns an object from Apollo Client that contains result, loading and error properties
+ * you can use to render your UI.
+ *
+ * @param variables that will be passed into the query
+ * @param options that will be passed into the query, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/query.html#options;
+ *
+ * @example
+ * const { result, loading, error } = useGetStoreBySlugQuery({
+ *   slug: // value for 'slug'
+ * });
+ */
+export function useGetStoreBySlugQuery(variables: GetStoreBySlugQueryVariables | VueCompositionApi.Ref<GetStoreBySlugQueryVariables> | ReactiveFunction<GetStoreBySlugQueryVariables>, options: VueApolloComposable.UseQueryOptions<GetStoreBySlugQuery, GetStoreBySlugQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>> = {}) {
+  return VueApolloComposable.useQuery<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>(GetStoreBySlugDocument, variables, options);
+}
+export type GetStoreBySlugQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>;
