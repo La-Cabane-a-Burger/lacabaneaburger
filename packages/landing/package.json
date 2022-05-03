@@ -16,6 +16,8 @@
     "@graphql-codegen/typescript": "2.4.2",
     "@graphql-codegen/typescript-operations": "2.2.2",
     "@types/google.maps": "^3.47.2",
+
+    "@types/leaflet": "^1.7.9",
     "@types/node": "13.11.1",
     "autoprefixer": "^10.4.0",
     "nuxt3": "latest",
