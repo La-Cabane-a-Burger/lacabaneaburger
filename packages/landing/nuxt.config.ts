@@ -1,9 +1,11 @@
-import {defineNuxtConfig} from 'nuxt3';
+import { defineNuxtConfig } from "nuxt3";
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  css: ["leaflet/dist/leaflet.css"],
   publicRuntimeConfig: {
-    apiURL: process.env.API_URL || 'http://localhost:4000'
+    apiURL: process.env.API_URL || "http://localhost:4000",
+    mapboxToken: process.env.MAPBOX_TOKEN || "",
   },
   build: {
     postcss: {
@@ -11,10 +13,15 @@ export default defineNuxtConfig({
         plugins: {
           tailwindcss: {},
           autoprefixer: {},
-        }
-      }
+        },
+      },
     },
-    transpile: ['@turf/distance', '@turf/helpers', '@lacabaneaburger/ui', '@apollo/client', 'ts-invariant']
+    transpile: [
+      "@turf/distance",
+      "@turf/helpers",
+      "@lacabaneaburger/ui",
+      "@apollo/client",
+      "ts-invariant",
+    ],
   },
 });
-
