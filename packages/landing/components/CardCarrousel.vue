@@ -2,7 +2,7 @@
   <div class="flex items-center justify-between">
     <ChevronLeft
         @click="onClickLeft"
-        class="w-full h-full mr-5 cursor-pointer fill-current sm:w-1/4 sm:h-1/4 lg:w-20 lg:h-20"
+        class="w-full h-full mr-5 cursor-pointer fill-current sm:w-1/4 sm:h-1/4 lg:w-20 lg:h-20 hidden sm:block"
     />
     <div
         ref="carrousel"
@@ -22,7 +22,7 @@
     </div>
     <ChevronRight
         @click="onClickRight"
-        class="w-full h-full ml-5 cursor-pointer fill-current sm:w-1/4 sm:h-1/4 h-1/12 lg:w-20 lg:h-20"
+        class="w-full h-full ml-5 cursor-pointer fill-current sm:w-1/4 sm:h-1/4 h-1/12 lg:w-20 lg:h-20 hidden sm:block"
     />
   </div>
 </template>
