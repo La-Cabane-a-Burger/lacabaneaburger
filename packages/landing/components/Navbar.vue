@@ -20,9 +20,9 @@
                    active-class="text-primary-600 cursor-default">Franchise
         </nuxt-link>
       </div>
-      <div class="flex items-center flex-1 lg:hidden">
-        <Menu v-if="!isMenuOpen" class="w-full fill-current text-primary" @click="onToggleMenu"/>
-        <Cross v-if="isMenuOpen" class="w-full fill-current text-primary" @click="onToggleMenu"/>
+      <div class="flex items-center flex-1 lg:hidden text-white">
+        <Menu v-if="!isMenuOpen" class="w-full fill-white text-primary" @click="onToggleMenu"/>
+        <Cross v-if="isMenuOpen" class="w-full fill-white text-primary" @click="onToggleMenu"/>
       </div>
       <div class="flex items-center justify-center flex-1">
         <nuxt-link to="/">
@@ -30,10 +30,10 @@
         </nuxt-link>
       </div>
       <div class="flex items-center justify-end flex-1">
-        <Button class="font-text mr-4"
+        <Button class="font-text mr-4 hidden"
         >Commander
         </Button>
-        <div class="hidden lg:block">
+        <div class="hidden">
           <!--            <User class="rounded-full h-10 w-10"/>-->
           <div>
             <button type="button"

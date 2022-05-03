@@ -11,15 +11,16 @@
       </div>
 
 
-      <div class="flex justify-between gap-4 hidden lg:flex">
+      <div class="justify-between gap-4 hidden lg:flex">
         <div class="flex flex-col gap-3">
           <h2 class="font-bold text-xl">La Franchise</h2>
           <p class="w-40">Vous êtes intéréssé par la franchise ?</p>
           <div>
             <Button
                 secondary
+                @click="$router.push('/franchise')"
             >
-              CONTACTEZ NOUS
+              DÉCOUVREZ LA FRANCHISE
             </Button>
           </div>
 
@@ -32,6 +33,7 @@
           <div>
             <Button
                 secondary
+                @click="$router.push('/information')"
             >
               NOUS TROUVER
             </Button>
@@ -40,13 +42,14 @@
         </div>
 
         <div class="flex flex-col gap-3">
-          <h2 class="font-bold text-xl">Commande</h2>
-          <p class="w-40">Pour moins d'attente, n'hésitez pas à commander en ligne.</p>
+          <h2 class="font-bold text-xl">Notre concept</h2>
+          <p class="w-40">Découvrez le concept de la cabane à burger.</p>
           <div>
             <Button
                 secondary
+                @click="$router.push('/concept')"
             >
-              JE COMMANDE
+              JE DÉCOUVRE
             </Button>
           </div>
         </div>
@@ -57,6 +60,7 @@
           <div>
             <Button
                 secondary
+                @click="$router.push('/menu')"
             >
               VOIR LE MENU
             </Button>
@@ -64,18 +68,6 @@
 
         </div>
       </div>
-      <div class="grid grid-cols-3">
-        <div class="col-start-2 col-end-2">
-          <Button
-              class="lg:hidden  whitespace-nowrap"
-              secondary
-              @click="active = 1"
-          >
-            JE COMMANDE
-          </Button>
-        </div>
-      </div>
-
 
       <div class="text-center">
         <h4 class="font-header text-2xl">POUR VOTRE SANTE, MANGEZ CINQ FRUITS ET LEGUMES PAR JOUR. WWW.MANGERBOUGER.FR</h4>
@@ -92,13 +84,13 @@
 
       <div class="flex justify-center gap-4 lg:justify-between flex-wrap">
         <div class="flex gap-2 lg:gap-4 text-xs lg:text-xl">
-          <a class="hover:text-primary-600 whitespace-nowrap" href="#">La Carte</a>
+          <a class="hover:text-primary-600 whitespace-nowrap" href="/menu">La Carte</a>
           /
-          <a class="hover:text-primary-600 whitespace-nowrap" href="#">Infos Pratiques</a>
+          <a class="hover:text-primary-600 whitespace-nowrap" href="/information">Infos Pratiques</a>
           /
-          <a class="hover:text-primary-600 whitespace-nowrap" href="#">Le Concept</a>
+          <a class="hover:text-primary-600 whitespace-nowrap" href="/concept">Le Concept</a>
           /
-          <a class="hover:text-primary-600 whitespace-nowrap" href="#">La Franchise</a>
+          <a class="hover:text-primary-600 whitespace-nowrap" href="/franchise">La Franchise</a>
         </div>
         <div class="flex gap-2">
           <a href="#">
