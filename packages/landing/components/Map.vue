@@ -1,104 +1,115 @@
 <template>
-  <div class="w-full h-full" id="map" ref="map"></div>
+  <div class="w-full h-full" id="map" ref="container"></div>
 </template>
 
 <script lang="ts">
-import { defineComponent, watch, ref } from "vue";
+import { defineComponent, onMounted, PropType, watch, ref } from "vue";
+import { Store } from "~~/generated/graphql";
 
 export default defineComponent({
   props: {
-    maps: Object,
-    locations: Array,
+    locations: Array as PropType<Store[]>,
     position: Object,
-    selected: Number,
+    selected: String,
   },
-  setup({ maps, locations, position, selected }, { emit }) {
-    const mapContainer = ref();
-    let map: google.maps.Map;
-    const mapOptions: google.maps.MapOptions = {
-      center: {
-        lat: 0,
-        lng: 0,
-      },
-      zoom: 4,
-    };
-    let markers: Array<google.maps.Marker> = [];
-    let infowindow: google.maps.InfoWindow;
-    let user: google.maps.Marker;
+  setup(props, { emit }) {
+    const { $L } = useNuxtApp();
+    const config = useRuntimeConfig();
+    let map: L.Map;
+    let markers: Array<L.Marker> = [];
+    const container = ref(null);
+    let user;
 
-    const initializeMap = ({ Map, Marker }, locations) => {
-      map = new Map(mapContainer.value, mapOptions);
-
-      markers = locations.map((location) => {
-        let marker = new Marker({
-          position: location.coords,
-          map,
-          title: location.city,
-        });
-        marker.setMap(map);
-        return marker;
-      });
-      console.log(map);
-    };
-
-    const createPopup = (
-      content: HTMLElement,
-      marker: google.maps.Marker,
-      { InfoWindow }: { InfoWindow: google.maps.InfoWindow }
+    const initializeMap = (
+      center: L.LatLngExpression,
+      zoom: number,
+      locations: Store[]
     ) => {
-      if (infowindow) infowindow.close();
-      infowindow = new InfoWindow({
-        content: `<p>${content}</p>`,
+      map = $L.map(container.value).setView(center, zoom);
+
+      $L.tileLayer(
+        `https://api.mapbox.com/styles/v1/marceaudavid/cl0jk6z9i004v14qbzpkz0knc/tiles/256/{z}/{x}/{y}@2x?access_token=${config.mapboxToken}`,
+        {
+          attribution:
+            'Data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: "mapbox/streets-v11",
+          tileSize: 512,
+          zoomOffset: -1,
+          detectRetina: true,
+        }
+      ).addTo(map);
+
+      map.on("click", (e) => {
+        emit("selected", { id: null });
       });
-      infowindow.open(map, marker);
-      google.maps.event.addListener(infowindow, "closeclick", () => {
-        emit("close");
+
+      let icon = $L.icon({
+        iconUrl: "../assets/img/cab-logo-variant.png",
+        iconSize: [40, 40],
+        tooltipAnchor: [0, -20],
+      });
+
+      markers = locations.map((location: any) => {
+        let { latitude, longitude, city } = location;
+        let store = $L
+          .marker([latitude, longitude], { icon, title: city })
+          .addTo(map)
+          .on("click", () => {
+            emit("selected", location);
+          });
+        return store;
       });
     };
+
+    const createTooltips = (stores: Array<L.Marker>) => {
+      stores.map((store: L.Marker) => {
+        return store.bindPopup(store.options.title || "", {
+          offset: [0, -10],
+          className: "text-base",
+        });
+      });
+    };
+
+    onMounted(() => {
+      initializeMap([46.62, 2], 5.3, props.locations);
+      createTooltips(markers);
+    });
 
     watch(
-      () => position,
+      () => props.position,
       (position) => {
         if (position.lat != 0 || position.lng != 0) {
-          if (user) user.setMap(null);
-          map.panTo(position);
-          user = new maps.Marker({
-            position,
-            map,
-            title: "user",
-            icon: "../assets/images/user-position.png",
-          });
-          user.setMap(map);
+          if (user !== undefined) {
+            map.removeLayer(user);
+          }
+          user = $L.marker([position.lat, position.lng]).addTo(map);
+          map.flyTo([position.lat, position.lng], 8);
+        } else {
+          map.removeLayer(user);
         }
       }
     );
 
     watch(
-      () => maps,
-      (maps) => {
-        if (maps != null && maps != undefined) {
-          initializeMap(maps, locations);
-        }
-      }
-    );
-
-    watch(
-      () => selected,
+      () => props.selected,
       (selected) => {
-        if (selected !== null && selected !== undefined) {
-          map.panTo(locations[selected].coords);
-          createPopup(
-            locations[selected].city,
-            markers.find(
-              (marker) => marker.getTitle() === locations[selected].city
-            ),
-            maps
-          );
+        if (selected !== null && selected !== undefined && selected !== "") {
+          let location: Store = props.locations.filter(
+            (location) => location.id === selected
+          )[0];
+          map.flyTo([location.latitude, location.longitude], 8);
+          markers
+            .filter((marker) => marker.options.title === location.city)[0]
+            .openPopup();
+        } else {
+          map.closePopup();
+          map.flyTo([46.62, 2], 5.3);
         }
       }
     );
 
-    return { mapContainer };
+    return { container };
   },
 });
 </script>
