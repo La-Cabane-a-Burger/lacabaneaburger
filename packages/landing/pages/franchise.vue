@@ -73,8 +73,8 @@
               src="~/assets/img/wallet.png"
             />
           </div>
-          <div class="flex flex-1 justify-center items-center">
-            <p class="text-justify	p-10">
+          <div class="flex flex-1 items-center">
+            <p class="p-10">
               Un investissement minimum pour une rentabilité maximum
             </p>
           </div>
@@ -87,8 +87,8 @@
               src="~/assets/img/key.png"
             />
           </div>
-          <div class="flex flex-1 justify-center items-center">
-            <p class="text-justify	p-10">
+          <div class="flex flex-1 items-center">
+            <p class="p-10">
               Une solution clé en main : vous signez, vous vous lancez !
             </p>
           </div>
@@ -102,7 +102,7 @@
             />
           </div>
           <div class="flex flex-1 justify-center items-center">
-            <p class="text-justify p-10">
+            <p class="p-10">
               Formation et accompagnement assurés (conseil sur le choix du lieu
               d’implantation, installation de la structure, réseau
               d’approvisionnement négocié...)
@@ -118,7 +118,7 @@
             />
           </div>
           <div class="flex flex-1 justify-center items-center">
-            <p class="text-justify p-10">
+            <p class="p-10">
               Une carte nationale partagée, mais aussi une liberté de création
               de recettes suivant vos envies et vos régions.
             </p>
