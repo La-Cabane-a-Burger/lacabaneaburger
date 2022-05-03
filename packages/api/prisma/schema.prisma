@@ -64,8 +64,8 @@ model Store {
   phone       String
   postal_code Int
   address     String
-  latitude    Decimal
-  longitude   Decimal
+  latitude    Float
+  longitude   Float
   openings    Opening[]
   orders      Order[]
 }

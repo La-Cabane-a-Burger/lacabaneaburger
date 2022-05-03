@@ -16,6 +16,29 @@ export type Scalars = {
   Float: number;
 };
 
+export enum Allergen {
+  Celery = 'CELERY',
+  Chicken = 'CHICKEN',
+  Corn = 'CORN',
+  Eggs = 'EGGS',
+  Fish = 'FISH',
+  Gluten = 'GLUTEN',
+  Lupin = 'LUPIN',
+  Milk = 'MILK',
+  Molluscs = 'MOLLUSCS',
+  Mushrooms = 'MUSHROOMS',
+  Mustard = 'MUSTARD',
+  Nuts = 'NUTS',
+  Peanuts = 'PEANUTS',
+  Pork = 'PORK',
+  Sesame = 'SESAME',
+  Shellfish = 'SHELLFISH',
+  Soy = 'SOY',
+  Sulfur = 'SULFUR',
+  Turkey = 'TURKEY',
+  Wheat = 'WHEAT'
+}
+
 export type AuthPayload = {
   __typename?: 'AuthPayload';
   token: Scalars['String'];
@@ -23,7 +46,7 @@ export type AuthPayload = {
 };
 
 export type CreateIngredientInput = {
-  allergens?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  allergens?: InputMaybe<Array<InputMaybe<Allergen>>>;
   category?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
   price: Scalars['Float'];
@@ -32,6 +55,7 @@ export type CreateIngredientInput = {
 export type CreateItemInput = {
   category?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
+  ingredients?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   name?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Float']>;
 };
@@ -70,7 +94,7 @@ export type CreateStoreInput = {
 
 export type Ingredient = {
   __typename?: 'Ingredient';
-  allergens?: Maybe<Array<Maybe<Scalars['String']>>>;
+  allergens?: Maybe<Array<Maybe<Allergen>>>;
   category?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   name: Scalars['String'];
@@ -82,6 +106,7 @@ export type Item = {
   category?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
+  ingredients?: Maybe<Array<Maybe<Recipe>>>;
   name?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['String']>;
 };
@@ -266,7 +291,7 @@ export type Query = {
 
 
 export type QueryGetIngredientArgs = {
-  id: Scalars['ID'];
+  id: Scalars['String'];
 };
 
 
@@ -304,6 +329,12 @@ export type QueryGetUserArgs = {
   id: Scalars['ID'];
 };
 
+export type Recipe = {
+  __typename?: 'Recipe';
+  ingredient?: Maybe<Ingredient>;
+  itemId: Scalars['ID'];
+};
+
 export type SignInInput = {
   email: Scalars['String'];
   password: Scalars['String'];
@@ -329,9 +360,8 @@ export type Store = {
 };
 
 export type UpdateIngredientInput = {
-  allergens?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  allergens?: InputMaybe<Array<InputMaybe<Allergen>>>;
   category?: InputMaybe<Scalars['String']>;
-  id: Scalars['ID'];
   name?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Float']>;
 };
@@ -396,6 +426,11 @@ export type GetStoreBySlugQueryVariables = Exact<{
 
 
 export type GetStoreBySlugQuery = { __typename?: 'Query', getStoreBySlug?: { __typename?: 'Store', id: string, city: string, slug: string, phone?: string | null | undefined, postal_code?: number | null | undefined, address?: string | null | undefined, latitude?: number | null | undefined, longitude?: number | null | undefined, openings?: Array<{ __typename?: 'Opening', weekday?: string | null | undefined, start?: string | null | undefined, end?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+
+export type GetStoresQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetStoresQuery = { __typename?: 'Query', getStores?: Array<{ __typename?: 'Store', city: string, slug: string, phone?: string | null | undefined, postal_code?: number | null | undefined, address?: string | null | undefined } | null | undefined> | null | undefined };
 
 
 export const SignInDocument = gql`
@@ -466,3 +501,31 @@ export function useGetStoreBySlugQuery(variables: GetStoreBySlugQueryVariables |
   return VueApolloComposable.useQuery<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>(GetStoreBySlugDocument, variables, options);
 }
 export type GetStoreBySlugQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>;
+export const GetStoresDocument = gql`
+    query GetStores {
+  getStores {
+    city
+    slug
+    phone
+    postal_code
+    address
+  }
+}
+    `;
+
+/**
+ * __useGetStoresQuery__
+ *
+ * To run a query within a Vue component, call `useGetStoresQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetStoresQuery` returns an object from Apollo Client that contains result, loading and error properties
+ * you can use to render your UI.
+ *
+ * @param options that will be passed into the query, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/query.html#options;
+ *
+ * @example
+ * const { result, loading, error } = useGetStoresQuery();
+ */
+export function useGetStoresQuery(options: VueApolloComposable.UseQueryOptions<GetStoresQuery, GetStoresQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetStoresQuery, GetStoresQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetStoresQuery, GetStoresQueryVariables>> = {}) {
+  return VueApolloComposable.useQuery<GetStoresQuery, GetStoresQueryVariables>(GetStoresDocument, {}, options);
+}
+export type GetStoresQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<GetStoresQuery, GetStoresQueryVariables>;

@@ -1,10 +1,12 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <div>
     <label v-if="label" :for="name" class="block text-sm font-medium text-gray-700">{{ label }}</label>
-    <div class="mt-1">
+    <div
+        class="flex items-center shadow-sm border border-gray-300 focus:ring-primary-500 focus:outline-primary-500 focus:border-primary-500 w-full placeholder-gray-400 sm:text-sm rounded-md px-2 py-1 mt-1">
+      <slot/>
       <input :type="type" v-model="value" :required="required" :disabled="disabled"
              :autocomplete="autocomplete" :name="name" :id="name"
-             class="shadow-sm border border-gray-300 focus:ring-primary-500 focus:outline-primary-500 focus:border-primary-500 block w-full placeholder-gray-400 sm:text-sm rounded-md px-3 py-2"
+             class="w-full border-0 focus-visible:outline-0 "
              :placeholder="placeholder"/>
     </div>
   </div>
@@ -22,7 +24,7 @@ export default defineComponent({
     placeholder: {type: String, default: 'you@example.com'},
     required: {type: Boolean, default: false},
     disabled: {type: Boolean, default: false},
-    modelValue: {type: String, required: true}
+    modelValue: {type: String, required: true},
   }, setup(props, {emit}) {
     const value = computed({
       get: () => props.modelValue,
