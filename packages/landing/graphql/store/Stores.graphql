@@ -1,0 +1,9 @@
+query GetStores {
+  getStores {
+    city
+    slug
+    phone
+    postal_code
+    address
+  }
+}
