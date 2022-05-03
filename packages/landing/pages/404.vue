@@ -5,9 +5,9 @@
         <div class="text-center">
           <p class="text-sm font-semibold text-primary-900 uppercase tracking-wide">404</p>
           <h1 class="mt-2 text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">Page introuvable.</h1>
-          <p class="mt-2 text-base text-gray-500">Désolé, la page recherché n'existe pas.</p>
+          <p class="mt-2 text-base text-gray-500">Désolé, la page recherchée n'existe pas.</p>
           <div class="mt-6">
-            <a href="/" class="text-base font-medium text-primary-900 hover:text-primary-500">Retourner à la page<span aria-hidden="true"> &rarr;</span></a>
+            <a href="/" class="text-base font-medium text-primary-900 hover:text-primary-500">Retourner à la page d'accueil<span aria-hidden="true"> &rarr;</span></a>
           </div>
         </div>
       </div>

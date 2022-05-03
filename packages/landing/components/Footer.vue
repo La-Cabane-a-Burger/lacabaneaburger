@@ -11,7 +11,7 @@
       </div>
 
 
-      <div class="flex justify-between gap-4 hidden lg:flex">
+      <div class="justify-between gap-4 hidden lg:flex">
         <div class="flex flex-col gap-3">
           <h2 class="font-bold text-xl">La Franchise</h2>
           <p class="w-40">Vous êtes intéréssé par la franchise ?</p>
