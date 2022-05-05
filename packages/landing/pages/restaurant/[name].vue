@@ -64,7 +64,7 @@
               </div>
               <div>Sur place</div>
             </div>
-            
+
             <div class="flex mr-2">
               <div class="w-6 h-6 rounded-full inline-flex items-center justify-center bg-green-500 text-white mr-2"><CheckIcon class="w-5 inline"/>
               </div>
@@ -91,11 +91,12 @@
 import {defineComponent, computed} from "vue";
 import { LocationMarkerIcon, CheckIcon } from "@heroicons/vue/solid";
 import Accordion from "../../components/Accordion.vue";
+import Subtitle from "../../components/Subtitle.vue";
 import Button from "../../components/form/Button.vue";
 import { useResult } from '@vue/apollo-composable';
 import { useGetStoreBySlugQuery } from '../../generated/graphql';
 export default defineComponent({
-  components: {LocationMarkerIcon, CheckIcon, Button, Accordion},
+  components: {LocationMarkerIcon, CheckIcon, Button, Accordion, Subtitle},
   setup() {
     const route = useRoute()
     const router = useRouter();

@@ -47,7 +47,7 @@ enum Category {
 }
 
 model User {
-  id            String   @id @default(uuid())
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   createdAt     DateTime @default(now())
   email         String   @unique
   password      String
@@ -58,7 +58,7 @@ model User {
 }
 
 model Store {
-  id          String    @id @default(uuid())
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   city        String
   slug        String    @unique
   phone       String
@@ -68,50 +68,51 @@ model Store {
   longitude   Float
   openings    Opening[]
   orders      Order[]
+  items       Item[]
 }
 
 model Opening {
-  id      String  @id @default(uuid())
+  id      String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   weekday String
   start   String
   end     String
   store   Store?  @relation(fields: [storeId], references: [id])
-  storeId String?
+  storeId String? @db.Uuid
 }
 
 model Order {
-  id         String      @id @default(uuid())
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   price      Float
   date       DateTime
   store      Store?      @relation(fields: [storeId], references: [id])
-  storeId    String?
+  storeId    String?     @db.Uuid
   user       User?       @relation(fields: [userId], references: [id])
-  userId     String?
+  userId     String?     @db.Uuid
   orderItems OrderItem[]
 }
 
 model OrderItem {
-  id           String        @id @default(uuid())
+  id          String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   order        Order         @relation(fields: [orderId], references: [id])
-  orderId      String
+  orderId      String        @db.Uuid
   item         Item          @relation(fields: [itemId], references: [id])
-  itemId       String
+  itemId       String        @db.Uuid
   orderRecipes OrderRecipe[]
   menu         Menu?         @relation(fields: [menuId], references: [id])
-  menuId       String?
+  menuId       String?       @db.Uuid
 }
 
 model OrderRecipe {
   orderItem    OrderItem  @relation(fields: [orderItemId], references: [id])
-  orderItemId  String
+  orderItemId  String     @db.Uuid
   ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
-  ingredientId String
+  ingredientId String    @db.Uuid
 
   @@id([orderItemId, ingredientId])
 }
 
 model Menu {
-  id          String      @id @default(uuid())
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name        String      @unique
   price       Float
   category    String
@@ -123,16 +124,16 @@ model Menu {
 
 model MenuItem {
   menu     Menu    @relation(fields: [menuId], references: [id])
-  menuId   String
+  menuId   String @db.Uuid
   item     Item    @relation(fields: [itemId], references: [id])
-  itemId   String
+  itemId   String @db.Uuid
   pickable Boolean @default(false)
 
   @@id([menuId, itemId])
 }
 
 model Item {
-  id          String      @id @default(uuid())
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name        String      @unique
   price       Float
   category    Category
@@ -141,14 +142,16 @@ model Item {
   menuItems   Item[]      @relation("ItemToItem")
   orderItems  OrderItem[]
   menu        Menu?       @relation(fields: [menuId], references: [id])
-  menuId      String?
+  menuId      String?    @db.Uuid
   menuItem    MenuItem[]
   item        Item?       @relation("ItemToItem", fields: [itemId], references: [id])
-  itemId      String?
+  itemId      String?    @db.Uuid
+  store   Store?  @relation(fields: [storeId], references: [id])
+  storeId String? @db.Uuid
 }
 
 model Ingredient {
-  id           String        @id @default(uuid())
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name         String        @unique
   price        Float         @default(0.0)
   category     String
@@ -159,9 +162,9 @@ model Ingredient {
 
 model Recipe {
   item         Item       @relation(fields: [itemId], references: [id])
-  itemId       String
+  itemId       String    @db.Uuid
   ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
-  ingredientId String
+  ingredientId String   @db.Uuid
   pickable     Boolean    @default(false)
   number       Int        @default(1)
   quantity     Float      @default(0)
