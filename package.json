@@ -16,6 +16,7 @@
     "dev:api": "yarn workspace @lacabaneaburger/api dev",
     "dev:web": "yarn workspace @lacabaneaburger/web dev",
     "build:api": "yarn workspace @lacabaneaburger/api build",
+    "build:landing": "yarn workspace @lacabaneaburger/landing build",
     "start:api": "yarn workspace @lacabaneaburger/api start",
     "build:web": "yarn workspace @lacabaneaburger/web build",
     "start:web": "yarn workspace @lacabaneaburger/web start",
