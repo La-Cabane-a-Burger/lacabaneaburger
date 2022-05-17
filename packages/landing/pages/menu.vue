@@ -2,7 +2,7 @@
   <div
       class="pt-60 flex flex-col items-center justify-center w-screen"
       :style="{
-        backgroundImage: `url('./assets/backgrounds/background-transparent.png')`,
+        backgroundImage: `url('~/assets/backgrounds/background-transparent.png')`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',

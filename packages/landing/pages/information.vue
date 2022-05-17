@@ -3,7 +3,7 @@
     <div
       class="flex items-center justify-center w-full h-screen"
       :style="{
-        backgroundImage: `url('./assets/backgrounds/background-transparent.png'})`,
+        backgroundImage: `url('~/assets/backgrounds/background-transparent.png'})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
