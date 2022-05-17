@@ -8,7 +8,7 @@
     "build": "nuxi build",
     "start": "node .output/server/index.mjs",
     "graphql:gen": "graphql-codegen --config codegen.yml",
-    "postinstall": "node scripts/vue-apollo-patch.js"
+    "patch": "node scripts/vue-apollo-patch.js"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.3.1",
