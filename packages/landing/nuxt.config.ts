@@ -24,4 +24,7 @@ export default defineNuxtConfig({
       "ts-invariant",
     ],
   },
+  nitro: {
+    preset: 'node-server'
+  }
 });
