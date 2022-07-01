@@ -9,7 +9,7 @@ export default defineNuxtPlugin((nuxt: NuxtApp) => {
 
     const apolloClient = new ApolloClient({
         cache: new InMemoryCache(),
-        uri: 'http://localhost:4000',
+        uri: process.env.VUE_APP_API_URL || 'http://localhost:4000',
         ssrMode: true,
     })
     nuxt.vueApp.provide(DefaultApolloClient, apolloClient)
