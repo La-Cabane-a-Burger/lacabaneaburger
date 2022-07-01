@@ -1,1 +1,2 @@
-web: npm run start:api
+web: yarn install
+web: yarn start:api
