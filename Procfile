@@ -1,1 +1,1 @@
-web: yarn workspace @lacabaneaburger/api start
+web: npm run start:api
