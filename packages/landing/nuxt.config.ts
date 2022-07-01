@@ -4,7 +4,7 @@ import { defineNuxtConfig } from "nuxt";
 export default defineNuxtConfig({
   css: ["leaflet/dist/leaflet.css"],
   publicRuntimeConfig: {
-    apiURL: process.env.API_URL || "http://localhost:4000",
+    apiURL: process.env.API_URL,
     mapboxToken: process.env.MAPBOX_TOKEN || "",
   },
   build: {
