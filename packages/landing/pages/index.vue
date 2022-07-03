@@ -10,7 +10,7 @@
     <div
         class="z-40 w-full h-screen"
         :style="{
-        backgroundImage: `url('./assets/img/breizh-burger.png')`,
+        backgroundImage: `url('~/assets/img/breizh-burger.png')`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -61,7 +61,7 @@
     <div
         class="flex justify-center w-full"
         :style="{
-        backgroundImage: `url('./assets/backgrounds/background-transparent.png')`,
+        backgroundImage: `url('~/assets/backgrounds/background-transparent.png')`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -89,7 +89,7 @@
             </button>
           </div>
           <div class="flex justify-center flex-1 w-full lg:justify-end">
-            <img src="../assets/img/burger.png" alt=""/>
+            <img src="~/assets/img/burger.png" alt=""/>
           </div>
         </div>
         <ul class="justify-between hidden mt-20 lg:flex">
@@ -129,7 +129,7 @@
     <div
         class="flex justify-center w-full "
         :style="{
-        backgroundImage: `url('./assets/backgrounds/background-transparent.png')`,
+        backgroundImage: `url('~/assets/backgrounds/background-transparent.png')`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -152,7 +152,7 @@
           </div>
           <div class="flex items-center justify-center flex-1">
             <img
-                src="../assets/img/burger-board.png"
+                src="~/assets/img/burger-board.png"
                 alt="Burger sur une planche en bois"
             />
           </div>

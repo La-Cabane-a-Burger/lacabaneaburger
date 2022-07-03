@@ -16,9 +16,10 @@ new ApolloServer({
     resolvers: merge(UserResolver, IngredientResolver, ItemResolver, MenuResolver, OpeningResolver, OrderResolver, StoreResolver),
     context: createContext
 }).listen(
-    {port: usedPort},
-    () =>
-        console.log(
-            `🚀 Server ready at: http://localhost:4000\n⭐️`,
-        ),
-)
+    {port: usedPort}
+).then(({ url }) => {
+    console.log(`
+    🚀  Server is ready at ${url}
+    📭  Query at https://studio.apollographql.com/dev
+  `);
+})

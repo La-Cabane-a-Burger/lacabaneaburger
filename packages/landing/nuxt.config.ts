@@ -1,10 +1,10 @@
-import { defineNuxtConfig } from "nuxt3";
+import { defineNuxtConfig } from "nuxt";
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   css: ["leaflet/dist/leaflet.css"],
   publicRuntimeConfig: {
-    apiURL: process.env.API_URL || "http://localhost:4000",
+    apiURL: process.env.API_URL,
     mapboxToken: process.env.MAPBOX_TOKEN || "",
   },
   build: {
@@ -24,4 +24,7 @@ export default defineNuxtConfig({
       "ts-invariant",
     ],
   },
+  nitro: {
+    preset: 'netlify'
+  }
 });
