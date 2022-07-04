@@ -5,7 +5,7 @@
         <SearchRestaurant @link="showSearch = false" />
       </suspense>
     </div>
-<!--    <NuxtChild v-else />-->
+    <NuxtChild v-else />
   </div>
 </template>
 <script setup lang="ts">

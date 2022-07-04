@@ -22,6 +22,8 @@ export default defineNuxtConfig({
       "@lacabaneaburger/ui",
       "@apollo/client",
       "ts-invariant",
+      '@apollo/client/core',
+      '@vue/apollo-composable'
     ],
   },
   nitro: {
