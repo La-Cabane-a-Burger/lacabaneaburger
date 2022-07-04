@@ -10,7 +10,7 @@
     <div
         class="z-40 w-full h-screen"
         :style="{
-        backgroundImage: `url('~/assets/img/breizh-burger.png')`,
+        backgroundImage: `url('./assets/img/breizh-burger.png')`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -61,7 +61,7 @@
     <div
         class="flex justify-center w-full"
         :style="{
-        backgroundImage: `url('~/assets/backgrounds/background-transparent.png')`,
+        backgroundImage: `url('./assets/backgrounds/background-transparent.png')`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',

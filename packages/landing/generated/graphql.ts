@@ -332,12 +332,6 @@ export type QueryGetUserArgs = {
   id: Scalars['ID'];
 };
 
-export type Recipe = {
-  __typename?: 'Recipe';
-  ingredient?: Maybe<Ingredient>;
-  itemId: Scalars['ID'];
-};
-
 
 export type QueryStoreItemsByCategoryArgs = {
   category: Scalars['String'];
@@ -522,6 +516,9 @@ export const StoreItemsByCategoryDocument = gql`
 export function useStoreItemsByCategoryQuery(variables: StoreItemsByCategoryQueryVariables | VueCompositionApi.Ref<StoreItemsByCategoryQueryVariables> | ReactiveFunction<StoreItemsByCategoryQueryVariables>, options: VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>> = {}) {
   return VueApolloComposable.useQuery<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>(StoreItemsByCategoryDocument, variables, options);
 }
+export function useStoreItemsByCategoryLazyQuery(variables: StoreItemsByCategoryQueryVariables | VueCompositionApi.Ref<StoreItemsByCategoryQueryVariables> | ReactiveFunction<StoreItemsByCategoryQueryVariables>, options: VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>> = {}) {
+  return VueApolloComposable.useLazyQuery<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>(StoreItemsByCategoryDocument, variables, options);
+}
 export type StoreItemsByCategoryQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>;
 export const GetStoreBySlugDocument = gql`
     query GetStoreBySlug($slug: String!) {
@@ -561,6 +558,9 @@ export const GetStoreBySlugDocument = gql`
 export function useGetStoreBySlugQuery(variables: GetStoreBySlugQueryVariables | VueCompositionApi.Ref<GetStoreBySlugQueryVariables> | ReactiveFunction<GetStoreBySlugQueryVariables>, options: VueApolloComposable.UseQueryOptions<GetStoreBySlugQuery, GetStoreBySlugQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>> = {}) {
   return VueApolloComposable.useQuery<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>(GetStoreBySlugDocument, variables, options);
 }
+export function useGetStoreBySlugLazyQuery(variables: GetStoreBySlugQueryVariables | VueCompositionApi.Ref<GetStoreBySlugQueryVariables> | ReactiveFunction<GetStoreBySlugQueryVariables>, options: VueApolloComposable.UseQueryOptions<GetStoreBySlugQuery, GetStoreBySlugQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>> = {}) {
+  return VueApolloComposable.useLazyQuery<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>(GetStoreBySlugDocument, variables, options);
+}
 export type GetStoreBySlugQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<GetStoreBySlugQuery, GetStoreBySlugQueryVariables>;
 export const GetStoresDocument = gql`
     query GetStores {
@@ -588,5 +588,8 @@ export const GetStoresDocument = gql`
  */
 export function useGetStoresQuery(options: VueApolloComposable.UseQueryOptions<GetStoresQuery, GetStoresQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetStoresQuery, GetStoresQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetStoresQuery, GetStoresQueryVariables>> = {}) {
   return VueApolloComposable.useQuery<GetStoresQuery, GetStoresQueryVariables>(GetStoresDocument, {}, options);
+}
+export function useGetStoresLazyQuery(options: VueApolloComposable.UseQueryOptions<GetStoresQuery, GetStoresQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetStoresQuery, GetStoresQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetStoresQuery, GetStoresQueryVariables>> = {}) {
+  return VueApolloComposable.useLazyQuery<GetStoresQuery, GetStoresQueryVariables>(GetStoresDocument, {}, options);
 }
 export type GetStoresQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<GetStoresQuery, GetStoresQueryVariables>;

@@ -7,6 +7,8 @@ import {
 
 export default defineNuxtPlugin((nuxt: NuxtApp) => {
 
+    console.log('url', process.env.API_URL)
+
     const apolloClient = new ApolloClient({
         cache: new InMemoryCache(),
         uri: process.env.API_URL,
