@@ -15,10 +15,12 @@ export const Item = `
         category: String
         description: String
         ingredients: [Recipe]
+        storeId: ID
     }
     
     type Query {
         getItems: [Item]
+        storeItemsByCategory(storeId: ID!, category: String!): [Item]
         getItem(id: ID!): Item
         }
     
@@ -34,6 +36,7 @@ export const Item = `
         category: String,
         description: String 
         ingredients: [String]
+        storeId: ID
     }
     
     input UpdateItemInput {
@@ -49,7 +52,8 @@ interface CreateItemInput {
     price: number,
     category: Category,
     description: string,
-    ingredients: [string]
+    ingredients: [string],
+    storeId: string
 }
 
 interface UpdateItemInput {
@@ -68,7 +72,27 @@ export const ItemResolver = {
                     ingredients: {
                         select: {
                             itemId: true,
-                            ingredient:true
+                            ingredient: true
+                        }
+                    },
+                }
+            });
+        },
+        storeItemsByCategory: async (_parents: any, _args: { storeId: string, category: Category }, ctx: Context) => {
+            return await ctx.prisma.item.findMany({
+                where: {
+                    OR: [{
+                        storeId: _args.storeId,
+                    }, {
+                        storeId: null,
+                    }],
+                    category: _args.category
+                },
+                include: {
+                    ingredients: {
+                        select: {
+                            itemId: true,
+                            ingredient: true
                         }
                     },
                 }

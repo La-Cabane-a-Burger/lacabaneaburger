@@ -1,0 +1,15 @@
+query StoreItemsByCategory($storeId: ID!, $category: String!) {
+    storeItemsByCategory(storeId: $storeId, category: $category) {
+        id
+        name
+        price
+        category
+        description
+        ingredients {
+            ingredient {
+                name
+                id
+            }
+        }
+    }
+}
