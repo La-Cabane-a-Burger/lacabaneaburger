@@ -129,7 +129,7 @@
     <div
         class="flex justify-center w-full "
         :style="{
-        backgroundImage: `url('~/assets/backgrounds/background-transparent.png')`,
+        backgroundImage: `url('./assets/backgrounds/background-transparent.png')`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -170,53 +170,36 @@
   </div>
 </template>
 
-<script lang="ts">
-import Subtitle from "../components/Subtitle.vue";
-import CardCarrousel from "../components/CardCarrousel.vue";
-import Button from "~/components/form/Button.vue";
+<script setup lang="ts">
+import Subtitle from "@/components/Subtitle.vue";
+import CardCarrousel from "@/components/CardCarrousel.vue";
+import Button from "@/components/form/Button.vue";
 
-import Bun from "assets/icons/BunIcon.vue";
-import Steak from "assets/icons/SteakIcon.vue";
-import Potatoes from "assets/icons/PotatoesIcon.vue";
-import Bullet from "assets/icons/BulletIcon.vue";
+import Bun from "@/assets/icons/BunIcon.vue";
+import Steak from "@/assets/icons/SteakIcon.vue";
+import Potatoes from "@/assets/icons/PotatoesIcon.vue";
+import Bullet from "@/assets/icons/BulletIcon.vue";
 
-import {defineComponent} from 'vue';
-
-export default defineComponent({
-  name: 'La Cabane à Burger',
-  components: {
-    Button,
-    Subtitle,
-    CardCarrousel,
-    Bun,
-    Steak,
-    Potatoes,
-    Bullet
-  }, setup() {
-    const burgers = [
-      {
-        title: "Le Montagnard",
-        image: "montagnard.png",
-        text:
-            "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
-      },
-      {
-        title: "Le Savoyard",
-        image: "savoyard.png",
-        text:
-            "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
-      },
-      {
-        title: "Le Gaulois",
-        image: "gaulois.png",
-        text:
-            "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
-      },
-    ]
-
-    return {burgers}
-  }
-})
+const burgers = [
+  {
+    title: "Le Montagnard",
+    image: "montagnard.png",
+    text:
+        "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
+  },
+  {
+    title: "Le Savoyard",
+    image: "savoyard.png",
+    text:
+        "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
+  },
+  {
+    title: "Le Gaulois",
+    image: "gaulois.png",
+    text:
+        "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
+  },
+]
 
 </script>
 

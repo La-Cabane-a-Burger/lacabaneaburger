@@ -132,12 +132,9 @@
   </div>
 </template>
 
-<script>
-import Button from "../components/form/Button";
-import Subtitle from "../components/Subtitle";
-import CabDrawingImage from "../assets/img/CabDrawingImage";
-import StarsBackground from "../components/StarsBackground";
-export default {
-  components: { StarsBackground, CabDrawingImage, Subtitle, Button },
-};
+<script lang="ts" setup>
+import Button from "@/components/form/Button.vue";
+import Subtitle from "@/components/Subtitle.vue";
+import CabDrawingImage from "@/assets/img/CabDrawingImage.vue";
+import StarsBackground from "@/components/StarsBackground.vue";
 </script>

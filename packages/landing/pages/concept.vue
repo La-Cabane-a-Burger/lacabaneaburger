@@ -4,7 +4,7 @@
       <img
           alt="..."
           class=""
-          src="~/assets/img/concept_burger.png"
+          src="@/assets/img/concept_burger.png"
       />
     </div>
     <div class="p-10 pr-12">
@@ -38,16 +38,12 @@
       <img
           alt="..."
           class="mx-auto vertical-middle"
-          src="~/assets/img/concept_patron.png"
+          src="@/assets/img/concept_patron.png"
       />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Subtitle from "../components/Subtitle";
-
-export default {
-  components: {Subtitle}
-}
+<script setup lang="ts">
+import Subtitle from "@/components/Subtitle.vue";
 </script>

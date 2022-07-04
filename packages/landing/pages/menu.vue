@@ -5,11 +5,11 @@
         <SearchRestaurant @link="showSearch = false" />
       </suspense>
     </div>
-    <NuxtChild v-else />
+<!--    <NuxtChild v-else />-->
   </div>
 </template>
 <script setup lang="ts">
-import SearchRestaurant from "~/components/menu/SearchRestaurant";
+import SearchRestaurant from "@/components/menu/SearchRestaurant.vue";
 import {useRouter} from "#app";
 import {ref} from "vue";
 

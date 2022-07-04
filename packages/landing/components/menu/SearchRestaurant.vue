@@ -17,7 +17,6 @@
       <h3>
         Trouver une cabane à Burger dans ma ville
       </h3>
-      <client-only>
         <Input
             :name="'storeSearch'"
             :placeholder="'Saisir un ville'"
@@ -25,7 +24,6 @@
         >
           <SearchIcon class="text-gray-500 h-4"/>
         </Input>
-      </client-only>
     </div>
     <div class="stores-cards flex flex-row flex-wrap">
       <Card
@@ -50,12 +48,12 @@
 </template>
 
 <script lang="ts">
-import SearchIcon from "assets/icons/SearchIcon.vue";
-import Card from "../Card";
-import {useGetStoresQuery} from '../../generated/graphql';
+import SearchIcon from "@/assets/icons/SearchIcon.vue";
+import Card from "@/components/Card.vue";
+import {useGetStoresQuery} from '@/generated/graphql';
 import {computed, defineComponent, ref} from "vue";
-import Button from "../form/Button.vue";
-import Input from "../form/Input.vue";
+import Button from "@/components/form/Button.vue";
+import Input from "@/components/form/Input.vue";
 
 export default defineComponent({
   components: {SearchIcon, Card, Button, Input},
