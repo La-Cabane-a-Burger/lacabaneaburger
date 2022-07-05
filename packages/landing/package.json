@@ -38,7 +38,7 @@
     "@vue/apollo-composable": "^4.0.0-alpha.16",
     "apollo-boost": "^0.4.9",
     "apollo-client": "^2.6.10",
-    "graphql": "^16.2.0",
+    "graphql": "^16.5.0",
     "graphql-tag": "^2.12.6",
     "leaflet": "^1.7.1",
     "std-env": "^3.0.1",
