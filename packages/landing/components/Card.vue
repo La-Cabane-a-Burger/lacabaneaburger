@@ -3,7 +3,7 @@
     <img
         v-if="image"
         class="rounded-3xl"
-        :src="`./assets/img/${image}`"
+        :src="image"
         :alt="image_alt"
     />
     <div class="p-4 w-full font-headline">
@@ -16,15 +16,12 @@
   </div>
 </template>
 
-<script>
-import {defineComponent} from "vue";
-
-export default defineComponent({
-  props: {
-    image: String,
-    image_alt: String,
-    title: String,
-    text: String,
-  },
+<script setup lang="ts">
+const props = defineProps({
+  image: String,
+  image_alt: String,
+  title: String,
+  text: String,
 })
+
 </script>

@@ -8,7 +8,7 @@
         <div class="flex flex-row items-center mb-4">
           <img
             class="w-12 h-12"
-            src="~/assets/img/cab-logo-variant.png"
+            src="@/assets/img/cab-logo-variant.png"
             alt="Petit logo de la Cabane à Burger"
           />
           <h4 class="ml-2 font-semibold text-md font-text">

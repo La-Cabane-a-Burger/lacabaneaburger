@@ -60,7 +60,7 @@
     <div
         class="flex justify-center w-full"
         :style="{
-        backgroundImage: `url('/assets/backgrounds/background-transparent.png')`,
+        backgroundImage: `url(${BackgroundTransparent})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -128,7 +128,7 @@
     <div
         class="flex justify-center w-full"
         :style="{
-        backgroundImage: `url('/assets/backgrounds/background-transparent.png')`,
+        backgroundImage: `url(${BackgroundTransparent})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -180,23 +180,27 @@ import Potatoes from "@/assets/icons/PotatoesIcon.vue";
 import Bullet from "@/assets/icons/BulletIcon.vue";
 
 import BreizhBurgerImg from "@/assets/img/breizh-burger.png"
+import MontagnardImg from "@/assets/img/montagnard.png"
+import SavoyardImg from "@/assets/img/savoyard.png"
+import GauloisImg from "@/assets/img/gaulois.png"
+import BackgroundTransparent from "@/assets/backgrounds/background-transparent.png"
 
 const burgers = [
   {
     title: "Le Montagnard",
-    image: "montagnard.png",
+    image: MontagnardImg,
     text:
         "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
   },
   {
     title: "Le Savoyard",
-    image: "savoyard.png",
+    image: SavoyardImg,
     text:
         "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
   },
   {
     title: "Le Gaulois",
-    image: "gaulois.png",
+    image: GauloisImg,
     text:
         "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
   },

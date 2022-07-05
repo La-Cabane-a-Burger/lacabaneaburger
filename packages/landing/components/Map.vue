@@ -5,6 +5,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, PropType, watch, ref } from "vue";
 import { Store } from "@/generated/graphql";
+import LogoVariant from "@/assets/img/cab-logo-variant.png"
 
 export default defineComponent({
   props: {
@@ -45,7 +46,7 @@ export default defineComponent({
       });
 
       let icon = $L.icon({
-        iconUrl: "@/assets/img/cab-logo-variant.png",
+        iconUrl: LogoVariant,
         iconSize: [40, 40],
         tooltipAnchor: [0, -20],
       });
