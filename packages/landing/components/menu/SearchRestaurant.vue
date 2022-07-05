@@ -26,7 +26,6 @@
       </Input>
     </div>
     <div class="stores-cards flex flex-row flex-wrap">
-      <ClientOnly>
         <Card
             class="mx-8 mb-8"
             v-for="store in filteredStores"
@@ -44,7 +43,6 @@
             </nuxt-link>
           </div>
         </Card>
-      </ClientOnly>
     </div>
   </div>
 </template>
