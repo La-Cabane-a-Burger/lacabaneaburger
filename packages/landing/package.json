@@ -36,7 +36,6 @@
     "@turf/distance": "^6.3.0",
     "@turf/helpers": "^6.3.0",
     "@vue/apollo-composable": "^4.0.0-alpha.16",
-    "apollo-boost": "^0.4.9",
     "apollo-client": "^2.6.10",
     "graphql": "^16.5.0",
     "graphql-tag": "^2.12.6",
