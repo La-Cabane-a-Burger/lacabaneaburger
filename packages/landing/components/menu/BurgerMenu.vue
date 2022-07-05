@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import {useStoreItemsByCategoryQuery} from "~/generated/graphql";
+import {useStoreItemsByCategoryQuery} from "@/generated/graphql";
 import {useResult} from "@vue/apollo-composable";
-import MenuItem from "./MenuItem";
+import MenuItem from "@/components/menu/MenuItem.vue";
 
 const {result, loading} = useStoreItemsByCategoryQuery({
   storeId: '1c01297d-cb1f-42c6-87e3-dc3d2e0477cf',
