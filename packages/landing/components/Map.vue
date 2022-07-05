@@ -28,7 +28,7 @@ export default defineComponent({
       map = $L.map(container.value).setView(center, zoom);
 
       $L.tileLayer(
-        `https://api.mapbox.com/styles/v1/marceaudavid/cl0jk6z9i004v14qbzpkz0knc/tiles/256/{z}/{x}/{y}@2x?access_token=${config.mapboxToken}`,
+        `https://api.mapbox.com/styles/v1/marceaudavid/cl0jk6z9i004v14qbzpkz0knc/tiles/256/{z}/{x}/{y}@2x?access_token=${config.public.mapboxToken}`,
         {
           attribution:
             'Data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

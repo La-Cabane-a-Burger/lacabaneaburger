@@ -3,9 +3,11 @@ import { defineNuxtConfig } from "nuxt";
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   css: ["leaflet/dist/leaflet.css"],
-  publicRuntimeConfig: {
+  runtimeConfig: {
     apiURL: process.env.API_URL,
-    mapboxToken: process.env.MAPBOX_TOKEN || "",
+    public: {
+      mapboxToken: process.env.MAPBOX_TOKEN || "",
+    },
   },
   build: {
     postcss: {
@@ -22,11 +24,11 @@ export default defineNuxtConfig({
       "@lacabaneaburger/ui",
       "@apollo/client",
       "ts-invariant",
-      '@apollo/client/core',
-      '@vue/apollo-composable'
+      "@apollo/client/core",
+      "@vue/apollo-composable",
     ],
   },
   nitro: {
-    preset: 'netlify'
-  }
+    preset: "netlify",
+  },
 });

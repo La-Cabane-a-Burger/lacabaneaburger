@@ -53,7 +53,7 @@ export default defineComponent({
       e.preventDefault();
       if (address.value.length >= 3) {
         const { data } = await useFetch(
-          `https://api.mapbox.com/geocoding/v5/mapbox.places/${address.value}.json?access_token=${config.mapboxToken}`,
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${address.value}.json?access_token=${config.public.mapboxToken}`,
           { parseResponse: JSON.parse }
         );
         results.value = data.value.features;
