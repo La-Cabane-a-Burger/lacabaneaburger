@@ -18,39 +18,38 @@
     >
       <div class="absolute left-16 top-64 lg:top-auto lg:bottom-32 lg:left-32 bg-black/40  rounded-md p-2">
         <div>
-          <p class="uppercase text-primary-900">Nouveau</p>
-          <p class="flex flex-col font-extrabold text-white uppercase text-8xl font-header">
-            <span>Le Breizh</span>
-            <span>Burger</span>
+          <p class="uppercase font-extrabold font-headline text-primary-900">DÉCOUVREZ</p>
+          <p class="flex flex-col text-white uppercase text-8xl font-black font-headline tracking-tight">
+            <span>Le</span>
+            <span>Montagnard</span>
           </p>
         </div>
         <div
-            class="flex-row justify-between hidden h-20 p-4 rounded-lg w-160 gap-4 lg:flex bg-primary-900"
+            class="font-headline mt-2 flex-row justify-between hidden h-20 p-4 rounded-lg w-160 gap-4 lg:flex bg-primary-900"
         >
           <ul
               class="grid grid-flow-col grid-rows-2 list-disc list-inside gap-y-2 gap-x-6"
           >
-            <li class="text-sm font-semibold text-white font-text">Salade</li>
-            <li class="text-sm font-semibold text-white font-text">
-              Sauce poivre
+            <li class="text-sm font-semibold text-white ">Steak haché</li>
+            <li class="text-sm font-semibold text-white">
+              Confit d'oignons jaunes
             </li>
-            <li class="text-sm font-semibold text-white font-text">
-              Viande hachée
+            <li class="text-sm font-semibold text-white">
+              Galette de pomme de terre
             </li>
-            <li class="text-sm font-semibold text-white font-text">
-              Andouille au lard
+            <li class="text-sm font-semibold text-white">
+              Poitrine fumée
             </li>
-            <li class="text-sm font-semibold text-white font-text">
-              Confit d'oignons
+            <li class="text-sm font-semibold text-white">
+              Raclette au lait cru
             </li>
-            <li class="text-sm font-semibold text-white font-text">
-              Roquefort
-            </li>
+            <li class="text-sm font-semibold text-white">
+              Sauce Barbecue            </li>
           </ul>
           <div class="w-px bg-white"></div>
           <div class="grid grid-flow-col grid-rows-2 gap-y-2 gap-x-6">
-            <p class="text-xl font-bold text-white font-text">10.90€</p>
-            <p class="text-white font-text">
+            <p class="text-xl font-bold text-white">10.90€</p>
+            <p class="text-white ">
               <span class="text-xs uppercase">Menu</span
               ><span class="ml-1 text-sm font-bold">13.50€</span>
             </p>
@@ -127,7 +126,7 @@
       </div>
     </div>
     <div
-        class="flex justify-center w-full "
+        class="flex justify-center w-full"
         :style="{
         backgroundImage: `url('/assets/backgrounds/background-transparent.png')`,
         backgroundPosition: 'center',
@@ -139,10 +138,10 @@
         <Subtitle topText="Decouvrez" bottomText="nos burgers"/>
         <CardCarrousel :cards="burgers"/>
         <div
-            class="flex-row justify-between hidden p-10 my-20 lg:flex rounded-3xl bg-primary-400"
+            class="flex-row justify-between hidden p-10 my-20 lg:flex rounded-3xl bg-primary-400 font-headline"
         >
           <div class="flex-1">
-            <h4 class="mb-2 text-lg font-semibold text-dark">
+            <h4 class="mb-2 text-lg font-extrabold uppercase text-dark">
               Le Burger du Mois
             </h4>
             <p class="text-xs text-dark lg:text-base">

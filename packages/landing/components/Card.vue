@@ -6,9 +6,9 @@
         :src="`./assets/img/${image}`"
         :alt="image_alt"
     />
-    <div class="p-4 w-full">
-      <h4 v-if="title" class="pb-2 text-xl text-dark">{{ title }}</h4>
-      <p class="text-sm text-darkLight" v-if="text">
+    <div class="p-4 w-full font-headline">
+      <h4 v-if="title" class="pb-2 text-xl text-dark font-semibold">{{ title }}</h4>
+      <p class="text-sm text-darkLight font-medium" v-if="text">
         {{ text }}
       </p>
       <slot/>

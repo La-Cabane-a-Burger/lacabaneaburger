@@ -1,5 +1,5 @@
 <template>
-  <h2 class="flex flex-col mb-10 text-5xl font-header">
+  <h2 class="flex flex-col mb-10 text-3xl font-extrabold font-headline">
     <span class="uppercase text-gray-900">{{ topText }}</span
     ><span class="uppercase text-primary-900">{{ bottomText }}</span>
   </h2>
