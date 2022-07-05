@@ -70,7 +70,7 @@
       </div>
 
       <div class="text-center">
-        <h4 class="font-header text-2xl">POUR VOTRE SANTE, MANGEZ CINQ FRUITS ET LEGUMES PAR JOUR. WWW.MANGERBOUGER.FR</h4>
+        <p class="text-xl font-extrabold tracking-tighter">POUR VOTRE SANTE, MANGEZ CINQ FRUITS ET LEGUMES PAR JOUR. WWW.MANGERBOUGER.FR</p>
         <div class="mt-2 text-xs">
           <a class="hover:text-primary-600" href="#">Mentions légales</a>
           -

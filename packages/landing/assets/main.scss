@@ -1,5 +1,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url("https://use.typekit.net/wly6laz.css");
+
+@layer base {
+  html {
+    font-family: greycliff-cf, system-ui, sans-serif;
+  }
+}

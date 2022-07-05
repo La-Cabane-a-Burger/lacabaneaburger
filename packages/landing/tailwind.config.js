@@ -11,7 +11,6 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      header: ["Bebas Neue", "ui-sans-serif", "system-ui"],
       headline: ["greycliff-cf", "sans-serif"]
     },
     extend: {

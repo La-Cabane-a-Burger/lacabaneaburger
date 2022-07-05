@@ -1,6 +1,6 @@
 <template>
   <div
-      class="fixed z-50 flex flex-col w-full h-auto ellipse"
+      class="fixed z-50 flex flex-col w-full h-auto ellipse font-headline"
       :class="{ 'bg-navbar': isMenuOpen, 'bg-black/50' : scrollPosition > 0 }"
       style="transition: 0.4s"
   >

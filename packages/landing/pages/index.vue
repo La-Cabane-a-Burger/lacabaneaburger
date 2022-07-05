@@ -75,7 +75,7 @@
                 topText="Les burgers gourmets"
                 bottomText="à coté de chez vous"
             />
-            <p class="pb-10 text-center lg:text-left text-md font-text">
+            <p class="pb-10 text-center lg:text-left text-md font-medium text-gray-900">
               Pour déguster des burgers gourmets, préparés à la demande et sur
               commande au coin de la rue, rendez-vous à La Cabane à Burger !
               Notre pain bio, créé uniquement pour notre carte, s’accorde avec
