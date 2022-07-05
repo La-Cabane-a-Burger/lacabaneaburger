@@ -10,7 +10,7 @@
     <div
         class="z-40 w-full h-screen"
         :style="{
-        backgroundImage: `url('/assets/img/breizh-burger.png')`,
+        backgroundImage: `url(${BreizhBurgerImg})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -19,7 +19,7 @@
       <div class="absolute left-16 top-64 lg:top-auto lg:bottom-32 lg:left-32 bg-black/40  rounded-md p-2">
         <div>
           <p class="uppercase font-extrabold font-headline text-primary-900">DÉCOUVREZ</p>
-          <p class="flex flex-col text-white uppercase text-8xl font-black font-headline tracking-tight">
+          <p class="flex flex-col text-white uppercase text-4xl sm:text-8xl font-black font-headline tracking-tight">
             <span>Le</span>
             <span>Montagnard</span>
           </p>
@@ -178,6 +178,8 @@ import Bun from "@/assets/icons/BunIcon.vue";
 import Steak from "@/assets/icons/SteakIcon.vue";
 import Potatoes from "@/assets/icons/PotatoesIcon.vue";
 import Bullet from "@/assets/icons/BulletIcon.vue";
+
+import BreizhBurgerImg from "@/assets/img/breizh-burger.png"
 
 const burgers = [
   {
