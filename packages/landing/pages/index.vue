@@ -8,10 +8,8 @@
     </Head>
     </Html>
     <div
-        class="z-40 w-full h-screen"
+        class="z-40 w-full h-screen homeSlide"
         :style="{
-        backgroundImage: `url(${BreizhBurgerImg})`,
-        backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }"
@@ -179,7 +177,6 @@ import Steak from "@/assets/icons/SteakIcon.vue";
 import Potatoes from "@/assets/icons/PotatoesIcon.vue";
 import Bullet from "@/assets/icons/BulletIcon.vue";
 
-import BreizhBurgerImg from "@/assets/img/breizh-burger.png"
 import MontagnardImg from "@/assets/img/montagnard.png"
 import SavoyardImg from "@/assets/img/savoyard.png"
 import GauloisImg from "@/assets/img/gaulois.png"
@@ -207,4 +204,21 @@ const burgers = [
 ]
 
 </script>
+
+<style lang="css" scoped>
+
+@media only screen and (max-width: 1024px) {
+  .homeSlide {
+    background-image: url("@/assets/img/mobile-homeslide-montagnard.jpg");
+    background-position: center bottom;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .homeSlide {
+    background-image: url("@/assets/img/desktop-homeslide-montagnard.jpg");
+    background-position: center bottom;
+  }
+}
+</style>
 
