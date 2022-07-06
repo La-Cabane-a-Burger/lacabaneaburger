@@ -41,6 +41,6 @@
     "trailingComma": "all"
   },
   "engines": {
-    "node": "^16.15.1"
+    "node": "^16.15.1 || ^14.18.0"
   }
 }
