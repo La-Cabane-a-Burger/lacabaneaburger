@@ -99,9 +99,6 @@
           <a href="#">
             <InstagramIcon class="fill-white hover:fill-primary-600"/>
           </a>
-          <a href="#">
-            <TwitterIcon class="fill-white hover:fill-primary-600"/>
-          </a>
         </div>
       </div>
     </div>
@@ -112,10 +109,9 @@
 import Logo from "~/assets/img/logo";
 import FacebookIcon from "~/assets/icons/FacebookIcon"
 import InstagramIcon from "~/assets/icons/InstagramIcon"
-import TwitterIcon from "~/assets/icons/TwitterIcon"
 import Button from "~/components/form/Button";
 
 export default {
-  components: {Button, TwitterIcon, Logo, FacebookIcon, InstagramIcon}
+  components: {Button, Logo, FacebookIcon, InstagramIcon}
 }
 </script>

@@ -137,7 +137,7 @@ model Item {
   name        String      @unique
   price       Float
   category    Category
-  description String
+  description String?
   ingredients Recipe[]
   menuItems   Item[]      @relation("ItemToItem")
   orderItems  OrderItem[]

@@ -3,6 +3,9 @@
     <div v-if="showSearch">
       <suspense>
         <SearchRestaurant @link="showSearch = false" />
+        <template #fallback>
+          Loading...
+        </template>
       </suspense>
     </div>
     <NuxtChild v-else />

@@ -11,5 +11,10 @@ query StoreItemsByCategory($storeId: ID!, $category: String!) {
                 id
             }
         }
+        menu {
+            id
+            name
+            price
+        }
     }
 }

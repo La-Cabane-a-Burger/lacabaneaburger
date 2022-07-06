@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5 border-b border-gray-200">
-      <h3 class="text-lg leading-6 font-medium text-gray-900">Nos salades</h3>
+      <h3 class="text-3xl leading-6 font-black text-gray-900 uppercase">Nos salades</h3>
     </div>
     <div class="py-5 flex flex-wrap gap-4">
       <MenuItem v-for="salad in salads" :key="salad.id" :item="salad"/>
@@ -11,13 +11,19 @@
 
 <script setup lang="ts">
 import {useStoreItemsByCategoryQuery} from "~/generated/graphql";
-import {useResult} from "@vue/apollo-composable";
-import MenuItem from "./MenuItem";
+import MenuItem from "@/components/menu/MenuItem.vue";
+import {computed} from "vue";
+
+const props = defineProps({
+  storeId: {
+    type: String
+  }
+})
 
 const {result, loading} = useStoreItemsByCategoryQuery({
-  storeId: '1c01297d-cb1f-42c6-87e3-dc3d2e0477cf',
+  storeId: props.storeId,
   category: 'SALAD',
 });
 
-const salads = useResult(result, []);
+const salads = computed(() => result?.value?.storeItemsByCategory ?? [])
 </script>

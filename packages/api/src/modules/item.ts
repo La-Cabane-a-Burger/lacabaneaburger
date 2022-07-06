@@ -15,6 +15,7 @@ export const Item = `
         category: String
         description: String
         ingredients: [Recipe]
+        menu:Menu
         storeId: ID
     }
     
@@ -95,6 +96,13 @@ export const ItemResolver = {
                             ingredient: true
                         }
                     },
+                    menu: {
+                        select: {
+                            id:true,
+                            name: true,
+                            price: true
+                        }
+                    }
                 }
             });
         },

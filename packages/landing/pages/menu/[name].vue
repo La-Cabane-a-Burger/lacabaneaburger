@@ -2,8 +2,8 @@
 <template>
   <div class="pt-60">
     <div class="pb-4 flex flex-col justify-center items-center">
-      <h2 class="text-xl font-bold">La Carte</h2>
-      <p class="text-primary-900">Pontchâteau</p>
+      <h2 class="text-4xl font-black uppercase">La Carte</h2>
+      <p class="text-primary-900 font-bold uppercase">{{ store.city }}</p>
     </div>
     <div class="flex gap-4">
       <div class="hidden md:flex md:w-64 md:flex-col md:inset-y-0">
@@ -26,25 +26,25 @@
       </div>
       <div class="flex-1">
         <suspense>
-          <BurgerMenu v-if="currentTab === 'burgers'"/>
+          <BurgerMenu :store-id="store.id" v-if="currentTab === 'burgers'"/>
         </suspense>
         <suspense>
-          <SaladMenu v-if="currentTab === 'salads'"/>
+          <SaladMenu :store-id="store.id" v-if="currentTab === 'salads'"/>
         </suspense>
         <suspense>
-          <NuggetsMenu v-if="currentTab === 'nuggets'"/>
+          <NuggetsMenu :store-id="store.id" v-if="currentTab === 'nuggets'"/>
         </suspense>
         <suspense>
-          <AperoMenu v-if="currentTab === 'apero'"/>
+          <AperoMenu :store-id="store.id" v-if="currentTab === 'apero'"/>
         </suspense>
         <suspense>
-          <DessertMenu v-if="currentTab === 'desserts'"/>
+          <DessertMenu :store-id="store.id" v-if="currentTab === 'desserts'"/>
         </suspense>
         <suspense>
-          <SidesMenu v-if="currentTab === 'sides'"/>
+          <SidesMenu :store-id="store.id" v-if="currentTab === 'sides'"/>
         </suspense>
         <suspense>
-          <BeverageMenu v-if="currentTab === 'beverages'"/>
+          <BeverageMenu :store-id="store.id" v-if="currentTab === 'beverages'"/>
         </suspense>
       </div>
     </div>
@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import {markRaw} from "vue";
+import {markRaw, computed} from "vue";
 
 import BurgerIcon from "../../assets/icons/BurgerIcon.vue";
 import SaladIcon from "../../assets/icons/SaladIcon.vue";
@@ -73,6 +73,7 @@ import SaladMenu from "../../components/menu/SaladMenu";
 import SidesMenu from "../../components/menu/SidesMenu";
 
 import useTabs from "../../composables/useTabs";
+import {useGetStoreBySlugQuery} from "../../generated/graphql";
 
 markRaw(BurgerIcon);
 markRaw(SaladIcon);
@@ -81,6 +82,13 @@ markRaw(BucketIcon);
 markRaw(CookieIcon);
 markRaw(FriesIcon);
 markRaw(BeverageIcon);
+
+const router = useRouter();
+
+const restaurantSlug = router.currentRoute.value.params.name.toString();
+const {result, loading, onResult} = useGetStoreBySlugQuery({slug: restaurantSlug });
+
+const store = computed(() => result?.value?.getStoreBySlug ?? {});
 
 const tabList = [
   {key: 'burgers', name: 'Nos burgers', icon: BurgerIcon},
@@ -92,7 +100,6 @@ const tabList = [
   {key: 'beverages', name: 'Nos Boissons', icon: BeverageIcon},
 ];
 
-const router = useRouter();
 
 const {currentTab, tabs} = useTabs(router.currentRoute, tabList);
 </script>
