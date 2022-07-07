@@ -20,7 +20,7 @@
     "build:landing": "yarn workspace @lacabaneaburger/landing build",
     "start:api": "yarn workspace @lacabaneaburger/api start",
     "migrate": "yarn workspace @lacabaneaburger/api migrate:deploy",
-    "fixture": "yarn workspace @lacabaneaburger/api fixture",
+    "fixtures": "yarn workspace @lacabaneaburger/api fixtures",
     "build:web": "yarn workspace @lacabaneaburger/web build",
     "start:web": "yarn workspace @lacabaneaburger/web start",
     "test": "lerna run test",
