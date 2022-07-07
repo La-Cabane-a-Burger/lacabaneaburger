@@ -73,6 +73,8 @@ export default defineComponent({
 
     onMounted(() => {
       initializeMap([46.62, 2], 5.3, props.locations);
+      // Timeout to automatically resize map once it is loaded and css animation is finished
+      setTimeout(() => map.invalidateSize(), 50);
       createTooltips(markers);
     });
 
