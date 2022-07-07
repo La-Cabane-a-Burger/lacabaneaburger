@@ -7,7 +7,6 @@
       <MenuItem v-for="burger in burgers" :key="burger.id" :item="burger"/>
     </div>
     <div v-else>Chargement</div>
-    {{ props.storeId }}
   </div>
 </template>
 

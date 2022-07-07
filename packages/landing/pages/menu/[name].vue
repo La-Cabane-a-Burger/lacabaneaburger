@@ -5,7 +5,7 @@
       <h2 class="text-4xl font-black uppercase">La Carte</h2>
       <p v-if="store" class="text-primary-900 font-bold uppercase">{{ store.city }}</p>
     </div>
-    <div class="flex gap-4">
+    <div class="md:flex gap-4">
       <div class="hidden md:flex md:w-64 md:flex-col md:inset-y-0">
         <div
             class="flex flex-col flex-grow border-r border-t rounded pb-10 border-gray-200 pt-5 pb-4 bg-white overflow-y-auto">
@@ -24,6 +24,17 @@
           </div>
         </div>
       </div>
+
+        <div class="flex justify-center w-full mb-8 md:hidden">
+          <nav class="relative z-0 rounded-lg shadow flex divide-x divide-gray-200" aria-label="Tabs">
+            <router-link v-for="item in tabs" :to="item.to" :key="item.name" :href="item.href"
+                         :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 cursor-pointer', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
+              <component :is="item.icon"
+                         :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'flex-shrink-0 h-8 w-8']"
+                         aria-hidden="true"/>
+            </router-link>
+          </nav>
+        </div>
       <div v-if="store" class="flex-1">
         <BurgerMenu :store-id="store.id" v-if="currentTab === 'burgers'"/>
         <SaladMenu :store-id="store.id" v-if="currentTab === 'salads'"/>
