@@ -7,8 +7,7 @@
     ]
   },
   "devDependencies": {
-    "lerna": "^3.22.1",
-    "@getbigger-io/prisma-fixtures-cli": "^1.0.10"
+    "lerna": "^3.22.1"
   },
   "scripts": {
     "nuke": "rm -r node_modules; for d in packages/*/node_modules; do echo $d; rm -rf $d; done",
