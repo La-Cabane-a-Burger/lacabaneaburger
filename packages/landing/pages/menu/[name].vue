@@ -3,7 +3,7 @@
   <div class="pt-60">
     <div class="pb-4 flex flex-col justify-center items-center">
       <h2 class="text-4xl font-black uppercase">La Carte</h2>
-      <p class="text-primary-900 font-bold uppercase">{{ store.city }}</p>
+      <p v-if="store" class="text-primary-900 font-bold uppercase">{{ store.city }}</p>
     </div>
     <div class="flex gap-4">
       <div class="hidden md:flex md:w-64 md:flex-col md:inset-y-0">
@@ -24,29 +24,16 @@
           </div>
         </div>
       </div>
-      <div class="flex-1">
-        <suspense>
-          <BurgerMenu :store-id="store.id" v-if="currentTab === 'burgers'"/>
-        </suspense>
-        <suspense>
-          <SaladMenu :store-id="store.id" v-if="currentTab === 'salads'"/>
-        </suspense>
-        <suspense>
-          <NuggetsMenu :store-id="store.id" v-if="currentTab === 'nuggets'"/>
-        </suspense>
-        <suspense>
-          <AperoMenu :store-id="store.id" v-if="currentTab === 'apero'"/>
-        </suspense>
-        <suspense>
-          <DessertMenu :store-id="store.id" v-if="currentTab === 'desserts'"/>
-        </suspense>
-        <suspense>
-          <SidesMenu :store-id="store.id" v-if="currentTab === 'sides'"/>
-        </suspense>
-        <suspense>
-          <BeverageMenu :store-id="store.id" v-if="currentTab === 'beverages'"/>
-        </suspense>
+      <div v-if="store" class="flex-1">
+        <BurgerMenu :store-id="store.id" v-if="currentTab === 'burgers'"/>
+        <SaladMenu :store-id="store.id" v-if="currentTab === 'salads'"/>
+        <NuggetsMenu :store-id="store.id" v-if="currentTab === 'nuggets'"/>
+        <AperoMenu :store-id="store.id" v-if="currentTab === 'apero'"/>
+        <DessertMenu :store-id="store.id" v-if="currentTab === 'desserts'"/>
+        <SidesMenu :store-id="store.id" v-if="currentTab === 'sides'"/>
+        <BeverageMenu :store-id="store.id" v-if="currentTab === 'beverages'"/>
       </div>
+      <div v-else>Chargement</div>
     </div>
 
   </div>
@@ -86,9 +73,9 @@ markRaw(BeverageIcon);
 const router = useRouter();
 
 const restaurantSlug = router.currentRoute.value.params.name.toString();
-const {result, loading, onResult} = useGetStoreBySlugQuery({slug: restaurantSlug });
+const {result, loading} = useGetStoreBySlugQuery({slug: restaurantSlug});
 
-const store = computed(() => result?.value?.getStoreBySlug ?? {});
+const store = computed(() => result?.value?.getStoreBySlug ?? null);
 
 const tabList = [
   {key: 'burgers', name: 'Nos burgers', icon: BurgerIcon},

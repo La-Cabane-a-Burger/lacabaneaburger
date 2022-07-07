@@ -1,12 +1,6 @@
 <template>
   <div
-      class="pt-60 flex flex-col items-center justify-center w-screen"
-      :style="{
-        backgroundImage: `url('./assets/backgrounds/background-transparent.png')`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      }"
+      class="pt-60 mb-10 flex flex-col items-center justify-center w-screen"
   >
     <div class="sm:mx-auto sm:w-full sm:max-w-md mb-24">
       <h2 class="mt-6 text-center text-3xl font-semibold text-secondary-900">
@@ -25,24 +19,26 @@
         <SearchIcon class="text-gray-500 h-4"/>
       </Input>
     </div>
-    <div class="stores-cards flex flex-row flex-wrap">
-        <Card
-            class="mx-8 mb-8"
-            v-for="store in filteredStores"
-            :image="store.image? store.image : '/stores/default.png'"
-            :image_alt="'La cabane à Burger'"
-            :title="'La CAB ' + store.city"
-        >
-          {{ store.city }} <br/> {{ store.address + ' ' + store.postal_code + ' ' + store.city }}
-          <div class="flex justify-end mt-4 mx-2">
-            <nuxt-link
-                @click="link"
-                class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded-sm shadow-sm text-white bg-primary-900 hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                :to="'/menu/'+store.slug"
-                active-class="text-primary-600 cursor-default">Sélectionner
-            </nuxt-link>
-          </div>
-        </Card>
+    <div v-if="stores.length" class="stores-cards flex flex-row flex-wrap">
+      <Card
+          class="mx-8 mb-8"
+          v-for="store in filteredStores"
+          :title="'La CAB ' + store.city"
+      >
+        <div>{{ store.address }}</div>
+        <div>{{ store.postal_code }} {{ store.city }}</div>
+        <div class="flex justify-end mt-4 mx-2">
+          <nuxt-link
+              @click="link"
+              class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded-sm shadow-sm text-white bg-primary-900 hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+              :to="'/menu/'+store.slug"
+              active-class="text-primary-600 cursor-default">Sélectionner
+          </nuxt-link>
+        </div>
+      </Card>
+    </div>
+    <div v-else>
+      Chargement...
     </div>
   </div>
 </template>
@@ -59,11 +55,9 @@ export default defineComponent({
   components: {SearchIcon, Card, Button, Input},
 
   setup(_props, {emit}) {
-    const {result, loading, onResult} = useGetStoresQuery();
-    const stores = ref([]);
-    onResult(({data}) => {
-      stores.value = data?.getStores ?? [];
-    });
+    const {result, loading} = useGetStoresQuery();
+
+    const stores = computed(() => result?.value?.getStores ?? []);
     const filteredStores = computed(() => {
       if (stores.value.length === 0) {
         return [];
