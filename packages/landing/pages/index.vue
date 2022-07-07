@@ -50,11 +50,7 @@
     <div
         class="flex justify-center w-full"
         :style="{
-        backgroundImage: `url(${BackgroundTransparent})`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundColor: '#FBD69F',
+        backgroundColor: '#FBD69F'
       }"
     >
       <div class="w-10/12 py-20">
@@ -117,12 +113,6 @@
     </div>
     <div
         class="flex justify-center w-full"
-        :style="{
-        backgroundImage: `url(${BackgroundTransparent})`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      }"
     >
       <div class="w-10/12 py-20">
         <Subtitle topText="Decouvrez" bottomText="nos burgers"/>
@@ -152,7 +142,7 @@
           </div>
         </div>
         <div class="flex justify-center w-full">
-          <Button>Voir la carte</Button>
+          <Button @click="goToMenu">Voir la carte</Button>
         </div>
       </div>
     </div>
@@ -172,7 +162,13 @@ import Bullet from "@/assets/icons/BulletIcon.vue";
 import MontagnardImg from "@/assets/img/montagnard.png"
 import SavoyardImg from "@/assets/img/savoyard.png"
 import GauloisImg from "@/assets/img/gaulois.png"
-import BackgroundTransparent from "@/assets/backgrounds/background-transparent.png"
+import {useRouter} from "#app";
+
+const router = useRouter();
+
+const goToMenu = () => {
+  router.push('/menu')
+}
 
 const burgers = [
   {
