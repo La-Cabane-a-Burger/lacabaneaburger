@@ -1,0 +1,18 @@
+  entity: Store
+  items:
+    pontchateau:
+      city: 'Pontchâteau'
+      slug: 'pontchateau'
+      phone: '0251753932'
+      postal_code: 44160
+      address: 'Route de Nantes Zone Industrielle du Landas (parking Océane Habitat)'
+      latitude: 47.42781116664277
+      longitude: -2.0690288491123243
+    dijon:
+      city: 'Dijon'
+      slug: 'dijon'
+      phone: '0973889555'
+      postal_code: 21000
+      address: '6 rue Salvador Allende (Face au LIDL)'
+      latitude: 47.300048828125
+      longitude: 5.022312641143799

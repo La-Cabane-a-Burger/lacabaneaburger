@@ -55,7 +55,7 @@ export type CreateIngredientInput = {
 export type CreateItemInput = {
   category?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
-  ingredients?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  ingredients?: InputMaybe<Array<InputMaybe<IngredientItemInput>>>;
   name?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Float']>;
   storeId?: InputMaybe<Scalars['ID']>;
@@ -104,13 +104,15 @@ export type Ingredient = {
 
 export type Item = {
   __typename?: 'Item';
+  capacity?: Maybe<Scalars['Float']>;
   category?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   ingredients?: Maybe<Array<Maybe<Recipe>>>;
-  menu?: Maybe<Array<Maybe<Menu>>>;
+  menu?: Maybe<Menu>;
   name?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['String']>;
+  store?: Maybe<Store>;
   storeId?: Maybe<Scalars['ID']>;
 };
 
@@ -423,6 +425,10 @@ export type User = {
   role?: Maybe<Scalars['String']>;
 };
 
+export type IngredientItemInput = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
 export type SignInMutationVariables = Exact<{
   input: SignInInput;
 }>;
@@ -436,7 +442,7 @@ export type StoreItemsByCategoryQueryVariables = Exact<{
 }>;
 
 
-export type StoreItemsByCategoryQuery = { __typename?: 'Query', storeItemsByCategory?: Array<{ __typename?: 'Item', id: string, name?: string | null | undefined, price?: string | null | undefined, category?: string | null | undefined, description?: string | null | undefined, ingredients?: Array<{ __typename?: 'Recipe', ingredient?: { __typename?: 'Ingredient', name: string, id: string } | null | undefined } | null | undefined> | null | undefined, menu?: Array<{ __typename?: 'Menu', id: string, name?: string | null | undefined, price?: number | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
+export type StoreItemsByCategoryQuery = { __typename?: 'Query', storeItemsByCategory?: Array<{ __typename?: 'Item', id: string, name?: string | null | undefined, price?: string | null | undefined, category?: string | null | undefined, description?: string | null | undefined, capacity?: number | null | undefined, ingredients?: Array<{ __typename?: 'Recipe', ingredient?: { __typename?: 'Ingredient', name: string, id: string } | null | undefined } | null | undefined> | null | undefined, menu?: { __typename?: 'Menu', id: string, name?: string | null | undefined, price?: number | null | undefined } | null | undefined } | null | undefined> | null | undefined };
 
 export type GetStoreBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -488,6 +494,7 @@ export const StoreItemsByCategoryDocument = gql`
     price
     category
     description
+    capacity
     ingredients {
       ingredient {
         name

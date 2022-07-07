@@ -1,6 +1,0 @@
-entity: Opening
-items:
-  comment{1..10}:
-    weekday: '{{name.firstName}} {{name.lastName}}'
-    start: '{{internet.email}}'
-    end: '{{lorem.paragraphs}}'

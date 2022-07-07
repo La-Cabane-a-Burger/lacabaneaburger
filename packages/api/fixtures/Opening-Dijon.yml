@@ -1,0 +1,58 @@
+entity: Opening
+connectedFields: ['store']
+items:
+  dijon-tuesday-morning:
+    weekday: 'mardi'
+    start: '11h30'
+    end: '13h45'
+    store: '@dijon'
+  dijon-tuesday-afternoon:
+    weekday: 'mardi'
+    start: '18h00'
+    end: '21h30'
+    store: '@dijon'
+  dijon-wednesday-morning:
+    weekday: 'mercredi'
+    start: '11h30'
+    end: '13h45'
+    store: '@dijon'
+  dijon-wednesday-afternoon:
+    weekday: 'mercredi'
+    start: '18h00'
+    end: '21h30'
+    store: '@dijon'
+  dijon-thursday-morning:
+    weekday: 'jeudi'
+    start: '11h30'
+    end: '13h45'
+    store: '@dijon'
+  dijon-thursday-afternoon:
+    weekday: 'jeudi'
+    start: '18h00'
+    end: '21h30'
+    store: '@dijon'
+  dijon-friday-morning:
+    weekday: 'vendredi'
+    start: '11h30'
+    end: '13h45'
+    store: '@dijon'
+  dijon-friday-afternoon:
+    weekday: 'vendredi'
+    start: '18h00'
+    end: '22h00'
+    store: '@dijon'
+  dijon-saturday-morning:
+    weekday: 'samedi'
+    start: '11h30'
+    end: '13h45'
+    store: '@dijon'
+  dijon-saturday-afternoon:
+    weekday: 'samedi'
+    start: '18h00'
+    end: '22h00'
+    store: '@dijon'
+  dijon-sunday-afternoon:
+    weekday: 'dimanche'
+    start: '18h00'
+    end: '22h00'
+    store: '@dijon'

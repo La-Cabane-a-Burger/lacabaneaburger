@@ -50,6 +50,7 @@
           <hr class="w-full mt-5">
           <div class="w-full flex items-center	justify-center">
             <Button class="mt-5 mx-5" @click="map(myStore.latitude, myStore.longitude)">J'Y VAIS</Button>
+            <Button class="mt-5 mx-5" @click="goToMenu" >Voir la carte</Button>
           </div>
           <hr class="w-full mt-5">
           <div class="mt-5 flex justify-center flex-col sm:flex-row items-left">
@@ -67,19 +68,19 @@
               <div>Sur place</div>
             </div>
 
-            <div class="flex mr-2">
-              <div class="w-6 h-6 rounded-full inline-flex items-center justify-center bg-green-500 text-white mr-2">
-                <CheckIcon class="w-5 inline"/>
-              </div>
-              <div>En livraison</div>
-            </div>
+<!--            <div class="flex mr-2">-->
+<!--              <div class="w-6 h-6 rounded-full inline-flex items-center justify-center bg-green-500 text-white mr-2">-->
+<!--                <CheckIcon class="w-5 inline"/>-->
+<!--              </div>-->
+<!--              <div>En livraison</div>-->
+<!--            </div>-->
 
-            <div class="flex">
-              <div class="w-6 h-6 rounded-full inline-flex items-center justify-center bg-green-500 text-white mr-2">
-                <CheckIcon class="w-5 inline"/>
-              </div>
-              <div>En click & collect</div>
-            </div>
+<!--            <div class="flex">-->
+<!--              <div class="w-6 h-6 rounded-full inline-flex items-center justify-center bg-green-500 text-white mr-2">-->
+<!--                <CheckIcon class="w-5 inline"/>-->
+<!--              </div>-->
+<!--              <div>En click & collect</div>-->
+<!--            </div>-->
           </div>
         </div>
         <div class="flex-1">
@@ -114,6 +115,10 @@ onResult(({data, loading}) => {
     router.push('/404')
   }
 })
+
+const goToMenu = () => {
+   router.push('/menu/' + restaurantSlug)
+}
 
 const formattedOpennings = computed(() => {
 

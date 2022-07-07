@@ -39,19 +39,11 @@
               Poitrine fumée
             </li>
             <li class="text-sm font-semibold text-white">
-              Raclette au lait cru
+              Raclette
             </li>
             <li class="text-sm font-semibold text-white">
               Sauce Barbecue            </li>
           </ul>
-          <div class="w-px bg-white"></div>
-          <div class="grid grid-flow-col grid-rows-2 gap-y-2 gap-x-6">
-            <p class="text-xl font-bold text-white">10.90€</p>
-            <p class="text-white ">
-              <span class="text-xs uppercase">Menu</span
-              ><span class="ml-1 text-sm font-bold">13.50€</span>
-            </p>
-          </div>
         </div>
       </div>
     </div>

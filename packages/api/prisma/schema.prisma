@@ -44,6 +44,7 @@ enum Category {
     DESSERT
     SIDE
     BEVERAGE
+    KID
 }
 
 model User {
@@ -113,10 +114,10 @@ model OrderRecipe {
 
 model Menu {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name        String      @unique
+  name        String
   price       Float
-  category    String
-  description String
+  category    Category
+  description String?
   menuItems   Item[]
   orderMenus  OrderItem[]
   menuItem    MenuItem[]
@@ -134,10 +135,11 @@ model MenuItem {
 
 model Item {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name        String      @unique
+  name        String
   price       Float
   category    Category
   description String?
+  capacity    Float?
   ingredients Recipe[]
   menuItems   Item[]      @relation("ItemToItem")
   orderItems  OrderItem[]

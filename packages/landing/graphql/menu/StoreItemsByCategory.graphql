@@ -5,6 +5,7 @@ query StoreItemsByCategory($storeId: ID!, $category: String!) {
         price
         category
         description
+        capacity
         ingredients {
             ingredient {
                 name

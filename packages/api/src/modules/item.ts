@@ -1,5 +1,6 @@
 import {Context} from "../context";
 import {Category} from '@prisma/client'
+import {Ingredient} from "@lacabaneaburger/landing/generated/graphql";
 
 export const Item = `
 
@@ -14,9 +15,11 @@ export const Item = `
         price: String
         category: String
         description: String
+        capacity: Float
         ingredients: [Recipe]
-        menu:Menu
+        menu: Menu
         storeId: ID
+        store: Store
     }
     
     type Query {
@@ -31,12 +34,16 @@ export const Item = `
         updateItem(id: ID!, input: UpdateItemInput!): Item
     }
     
+    input ingredientItemInput {
+        id: String
+    }
+    
     input CreateItemInput {
         name: String,
         price: Float,
         category: String,
         description: String 
-        ingredients: [String]
+        ingredients: [ingredientItemInput]
         storeId: ID
     }
     
@@ -53,7 +60,7 @@ interface CreateItemInput {
     price: number,
     category: Category,
     description: string,
-    ingredients: [string],
+    ingredients: [Ingredient],
     storeId: string
 }
 
@@ -117,10 +124,10 @@ export const ItemResolver = {
             const {ingredients: ingredientsData, ...itemData} = args.input;
 
             const ingredients = {
-                create: ingredientsData.map((id: string) => ({
+                create: ingredientsData.map((i:Ingredient) => ({
                     ingredient: {
                         connect: {
-                            id
+                            id: i.id
                         }
                     }
                 }))

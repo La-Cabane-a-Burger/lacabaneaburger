@@ -1,0 +1,62 @@
+entity: Menu
+items:
+  menu-cowboy-pontchateau:
+    name: 'Menu Cowboy'
+    price: 13
+    category: 'BURGER'
+  menu-kebab-pontchateau:
+    name: 'Menu Kebab'
+    price: 12.4
+    category: 'BURGER'
+  menu-cab-pontchateau:
+    name: 'Menu Cab'
+    price: 12.4
+    category: 'BURGER'
+  menu-nuggets6-pontchateau:
+    name: 'Menu Nuggets x6'
+    price: 11
+    category: 'NUGGETS'
+  menu-nuggets9-pontchateau:
+    name: 'Menu Nuggets x9'
+    price: 13
+    category: 'NUGGETS'
+  menu-savoyard-pontchateau:
+    name: 'Menu Savoyard'
+    price: 15
+    category: 'BURGER'
+  menu-montagnard-pontchateau:
+    name: 'Menu Montagnard'
+    price: 15
+    category: 'BURGER'
+  menu-normand-pontchateau:
+    name: 'Menu Normand'
+    price: 14
+    category: 'BURGER'
+  menu-viking-pontchateau:
+    name: 'Menu Viking'
+    price: 13.4
+    category: 'BURGER'
+  menu-gaulois-pontchateau:
+    name: 'Menu Gaulois'
+    price: 14
+    category: 'BURGER'
+  menu-andalou-pontchateau:
+    name: 'Menu Andalou'
+    price: 14.4
+    category: 'BURGER'
+  menu-nantais-pontchateau:
+    name: 'Menu Nantais'
+    price: 11.9
+    category: 'BURGER'
+  menu-indien-pontchateau:
+    name: 'Menu Indien'
+    price: 12.9
+    category: 'BURGER'
+  menu-vegetarien-pontchateau:
+    name: 'Menu Végétarien'
+    price: 11
+    category: 'BURGER'
+  menu-kids-pontchateau:
+    name: 'Menu Kids'
+    price: 6.5
+    category: 'KID'

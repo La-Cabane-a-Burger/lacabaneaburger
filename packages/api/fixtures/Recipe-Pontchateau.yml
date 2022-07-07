@@ -1,0 +1,246 @@
+entity: Recipe
+connectedFields: ['ingredient', 'item']
+items:
+  tomate-nordique-pontchateau:
+    ingredient: "@tomate"
+    item: "@nordique-pontchateau"
+  salade-nordique-pontchateau:
+    ingredient: "@salade"
+    item: "@nordique-pontchateau"
+  saumon-nordique-pontchateau:
+    ingredient: "@saumon"
+    item: "@nordique-pontchateau"
+  chevre-nordique-pontchateau:
+    ingredient: "@chevre"
+    item: "@nordique-pontchateau"
+  vinaigrette-nordique-pontchateau:
+    ingredient: "@vinaigrette"
+    item: "@nordique-pontchateau"
+  salade-poulette-pontchateau:
+    ingredient: "@salade"
+    item: "@poulette-pontchateau"
+  tomate-poulette-pontchateau:
+    ingredient: "@tomate"
+    item: "@poulette-pontchateau"
+  oignon-poulette-pontchateau:
+    ingredient: "@oignon-rouge"
+    item: "@poulette-pontchateau"
+  poulet-poulette-pontchateau:
+    ingredient: "@emince-poulet"
+    item: "@poulette-pontchateau"
+  chevre-poulette-pontchateau:
+    ingredient: "@chevre"
+    item: "@poulette-pontchateau"
+  vinaigrette-poulette-pontchateau:
+    ingredient: "@vinaigrette"
+    item: "@poulette-pontchateau"
+  steak-cowboy-pontchateau:
+    ingredient: "@steak"
+    item: "@cowboy-pontchateau"
+  cheddar-cowboy-pontchateau:
+    ingredient: "@cheddar"
+    item: "@cowboy-pontchateau"
+  tomate-cowboy-pontchateau:
+    ingredient: "@tomate"
+    item: "@cowboy-pontchateau"
+  bbq-cowboy-pontchateau:
+    ingredient: "@sauce-bbq"
+    item: "@cowboy-pontchateau"
+  kebab-kebab-pontchateau:
+    ingredient: "@kebab"
+    item: "@kebab-pontchateau"
+  tomate-kebab-pontchateau:
+    ingredient: "@tomate"
+    item: "@kebab-pontchateau"
+  oignon-kebab-pontchateau:
+    ingredient: "@oignon-rouge"
+    item: "@kebab-pontchateau"
+  salade-kebab-pontchateau:
+    ingredient: "@salade"
+    item: "@kebab-pontchateau"
+  blanche-kebab-pontchateau:
+    ingredient: "@sauce-blanche"
+    item: "@kebab-pontchateau"
+  steak-cab-pontchateau:
+    ingredient: "@steak"
+    item: "@cab-pontchateau"
+  poitrine-cab-pontchateau:
+    ingredient: "@poitrine-fumee"
+    item: "@cab-pontchateau"
+  cheddar-cab-pontchateau:
+    ingredient: "@cheddar"
+    item: "@cab-pontchateau"
+  tomate-cab-pontchateau:
+    ingredient: "@tomate"
+    item: "@cab-pontchateau"
+  oignon-cab-pontchateau:
+    ingredient: "@oignon-rouge"
+    item: "@cab-pontchateau"
+  salade-cab-pontchateau:
+    ingredient: "@salade"
+    item: "@cab-pontchateau"
+  bbq-cab-pontchateau:
+    ingredient: "@sauce-bbq"
+    item: "@cab-pontchateau"
+  steak-savoyard-pontchateau:
+    ingredient: "@steak"
+    item: "@savoyard-pontchateau"
+  oignon-savoyard-pontchateau:
+    ingredient: "@oignon-jaune"
+    item: "@savoyard-pontchateau"
+  poitrine-savoyard-pontchateau:
+    ingredient: "@poitrine-fumee"
+    item: "@savoyard-pontchateau"
+  reblochon-savoyard-pontchateau:
+    ingredient: "@reblochon"
+    item: "@savoyard-pontchateau"
+  bearnaise-savoyard-pontchateau:
+    ingredient: "@sauce-bearnaise"
+    item: "@savoyard-pontchateau"
+  steak-normand-pontchateau:
+    ingredient: "@steak"
+    item: "@normand-pontchateau"
+  oignon-normand-pontchateau:
+    ingredient: "@oignon-jaune"
+    item: "@normand-pontchateau"
+  camembert-normand-pontchateau:
+    ingredient: "@camembert"
+    item: "@normand-pontchateau"
+  salade-normand-pontchateau:
+    ingredient: "@salade"
+    item: "@normand-pontchateau"
+  poivre-normand-pontchateau:
+    ingredient: "@sauce-poivre"
+    item: "@normand-pontchateau"
+  steak-montagnard-pontchateau:
+    ingredient: "@steak"
+    item: "@montagnard-pontchateau"
+  oignon-montagnard-pontchateau:
+    ingredient: "@oignon-jaune"
+    item: "@montagnard-pontchateau"
+  galette-montagnard-pontchateau:
+    ingredient: "@galette"
+    item: "@montagnard-pontchateau"
+  poitrine-montagnard-pontchateau:
+    ingredient: "@poitrine-fumee"
+    item: "@montagnard-pontchateau"
+  raclette-montagnard-pontchateau:
+    ingredient: "@raclette"
+    item: "@montagnard-pontchateau"
+  bbq-montagnard-pontchateau:
+    ingredient: "@sauce-bbq"
+    item: "@montagnard-pontchateau"
+  galette-viking-pontchateau:
+    ingredient: "@galette"
+    item: "@viking-pontchateau"
+  saumon-viking-pontchateau:
+    ingredient: "@saumon"
+    item: "@viking-pontchateau"
+  tomate-viking-pontchateau:
+    ingredient: "@tomate"
+    item: "@viking-pontchateau"
+  salade-viking-pontchateau:
+    ingredient: "@salade"
+    item: "@viking-pontchateau"
+  tartare-viking-pontchateau:
+    ingredient: "@sauce-tartare"
+    item: "@viking-pontchateau"
+  burger-gaulois-pontchateau:
+    ingredient: "@sauce-burger"
+    item: "@gaulois-pontchateau"
+  poulet-gaulois-pontchateau:
+    ingredient: "@filet-poulet"
+    item: "@gaulois-pontchateau"
+  cheddar-gaulois-pontchateau:
+    ingredient: "@cheddar"
+    item: "@gaulois-pontchateau"
+  oignon-gaulois-pontchateau:
+    ingredient: "@oignon-rouge"
+    item: "@gaulois-pontchateau"
+  salade-gaulois-pontchateau:
+    ingredient: "@salade"
+    item: "@gaulois-pontchateau"
+  steak-andalou-pontchateau:
+    ingredient: "@steak"
+    item: "@andalou-pontchateau"
+  oignon-andalou-pontchateau:
+    ingredient: "@oignon-jaune"
+    item: "@andalou-pontchateau"
+  poitrine-andalou-pontchateau:
+    ingredient: "@poitrine-fumee"
+    item: "@andalou-pontchateau"
+  cheddar-andalou-pontchateau:
+    ingredient: "@cheddar"
+    item: "@andalou-pontchateau"
+  salade-andalou-pontchateau:
+    ingredient: "@salade"
+    item: "@andalou-pontchateau"
+  andalouse-andalou-pontchateau:
+    ingredient: "@sauce-andalouse"
+    item: "@andalou-pontchateau"
+  galette-vegetarien-pontchateau:
+    ingredient: "@galette"
+    item: "@vegetarien-pontchateau"
+  cheddar-vegetarien-pontchateau:
+    ingredient: "@cheddar"
+    item: "@vegetarien-pontchateau"
+  tomate-vegetarien-pontchateau:
+    ingredient: "@tomate"
+    item: "@vegetarien-pontchateau"
+  oignon-vegetarien-pontchateau:
+    ingredient: "@oignon-rouge"
+    item: "@vegetarien-pontchateau"
+  salade-vegetarien-pontchateau:
+    ingredient: "@salade"
+    item: "@vegetarien-pontchateau"
+  bbq-vegetarien-pontchateau:
+    ingredient: "@sauce-bbq"
+    item: "@vegetarien-pontchateau"
+  steak-burger-kid-pontchateau:
+    ingredient: "@steak"
+    item: "@burger-kid-pontchateau"
+  cheddar-burger-kid-pontchateau:
+    ingredient: "@cheddar"
+    item: "@burger-kid-pontchateau"
+  ketchup-burger-kid-pontchateau:
+    ingredient: "@ketchup"
+    item: "@burger-kid-pontchateau"
+  steak-terminus-pontchateau:
+    ingredient: "@steak"
+    item: "@terminus-pontchateau"
+  cheddar-terminus-pontchateau:
+    ingredient: "@cheddar"
+    item: "@terminus-pontchateau"
+  ketchup-terminus-pontchateau:
+    ingredient: "@ketchup"
+    item: "@terminus-pontchateau"
+  steak-nantais-pontchateau:
+    ingredient: "@steak"
+    item: "@nantais-pontchateau"
+  cure-nantais-pontchateau:
+    ingredient: "@cure-nantais"
+    item: "@nantais-pontchateau"
+  oignon-nantais-pontchateau:
+    ingredient: "@oignon-rouge"
+    item: "@nantais-pontchateau"
+  salade-nantais-pontchateau:
+    ingredient: "@salade"
+    item: "@nantais-pontchateau"
+  vinaigrette-nantais-pontchateau:
+    ingredient: "@vinaigrette"
+    item: "@nantais-pontchateau"
+  poulet-indien-pontchateau:
+    ingredient: "@poulet-curry"
+    item: "@indien-pontchateau"
+  oignon-indien-pontchateau:
+    ingredient: "@oignon-jaune"
+    item: "@indien-pontchateau"
+  chevre-indien-pontchateau:
+    ingredient: "@chevre"
+    item: "@indien-pontchateau"
+  salade-indien-pontchateau:
+    ingredient: "@salade"
+    item: "@indien-pontchateau"
+  curry-indien-pontchateau:
+    ingredient: "@sauce-curry"
+    item: "@indien-pontchateau"

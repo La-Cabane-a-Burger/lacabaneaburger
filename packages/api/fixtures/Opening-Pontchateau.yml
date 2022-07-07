@@ -1,0 +1,58 @@
+entity: Opening
+connectedFields: ['store']
+items:
+  pontchateau-tuesday-morning:
+    weekday: 'mardi'
+    start: '11h30'
+    end: '13h45'
+    store: '@pontchateau'
+  pontchateau-tuesday-afternoon:
+    weekday: 'mardi'
+    start: '18h00'
+    end: '21h30'
+    store: '@pontchateau'
+  pontchateau-wednesday-morning:
+    weekday: 'mercredi'
+    start: '11h30'
+    end: '13h45'
+    store: '@pontchateau'
+  pontchateau-wednesday-afternoon:
+    weekday: 'mercredi'
+    start: '18h00'
+    end: '21h30'
+    store: '@pontchateau'
+  pontchateau-thursday-morning:
+    weekday: 'jeudi'
+    start: '11h30'
+    end: '13h45'
+    store: '@pontchateau'
+  pontchateau-thursday-afternoon:
+    weekday: 'jeudi'
+    start: '18h00'
+    end: '21h30'
+    store: '@pontchateau'
+  pontchateau-friday-morning:
+    weekday: 'vendredi'
+    start: '11h30'
+    end: '13h45'
+    store: '@pontchateau'
+  pontchateau-friday-afternoon:
+    weekday: 'vendredi'
+    start: '18h00'
+    end: '22h00'
+    store: '@pontchateau'
+  pontchateau-saturday-morning:
+    weekday: 'samedi'
+    start: '11h30'
+    end: '13h45'
+    store: '@pontchateau'
+  pontchateau-saturday-afternoon:
+    weekday: 'samedi'
+    start: '18h00'
+    end: '22h00'
+    store: '@pontchateau'
+  pontchateau-sunday-afternoon:
+    weekday: 'dimanche'
+    start: '18h00'
+    end: '22h00'
+    store: '@pontchateau'

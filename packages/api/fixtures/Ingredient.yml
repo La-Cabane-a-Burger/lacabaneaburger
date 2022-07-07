@@ -1,0 +1,162 @@
+entity: Ingredient
+items:
+  tomate:
+    name: 'Rondelles de tomates'
+    price: 0
+    category: 'VEGETABLE'
+    allergens: []
+  salade:
+    name: 'Salade'
+    price: 0
+    category: 'VEGETABLE'
+    allergens: []
+  oignon-rouge:
+    name: "Rondelles d'oignons rouges"
+    price: 0
+    category: 'VEGETABLE'
+    allergens: [ ]
+  emince-poulet:
+    name: "Émincé de filet de poulet pané"
+    price: 2.5
+    category: 'MEET'
+    allergens: [ ]
+  filet-poulet:
+    name: "Filet de poulet pané"
+    price: 2.5
+    category: 'MEET'
+    allergens: [ ]
+  chevre:
+    name: "Palet de chèvre affiné"
+    price: 1.5
+    category: 'CHEESE'
+    allergens: [ ]
+  vinaigrette:
+    name: "Sauce vinaigrette"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  saumon:
+    name: "Saumon fumé"
+    price: 2.5
+    category: 'MEET'
+    allergens: [ ]
+  steak:
+    name: "Steak haché"
+    price: 2.5
+    category: 'MEET'
+    allergens: [ ]
+  cheddar:
+    name: "Cheddar"
+    price: 1.5
+    category: 'CHEESE'
+    allergens: [ ]
+  kebab:
+    name: "Émincé de kebab"
+    price: 2.5
+    category: 'MEET'
+    allergens: [ ]
+  sauce-blanche:
+    name: "Sauce blanche"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  sauce-bbq:
+    name: "Sauce barbecue"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  poitrine-fumee:
+    name: "Poitrine fumée"
+    price: 1.5
+    category: 'SAUCE'
+    allergens: [ ]
+  oignon-jaune:
+    name: "Confit d'oignons jaunes"
+    price: 0
+    category: 'VEGETABLE'
+    allergens: [ ]
+  reblochon:
+    name: "Reblochon au lait cru"
+    price: 0
+    category: 'VEGETABLE'
+    allergens: [ ]
+  galette:
+    name: "Galette de pomme de terre"
+    price: 0
+    category: 'VEGETABLE'
+    allergens: [ ]
+  camembert:
+    name: "Camembert au lait cru"
+    price: 1.5
+    category: 'CHEESE'
+    allergens: [ ]
+  raclette:
+    name: "Raclette"
+    price: 1.5
+    category: 'CHEESE'
+    allergens: [ ]
+  sauce-bearnaise:
+    name: "Sauce béarnaise"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  sauce-poivre:
+    name: "Sauce poivre"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  sauce-tartare:
+    name: "Sauce tartare"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  sauce-burger:
+    name: "Sauce burger"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  sauce-andalouse:
+    name: "Sauce andalouse"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  citeaux:
+    name: "Fromage de l'abbaye de Citeaux"
+    price: 1.5
+    category: 'CHEESE'
+    allergens: [ ]
+  mayonnaise:
+    name: "Mayonnaise"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  saucisse-morteau:
+    name: "Saucisse de Morteau (IGP)"
+    price: 0
+    category: 'MEET'
+    allergens: [ ]
+  morbier:
+    name: "Fromage Morbier (IGP)"
+    price: 1.5
+    category: 'CHEESE'
+    allergens: [ ]
+  ketchup:
+    name: "Ketchup"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]
+  cure-nantais:
+    name: "Curé nantais"
+    price: 1.5
+    category: 'CHEESE'
+    allergens: [ ]
+  poulet-curry:
+    name: "Émincé de poulet rôti au curry"
+    price: 1.5
+    category: 'MEET'
+    allergens: [ ]
+  sauce-curry:
+    name: "Sauce curry"
+    price: 0
+    category: 'SAUCE'
+    allergens: [ ]

@@ -1,0 +1,253 @@
+entity: Recipe
+connectedFields: ['ingredient', 'item']
+items:
+  tomate-nordique-dijon:
+    ingredient: "@tomate"
+    item: "@nordique-dijon"
+  salade-nordique-dijon:
+    ingredient: "@salade"
+    item: "@nordique-dijon"
+  saumon-nordique-dijon:
+    ingredient: "@saumon"
+    item: "@nordique-dijon"
+  chevre-nordique-dijon:
+    ingredient: "@chevre"
+    item: "@nordique-dijon"
+  vinaigrette-nordique-dijon:
+    ingredient: "@vinaigrette"
+    item: "@nordique-dijon"
+  salade-poulette-dijon:
+    ingredient: "@salade"
+    item: "@poulette-dijon"
+  tomate-poulette-dijon:
+    ingredient: "@tomate"
+    item: "@poulette-dijon"
+  oignon-poulette-dijon:
+    ingredient: "@oignon-rouge"
+    item: "@poulette-dijon"
+  poulet-poulette-dijon:
+    ingredient: "@emince-poulet"
+    item: "@poulette-dijon"
+  chevre-poulette-dijon:
+    ingredient: "@chevre"
+    item: "@poulette-dijon"
+  vinaigrette-poulette-dijon:
+    ingredient: "@vinaigrette"
+    item: "@poulette-dijon"
+  steak-cowboy-dijon:
+    ingredient: "@steak"
+    item: "@cowboy-dijon"
+  cheddar-cowboy-dijon:
+    ingredient: "@cheddar"
+    item: "@cowboy-dijon"
+  tomate-cowboy-dijon:
+    ingredient: "@tomate"
+    item: "@cowboy-dijon"
+  bbq-cowboy-dijon:
+    ingredient: "@sauce-bbq"
+    item: "@cowboy-dijon"
+  kebab-kebab-dijon:
+    ingredient: "@kebab"
+    item: "@kebab-dijon"
+  tomate-kebab-dijon:
+    ingredient: "@tomate"
+    item: "@kebab-dijon"
+  oignon-kebab-dijon:
+    ingredient: "@oignon-rouge"
+    item: "@kebab-dijon"
+  salade-kebab-dijon:
+    ingredient: "@salade"
+    item: "@kebab-dijon"
+  blanche-kebab-dijon:
+    ingredient: "@sauce-blanche"
+    item: "@kebab-dijon"
+  steak-cab-dijon:
+    ingredient: "@steak"
+    item: "@cab-dijon"
+  poitrine-cab-dijon:
+    ingredient: "@poitrine-fumee"
+    item: "@cab-dijon"
+  cheddar-cab-dijon:
+    ingredient: "@cheddar"
+    item: "@cab-dijon"
+  tomate-cab-dijon:
+    ingredient: "@tomate"
+    item: "@cab-dijon"
+  oignon-cab-dijon:
+    ingredient: "@oignon-rouge"
+    item: "@cab-dijon"
+  salade-cab-dijon:
+    ingredient: "@salade"
+    item: "@cab-dijon"
+  bbq-cab-dijon:
+    ingredient: "@sauce-bbq"
+    item: "@cab-dijon"
+  steak-savoyard-dijon:
+    ingredient: "@steak"
+    item: "@savoyard-dijon"
+  oignon-savoyard-dijon:
+    ingredient: "@oignon-jaune"
+    item: "@savoyard-dijon"
+  poitrine-savoyard-dijon:
+    ingredient: "@poitrine-fumee"
+    item: "@savoyard-dijon"
+  reblochon-savoyard-dijon:
+    ingredient: "@reblochon"
+    item: "@savoyard-dijon"
+  bearnaise-savoyard-dijon:
+    ingredient: "@sauce-bearnaise"
+    item: "@savoyard-dijon"
+  steak-normand-dijon:
+    ingredient: "@steak"
+    item: "@normand-dijon"
+  oignon-normand-dijon:
+    ingredient: "@oignon-jaune"
+    item: "@normand-dijon"
+  camembert-normand-dijon:
+    ingredient: "@camembert"
+    item: "@normand-dijon"
+  salade-normand-dijon:
+    ingredient: "@salade"
+    item: "@normand-dijon"
+  poivre-normand-dijon:
+    ingredient: "@sauce-poivre"
+    item: "@normand-dijon"
+  steak-montagnard-dijon:
+    ingredient: "@steak"
+    item: "@montagnard-dijon"
+  oignon-montagnard-dijon:
+    ingredient: "@oignon-jaune"
+    item: "@montagnard-dijon"
+  galette-montagnard-dijon:
+    ingredient: "@galette"
+    item: "@montagnard-dijon"
+  poitrine-montagnard-dijon:
+    ingredient: "@poitrine-fumee"
+    item: "@montagnard-dijon"
+  raclette-montagnard-dijon:
+    ingredient: "@raclette"
+    item: "@montagnard-dijon"
+  bbq-montagnard-dijon:
+    ingredient: "@sauce-bbq"
+    item: "@montagnard-dijon"
+  galette-viking-dijon:
+    ingredient: "@galette"
+    item: "@viking-dijon"
+  saumon-viking-dijon:
+    ingredient: "@saumon"
+    item: "@viking-dijon"
+  tomate-viking-dijon:
+    ingredient: "@tomate"
+    item: "@viking-dijon"
+  salade-viking-dijon:
+    ingredient: "@salade"
+    item: "@viking-dijon"
+  tartare-viking-dijon:
+    ingredient: "@sauce-tartare"
+    item: "@viking-dijon"
+  burger-gaulois-dijon:
+    ingredient: "@sauce-burger"
+    item: "@gaulois-dijon"
+  poulet-gaulois-dijon:
+    ingredient: "@filet-poulet"
+    item: "@gaulois-dijon"
+  cheddar-gaulois-dijon:
+    ingredient: "@cheddar"
+    item: "@gaulois-dijon"
+  oignon-gaulois-dijon:
+    ingredient: "@oignon-rouge"
+    item: "@gaulois-dijon"
+  salade-gaulois-dijon:
+    ingredient: "@salade"
+    item: "@gaulois-dijon"
+  steak-andalou-dijon:
+    ingredient: "@steak"
+    item: "@andalou-dijon"
+  oignon-andalou-dijon:
+    ingredient: "@oignon-jaune"
+    item: "@andalou-dijon"
+  poitrine-andalou-dijon:
+    ingredient: "@poitrine-fumee"
+    item: "@andalou-dijon"
+  cheddar-andalou-dijon:
+    ingredient: "@cheddar"
+    item: "@andalou-dijon"
+  salade-andalou-dijon:
+    ingredient: "@salade"
+    item: "@andalou-dijon"
+  andalouse-andalou-dijon:
+    ingredient: "@sauce-andalouse"
+    item: "@andalou-dijon"
+  steak-bourguignon-dijon:
+    ingredient: "@steak"
+    item: "@bourguignon-dijon"
+  oignon-bourguignon-dijon:
+    ingredient: "@oignon-jaune"
+    item: "@bourguignon-dijon"
+  poitrine-bourguignon-dijon:
+    ingredient: "@poitrine-fumee"
+    item: "@bourguignon-dijon"
+  citeaux-bourguignon-dijon:
+    ingredient: "@citeaux"
+    item: "@bourguignon-dijon"
+  salade-bourguignon-dijon:
+    ingredient: "@salade"
+    item: "@bourguignon-dijon"
+  mayonnaise-bourguignon-dijon:
+    ingredient: "@mayonnaise"
+    item: "@bourguignon-dijon"
+  steak-comtois-dijon:
+    ingredient: "@steak"
+    item: "@comtois-dijon"
+  saucisse-comtois-dijon:
+    ingredient: "@saucisse-morteau"
+    item: "@comtois-dijon"
+  morbier-comtois-dijon:
+    ingredient: "@morbier"
+    item: "@comtois-dijon"
+  oignon-comtois-dijon:
+    ingredient: "@oignon-rouge"
+    item: "@comtois-dijon"
+  salade-comtois-dijon:
+    ingredient: "@salade"
+    item: "@comtois-dijon"
+  mayonnaise-comtois-dijon:
+    ingredient: "@mayonnaise"
+    item: "@comtois-dijon"
+  galette-vegetarien-dijon:
+    ingredient: "@galette"
+    item: "@vegetarien-dijon"
+  cheddar-vegetarien-dijon:
+    ingredient: "@cheddar"
+    item: "@vegetarien-dijon"
+  tomate-vegetarien-dijon:
+    ingredient: "@tomate"
+    item: "@vegetarien-dijon"
+  oignon-vegetarien-dijon:
+    ingredient: "@oignon-rouge"
+    item: "@vegetarien-dijon"
+  salade-vegetarien-dijon:
+    ingredient: "@salade"
+    item: "@vegetarien-dijon"
+  bbq-vegetarien-dijon:
+    ingredient: "@sauce-bbq"
+    item: "@vegetarien-dijon"
+  steak-burger-kid-dijon:
+    ingredient: "@steak"
+    item: "@burger-kid-dijon"
+  cheddar-burger-kid-dijon:
+    ingredient: "@cheddar"
+    item: "@burger-kid-dijon"
+  ketchup-burger-kid-dijon:
+    ingredient: "@ketchup"
+    item: "@burger-kid-dijon"
+  steak-terminus-dijon:
+    ingredient: "@steak"
+    item: "@terminus-dijon"
+  cheddar-terminus-dijon:
+    ingredient: "@cheddar"
+    item: "@terminus-dijon"
+  ketchup-terminus-dijon:
+    ingredient: "@ketchup"
+    item: "@terminus-dijon"
+
