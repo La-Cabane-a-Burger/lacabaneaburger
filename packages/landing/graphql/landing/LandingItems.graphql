@@ -1,0 +1,15 @@
+query LandingItems {
+    landingItems {
+        id
+        name
+        category
+        description
+        capacity
+        ingredients {
+            ingredient {
+                name
+                id
+            }
+        }
+    }
+}

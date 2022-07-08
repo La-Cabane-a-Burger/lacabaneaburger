@@ -292,6 +292,7 @@ export type Query = {
   getStores?: Maybe<Array<Maybe<Store>>>;
   getUser?: Maybe<User>;
   getUsers?: Maybe<Array<Maybe<User>>>;
+  landingItems?: Maybe<Array<Maybe<Item>>>;
   storeItemsByCategory?: Maybe<Array<Maybe<Item>>>;
 };
 
@@ -436,6 +437,11 @@ export type SignInMutationVariables = Exact<{
 
 export type SignInMutation = { __typename?: 'Mutation', signIn: { __typename?: 'AuthPayload', token: string } };
 
+export type LandingItemsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LandingItemsQuery = { __typename?: 'Query', landingItems?: Array<{ __typename?: 'Item', id: string, name?: string | null | undefined, category?: string | null | undefined, description?: string | null | undefined, capacity?: number | null | undefined, ingredients?: Array<{ __typename?: 'Recipe', ingredient?: { __typename?: 'Ingredient', name: string, id: string } | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
+
 export type StoreItemsByCategoryQueryVariables = Exact<{
   storeId: Scalars['ID'];
   category: Scalars['String'];
@@ -486,6 +492,43 @@ export function useSignInMutation(options: VueApolloComposable.UseMutationOption
   return VueApolloComposable.useMutation<SignInMutation, SignInMutationVariables>(SignInDocument, options);
 }
 export type SignInMutationCompositionFunctionResult = VueApolloComposable.UseMutationReturn<SignInMutation, SignInMutationVariables>;
+export const LandingItemsDocument = gql`
+    query LandingItems {
+  landingItems {
+    id
+    name
+    category
+    description
+    capacity
+    ingredients {
+      ingredient {
+        name
+        id
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useLandingItemsQuery__
+ *
+ * To run a query within a Vue component, call `useLandingItemsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLandingItemsQuery` returns an object from Apollo Client that contains result, loading and error properties
+ * you can use to render your UI.
+ *
+ * @param options that will be passed into the query, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/query.html#options;
+ *
+ * @example
+ * const { result, loading, error } = useLandingItemsQuery();
+ */
+export function useLandingItemsQuery(options: VueApolloComposable.UseQueryOptions<LandingItemsQuery, LandingItemsQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<LandingItemsQuery, LandingItemsQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<LandingItemsQuery, LandingItemsQueryVariables>> = {}) {
+  return VueApolloComposable.useQuery<LandingItemsQuery, LandingItemsQueryVariables>(LandingItemsDocument, {}, options);
+}
+export function useLandingItemsLazyQuery(options: VueApolloComposable.UseQueryOptions<LandingItemsQuery, LandingItemsQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<LandingItemsQuery, LandingItemsQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<LandingItemsQuery, LandingItemsQueryVariables>> = {}) {
+  return VueApolloComposable.useLazyQuery<LandingItemsQuery, LandingItemsQueryVariables>(LandingItemsDocument, {}, options);
+}
+export type LandingItemsQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<LandingItemsQuery, LandingItemsQueryVariables>;
 export const StoreItemsByCategoryDocument = gql`
     query StoreItemsByCategory($storeId: ID!, $category: String!) {
   storeItemsByCategory(storeId: $storeId, category: $category) {

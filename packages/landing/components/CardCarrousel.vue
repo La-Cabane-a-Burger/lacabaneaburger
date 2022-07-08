@@ -8,17 +8,27 @@
         ref="carrousel"
         class="flex items-center justify-between overflow-y-auto scrollbar"
     >
-      <div class="flex flex-row justify-between flex-1 py-5">
+      <div>
 
-        <Card
-            v-for="card in cards"
-            :key="card.title"
-            :image="card.image"
-            :title="card.title"
-            :text="card.text"
-            class="mr-5"
-        />
+        <div class="flex flex-row justify-between flex-1 py-5" v-if="!loading">
+          <MenuItem
+              v-for="card in cards"
+              :item="card"
+              class="mr-5"
+          />
+        </div>
+        <div class="flex flex-row justify-between flex-1 py-5" v-else>
+          <MenuItem
+              v-for="n of 3"
+              loading
+              :key="n"
+              class="mr-5"
+          />
+        </div>
+
+
       </div>
+
     </div>
     <ChevronRight
         @click="onClickRight"
@@ -31,16 +41,19 @@
 import ChevronLeft from "assets/icons/LeftChevronIcon.vue";
 import ChevronRight from "assets/icons/RightChevronIcon.vue";
 import {defineComponent} from "vue";
-import Card from "~/components/Card.vue";
+import Card from "@/components/Card.vue";
+import MenuItem from "@/components/menu/MenuItem.vue";
 
 export default defineComponent({
   components: {
+    MenuItem,
     Card,
     ChevronLeft,
     ChevronRight,
   },
   props: {
     cards: Array,
+    loading: Boolean
   },
   setup() {
     const onClickLeft = () => {

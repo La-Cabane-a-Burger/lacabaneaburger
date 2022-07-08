@@ -3,7 +3,8 @@
   <div class="pt-48">
     <div class="pb-4 flex flex-col justify-center items-center">
       <h2 class="text-4xl font-black uppercase">La Carte</h2>
-      <p v-if="store" class="text-primary-900 font-bold uppercase">{{ store.city }}</p>
+      <div v-if="loading" class="animate-pulse bg-slate-200 rounded-lg w-32 h-4"></div>
+      <p v-else-if="store?.city && !loading" class="text-primary-900 font-bold uppercase">{{ store.city }}</p>
     </div>
     <div class="md:flex gap-4">
       <div class="hidden md:flex md:w-64 md:flex-col md:inset-y-0">
@@ -25,26 +26,28 @@
         </div>
       </div>
 
-        <div class="flex justify-center w-full mb-8 md:hidden">
-          <nav class="relative z-0 rounded-lg shadow flex divide-x divide-gray-200" aria-label="Tabs">
-            <router-link v-for="item in tabs" :to="item.to" :key="item.name" :href="item.href"
-                         :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 cursor-pointer', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
-              <component :is="item.icon"
-                         :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'flex-shrink-0 h-8 w-8']"
-                         aria-hidden="true"/>
-            </router-link>
-          </nav>
-        </div>
-      <div v-if="store" class="flex-1">
-        <BurgerMenu :store-id="store.id" v-if="currentTab === 'burgers'"/>
-        <SaladMenu :store-id="store.id" v-if="currentTab === 'salads'"/>
-        <NuggetsMenu :store-id="store.id" v-if="currentTab === 'nuggets'"/>
-        <AperoMenu :store-id="store.id" v-if="currentTab === 'apero'"/>
-        <DessertMenu :store-id="store.id" v-if="currentTab === 'desserts'"/>
-        <SidesMenu :store-id="store.id" v-if="currentTab === 'sides'"/>
-        <BeverageMenu :store-id="store.id" v-if="currentTab === 'beverages'"/>
+      <div class="flex justify-center w-full mb-8 md:hidden">
+        <nav class="relative z-0 rounded-lg shadow flex divide-x divide-gray-200" aria-label="Tabs">
+          <router-link v-for="item in tabs" :to="item.to" :key="item.name" :href="item.href"
+                       :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 cursor-pointer', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
+            <component :is="item.icon"
+                       :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'flex-shrink-0 h-8 w-8']"
+                       aria-hidden="true"/>
+          </router-link>
+        </nav>
       </div>
-      <div v-else>Chargement</div>
+      <div class="flex-1">
+        <div v-if="loading" class="animate-pulse bg-slate-200 rounded-lg w-32 h-8"></div>
+        <div v-else-if="store && !loading">
+          <BurgerMenu :store-id="store.id" v-if="currentTab === 'burgers'"/>
+          <SaladMenu :store-id="store.id" v-if="currentTab === 'salads'"/>
+          <NuggetsMenu :store-id="store.id" v-if="currentTab === 'nuggets'"/>
+          <AperoMenu :store-id="store.id" v-if="currentTab === 'apero'"/>
+          <DessertMenu :store-id="store.id" v-if="currentTab === 'desserts'"/>
+          <SidesMenu :store-id="store.id" v-if="currentTab === 'sides'"/>
+          <BeverageMenu :store-id="store.id" v-if="currentTab === 'beverages'"/>
+        </div>
+      </div>
     </div>
 
   </div>

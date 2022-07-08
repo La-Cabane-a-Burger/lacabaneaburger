@@ -1,4 +1,4 @@
-import {Context} from "../context";
+import {Context, prisma} from "../context";
 import {Category} from '@prisma/client'
 import {Ingredient} from "@lacabaneaburger/landing/generated/graphql";
 
@@ -25,6 +25,7 @@ export const Item = `
     type Query {
         getItems: [Item]
         storeItemsByCategory(storeId: ID!, category: String!): [Item]
+        landingItems: [Item]
         getItem(id: ID!): Item
         }
     
@@ -105,7 +106,7 @@ export const ItemResolver = {
                     },
                     menu: {
                         select: {
-                            id:true,
+                            id: true,
                             name: true,
                             price: true
                         }
@@ -113,6 +114,38 @@ export const ItemResolver = {
                 }
             });
         },
+        landingItems: async (_parents: any) => {
+
+            const store = await prisma.store.findUniqueOrThrow({
+                where: {
+                    slug: "pontchateau"
+                }
+            })
+
+            console.log(store);
+
+            return await prisma.item.findMany({
+                where: {
+                    OR: [{
+                        name: "Montagnard"
+                    }, {
+                        name: "Savoyard"
+                    }, {
+                        name: "Gaulois"
+                    }],
+                    storeId: store.id
+                },
+                include: {
+                    ingredients: {
+                        select: {
+                            itemId: true,
+                            ingredient: true
+                        }
+                    }
+                }
+            });
+        },
+
         getItem: async (_parents: any, _args: { id: string }, ctx: Context) => {
             return await ctx.prisma.item.findUnique({
                 where: {id: _args.id}
@@ -124,7 +157,7 @@ export const ItemResolver = {
             const {ingredients: ingredientsData, ...itemData} = args.input;
 
             const ingredients = {
-                create: ingredientsData.map((i:Ingredient) => ({
+                create: ingredientsData.map((i: Ingredient) => ({
                     ingredient: {
                         connect: {
                             id: i.id

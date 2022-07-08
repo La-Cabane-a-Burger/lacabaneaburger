@@ -117,7 +117,7 @@
     >
       <div class="w-10/12 py-20">
         <Subtitle topText="Decouvrez" bottomText="nos burgers"/>
-        <CardCarrousel :cards="burgers"/>
+        <CardCarrousel :loading="loading" :cards="burgersIntroduction"/>
         <div
             class="flex-row justify-between hidden p-10 my-20 lg:flex rounded-3xl bg-primary-400 font-headline"
         >
@@ -160,10 +160,9 @@ import Steak from "@/assets/icons/SteakIcon.vue";
 import Potatoes from "@/assets/icons/PotatoesIcon.vue";
 import Bullet from "@/assets/icons/BulletIcon.vue";
 
-import MontagnardImg from "@/assets/img/montagnard.png"
-import SavoyardImg from "@/assets/img/savoyard.png"
-import GauloisImg from "@/assets/img/gaulois.png"
 import {useRouter} from "#app";
+import {useLandingItemsQuery} from "~/generated/graphql";
+import {computed} from "vue";
 
 const router = useRouter();
 
@@ -175,26 +174,9 @@ const goToFranchise = () => {
   router.push('/franchise')
 }
 
-const burgers = [
-  {
-    title: "Le Montagnard",
-    image: MontagnardImg,
-    text:
-        "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
-  },
-  {
-    title: "Le Savoyard",
-    image: SavoyardImg,
-    text:
-        "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
-  },
-  {
-    title: "Le Gaulois",
-    image: GauloisImg,
-    text:
-        "Pain, steak, galette de pomme de terre, raclette, poitrine fumée, oignons confits",
-  },
-]
+const { result, loading } = useLandingItemsQuery();
+
+const burgersIntroduction = computed(() => result?.value?.landingItems ?? []);
 
 </script>
 
