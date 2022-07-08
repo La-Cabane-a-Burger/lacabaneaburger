@@ -6,7 +6,7 @@
   >
     <div class="flex justify-between mx-2 my-2 sm:mx-16">
       <div class="flex-row items-center flex-1 hidden lg:flex text-white gap-5"
-           :class="{'text-gray-900' : !isTextWhite }">
+           :class="{'text-gray-900' : !isTextWhite && scrollPosition <= 0}">
         <nuxt-link class="transition hover:text-primary-600" to="/menu" active-class="text-primary-600 cursor-default">
           Carte
         </nuxt-link>
@@ -21,8 +21,8 @@
         </nuxt-link>
       </div>
       <div class="flex items-center flex-1 lg:hidden text-white">
-        <Menu v-if="!isMenuOpen" class="w-full fill-white text-primary" @click="onToggleMenu"/>
-        <Cross v-if="isMenuOpen" class="w-full fill-white text-primary" @click="onToggleMenu"/>
+        <Menu v-if="!isMenuOpen" class="w-full text-primary" :class="{'fill-black' : !isTextWhite && scrollPosition <= 0}" @click="onToggleMenu"/>
+        <Cross v-if="isMenuOpen" class="w-full fill-white text-primary" @click="onToggleMenu"  />
       </div>
       <div class="flex items-center justify-center flex-1">
         <nuxt-link to="/">
@@ -80,7 +80,7 @@ const handleScroll = () => {
 const isMenuOpen = ref(false);
 const route = useRoute();
 
-const isTextWhite = computed(() => route.name === 'index' || route.name === 'franchise');
+const isTextWhite = computed(() => route.name === 'index');
 
 
 const onToggleMenu = () => {
