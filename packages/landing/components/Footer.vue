@@ -93,12 +93,6 @@
           <a class="hover:text-primary-600 whitespace-nowrap" href="/franchise">La Franchise</a>
         </div>
         <div class="flex gap-2">
-          <a href="#">
-            <FacebookIcon class="fill-white hover:fill-primary-600"/>
-          </a>
-          <a href="#">
-            <InstagramIcon class="fill-white hover:fill-primary-600"/>
-          </a>
         </div>
       </div>
     </div>

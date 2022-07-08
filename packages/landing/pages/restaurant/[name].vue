@@ -1,5 +1,5 @@
 <template>
-  <div v-if="myStore && !loading">
+  <div v-if="myStore && !loading && !pageNotFound">
     <div
         class="flex items-center justify-center w-full"
         :style="{
@@ -110,9 +110,9 @@ const {result, loading, onResult} = useGetStoreBySlugQuery({slug: restaurantSlug
 
 const myStore = computed(() => result?.value?.getStoreBySlug ?? {openings: []});
 
-onResult(({data, loading}) => {
-  if (!loading && !data.getStoreBySlug) {
-    router.push('/404')
+const pageNotFound = computed(() => {
+  if(!result.value?.getStoreBySlug) {
+    return router.push('/404')
   }
 })
 

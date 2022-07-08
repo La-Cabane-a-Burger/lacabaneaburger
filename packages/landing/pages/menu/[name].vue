@@ -89,7 +89,7 @@ const router = useRouter();
 const restaurantSlug = router.currentRoute.value.params.name.toString();
 const {result, loading} = useGetStoreBySlugQuery({slug: restaurantSlug});
 
-const store = computed(() => result?.value?.getStoreBySlug ?? null);
+const store = computed(() => result?.value?.getStoreBySlug ?? router.push('/404'));
 
 const tabList = [
   {key: 'burgers', name: 'Nos burgers', icon: BurgerIcon},
