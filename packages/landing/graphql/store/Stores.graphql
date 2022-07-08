@@ -1,9 +1,12 @@
 query GetStores {
   getStores {
+    id
     city
     slug
     phone
     postal_code
     address
+    latitude
+    longitude
   }
 }

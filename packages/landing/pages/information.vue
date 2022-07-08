@@ -2,12 +2,6 @@
   <div>
     <div
         class="flex items-center justify-center w-full h-screen"
-        :style="{
-        backgroundImage: `url('~/assets/backgrounds/background-transparent.png'})`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      }"
     >
       <div
           class="flex flex-row w-10/12 mt-48 bg-white shadow-lg h-4/6 rounded-xl"
@@ -16,8 +10,8 @@
           <h3 class="text-lg font-semibold font-text">
             Selectionnez une Cabane à Burger
           </h3>
-          <GeoSearch @geolocate="onGeolocate" @stop="onStop"/>
-          <div class="relative z-0 w-full overflow-scroll h-4/6">
+<!--          <GeoSearch @geolocate="onGeolocate" @stop="onStop"/>-->
+          <div class="relative z-0 w-full overflow-scroll h-full">
             <LocationCard
                 v-for="(location, index) in sortedLocations"
                 :key="index"
@@ -49,65 +43,18 @@ import distance from "@turf/distance";
 import Map from "@/components/Map.vue";
 import LocationCard from "@/components/LocationCard.vue";
 import GeoSearch from "@/components/GeoSearch.vue";
-import {Store} from "@/generated/graphql";
+import {Store, useGetStoresQuery} from "@/generated/graphql";
 
 const selected = ref("");
 let position = ref({lat: 0, lng: 0});
 
-const locations: Array<Store> = [
-  {
-    id: "38217e29-88fb-48d5-a86d-4427d2660be2",
-    city: "Dijon",
-    slug: "dijon",
-    address: "36-38 Rue de la Liberté, 21000 Dijon",
-    latitude: 47.32233,
-    longitude: 5.03715,
-    phone: "02 45 17 23 34",
-    openings: [
-      {id: "1", weekday: "monday", start: "11h30", end: "13h45"},
-      {id: "2", weekday: "monday", start: "17h00", end: "20h00"},
-      {id: "3", weekday: "tuesday", start: "11h30", end: "13h45"},
-      {id: "4", weekday: "tuesday", start: "17h00", end: "20h00"},
-      {id: "5", weekday: "wednesday", start: "11h30", end: "13h45"},
-      {id: "5", weekday: "wednesday", start: "17h00", end: "20h00"},
-      {id: "6", weekday: "thursday", start: "11h30", end: "13h45"},
-      {id: "7", weekday: "thursday", start: "17h00", end: "20h00"},
-      {id: "8", weekday: "friday", start: "11h30", end: "13h45"},
-      {id: "9", weekday: "friday", start: "17h00", end: "20h00"},
-      {id: "10", weekday: "saturday", start: "11h30", end: "13h45"},
-      {id: "11", weekday: "saturday", start: "17h00", end: "20h00"},
-      {id: "12", weekday: "sunday", start: "17h00", end: "20h00"},
-    ],
-  },
-  {
-    id: "38217e29-88fb-48d5-a86d-4427d2660be1",
-    city: "Pontchâteaux",
-    address: "2A rue Gutenberg ZI du Landas",
-    latitude: 47.43081,
-    longitude: -2.07996,
-    phone: "02 51 75 39 32",
-    slug:"pontchateau",
-    openings: [
-      {id: "1", weekday: "monday", start: "11h30", end: "13h45"},
-      {id: "2", weekday: "monday", start: "17h00", end: "20h00"},
-      {id: "3", weekday: "tuesday", start: "11h30", end: "13h45"},
-      {id: "4", weekday: "tuesday", start: "17h00", end: "20h00"},
-      {id: "5", weekday: "wednesday", start: "11h30", end: "13h45"},
-      {id: "5", weekday: "wednesday", start: "17h00", end: "20h00"},
-      {id: "6", weekday: "thursday", start: "11h30", end: "13h45"},
-      {id: "7", weekday: "thursday", start: "17h00", end: "20h00"},
-      {id: "8", weekday: "friday", start: "11h30", end: "13h45"},
-      {id: "9", weekday: "friday", start: "17h00", end: "20h00"},
-      {id: "10", weekday: "saturday", start: "11h30", end: "13h45"},
-      {id: "11", weekday: "saturday", start: "17h00", end: "20h00"},
-      {id: "12", weekday: "sunday", start: "17h00", end: "20h00"},
-    ],
-  },
-];
+const {result, loading} = useGetStoresQuery();
+
+const locations = computed(() => result?.value?.getStores ?? []);
 
 const sortedLocations = computed(() => {
   if (position.value.lat !== 0 || position.value.lng !== 0) {
-    let sortedLocations = locations
+    let sortedLocations = locations.value
         .map(({latitude, longitude, ...rest}) => {
           let location = point([longitude, latitude]);
           let user = point([position.value.lng, position.value.lat]);
@@ -122,7 +69,7 @@ const sortedLocations = computed(() => {
     selected.value = sortedLocations[0].id;
     return sortedLocations;
   } else {
-    return locations;
+    return locations.value;
   }
 });
 

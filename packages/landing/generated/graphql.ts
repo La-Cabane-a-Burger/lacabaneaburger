@@ -454,7 +454,7 @@ export type GetStoreBySlugQuery = { __typename?: 'Query', getStoreBySlug?: { __t
 export type GetStoresQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetStoresQuery = { __typename?: 'Query', getStores?: Array<{ __typename?: 'Store', city: string, slug: string, phone?: string | null | undefined, postal_code?: number | null | undefined, address?: string | null | undefined } | null | undefined> | null | undefined };
+export type GetStoresQuery = { __typename?: 'Query', getStores?: Array<{ __typename?: 'Store', id: string, city: string, slug: string, phone?: string | null | undefined, postal_code?: number | null | undefined, address?: string | null | undefined, latitude?: number | null | undefined, longitude?: number | null | undefined } | null | undefined> | null | undefined };
 
 
 export const SignInDocument = gql`
@@ -578,11 +578,14 @@ export type GetStoreBySlugQueryCompositionFunctionResult = VueApolloComposable.U
 export const GetStoresDocument = gql`
     query GetStores {
   getStores {
+    id
     city
     slug
     phone
     postal_code
     address
+    latitude
+    longitude
   }
 }
     `;

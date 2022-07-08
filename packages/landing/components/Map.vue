@@ -9,7 +9,7 @@ import LogoVariant from "@/assets/img/cab-logo-variant.png"
 
 export default defineComponent({
   props: {
-    locations: Array as PropType<Store[]>,
+    locations: Array,
     position: Object,
     selected: String,
   },
