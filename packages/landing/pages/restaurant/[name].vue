@@ -39,7 +39,7 @@
                   </thead>
                   <tbody>
                   <tr v-for="openning in formattedOpennings" :key="openning.day">
-                    <td class="border border-white w-1/2">{{ openning.day }}</td>
+                    <td class="border border-white w-1/2">{{ openning.day.replace(/^./, openning.day[0].toUpperCase()) }}</td>
                     <td class="border border-white">{{ openning.time }}</td>
                   </tr>
                   </tbody>
@@ -49,7 +49,7 @@
           </div>
           <hr class="w-full mt-5">
           <div class="w-full flex items-center	justify-center">
-            <Button class="mt-5 mx-5" @click="map(myStore.latitude, myStore.longitude)">J'Y VAIS</Button>
+            <Button class="mt-5 mx-5" @click="map(myStore.latitude, myStore.longitude)">J'y vais</Button>
             <Button class="mt-5 mx-5" @click="goToMenu" >Voir la carte</Button>
           </div>
           <hr class="w-full mt-5">

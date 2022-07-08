@@ -71,7 +71,7 @@
               originale de saison, accompagnée de frites fraiches de La Cabane.
             </p>
             <Button @click="goToFranchise" color="#EF7202" border size="l"
-            >Intérréssé par la franchise ? C’est par ici !
+            >Intéressé par la franchise ? C’est par ici !
             </Button>
           </div>
           <div class="flex justify-center flex-1 w-full lg:justify-end rounded">
