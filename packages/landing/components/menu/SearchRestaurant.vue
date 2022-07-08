@@ -1,8 +1,8 @@
 <template>
   <div
-      class="pt-60 mb-10 flex flex-col items-center justify-center w-screen"
+      class="pt-48 mb-10 flex flex-col items-center justify-center w-screen"
   >
-    <div class="sm:mx-auto sm:w-full sm:max-w-md mb-24">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md mb-12">
       <h2 class="mt-6 text-center text-3xl font-semibold text-secondary-900">
         La Carte
       </h2>

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-4 lg:grid-cols-2 grid-cols-1 pt-60">
+  <div class="grid gap-4 lg:grid-cols-2 grid-cols-1 pt-48">
     <div class="pt-11">
       <img
           alt="..."

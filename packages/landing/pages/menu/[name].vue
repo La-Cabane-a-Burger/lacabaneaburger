@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="pt-60">
+  <div class="pt-48">
     <div class="pb-4 flex flex-col justify-center items-center">
       <h2 class="text-4xl font-black uppercase">La Carte</h2>
       <p v-if="store" class="text-primary-900 font-bold uppercase">{{ store.city }}</p>
