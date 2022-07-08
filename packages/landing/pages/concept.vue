@@ -46,4 +46,8 @@
 
 <script setup lang="ts">
 import Subtitle from "@/components/Subtitle.vue";
+
+useHead({
+  title: 'Le Concept - La Cabane à Burger'
+})
 </script>

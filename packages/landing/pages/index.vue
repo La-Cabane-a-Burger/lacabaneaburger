@@ -42,7 +42,8 @@
               Raclette
             </li>
             <li class="text-sm font-semibold text-white">
-              Sauce Barbecue            </li>
+              Sauce Barbecue
+            </li>
           </ul>
         </div>
       </div>
@@ -69,12 +70,12 @@
               réveiller vos papilles. Chaque mois, retrouvez une recette
               originale de saison, accompagnée de frites fraiches de La Cabane.
             </p>
-            <button color="#EF7202" border size="l"
+            <Button @click="goToFranchise" color="#EF7202" border size="l"
             >Intérréssé par la franchise ? C’est par ici !
-            </button>
+            </Button>
           </div>
-          <div class="flex justify-center flex-1 w-full lg:justify-end">
-            <img src="@/assets/img/burger.png" alt=""/>
+          <div class="flex justify-center flex-1 w-full lg:justify-end rounded">
+            <img src="@/assets/img/breizh-burger.png" alt=""/>
           </div>
         </div>
         <ul class="justify-between hidden mt-20 lg:flex">
@@ -168,6 +169,10 @@ const router = useRouter();
 
 const goToMenu = () => {
   router.push('/menu')
+}
+
+const goToFranchise = () => {
+  router.push('/franchise')
 }
 
 const burgers = [

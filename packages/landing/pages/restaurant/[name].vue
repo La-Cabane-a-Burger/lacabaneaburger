@@ -120,6 +120,10 @@ const goToMenu = () => {
    router.push('/menu/' + restaurantSlug)
 }
 
+useHead({
+  titleTemplate: () => myStore?.value?.city + ' - La Cabane à Burger'
+})
+
 const formattedOpennings = computed(() => {
 
   if (myStore.value?.openings) {

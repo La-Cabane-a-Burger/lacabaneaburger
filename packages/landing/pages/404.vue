@@ -14,3 +14,9 @@
     </main>
   </div>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Page Introuvage - La Cabane à Burger'
+})
+</script>

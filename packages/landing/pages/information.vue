@@ -45,6 +45,10 @@ import LocationCard from "@/components/LocationCard.vue";
 import GeoSearch from "@/components/GeoSearch.vue";
 import {Store, useGetStoresQuery} from "@/generated/graphql";
 
+useHead({
+  title: 'Informations - La Cabane à Burger',
+})
+
 const selected = ref("");
 let position = ref({lat: 0, lng: 0});
 

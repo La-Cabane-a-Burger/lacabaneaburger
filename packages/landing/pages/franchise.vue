@@ -137,4 +137,7 @@ import Button from "@/components/form/Button.vue";
 import Subtitle from "@/components/Subtitle.vue";
 import CabDrawingImage from "@/assets/img/CabDrawingImage.vue";
 import StarsBackground from "@/components/StarsBackground.vue";
+useHead({
+  title: 'La Franchise - La Cabane à Burger'
+})
 </script>

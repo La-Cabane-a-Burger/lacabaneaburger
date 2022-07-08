@@ -16,6 +16,10 @@ import SearchRestaurant from "@/components/menu/SearchRestaurant.vue";
 import {useRouter} from "#app";
 import {ref} from "vue";
 
+useHead({
+  title: 'La Carte - La Cabane à Burger',
+})
+
 const showSearch = ref(true);
 
 const router = useRouter();
