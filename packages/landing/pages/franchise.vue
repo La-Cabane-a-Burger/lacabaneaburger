@@ -44,20 +44,24 @@
             <br/><br/>Faites-le-nous savoir !
           </p>
           <div class="text-center mt-10">
-            <Button
-                class="card-form__button w-1/3 justify-center"
-                @click="active = 1"
-                warn
-            >
-              Plus d'infos
-            </Button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAyiFcOPdV3v_kep3SOwemGXy-hPqAs5ti6Zy0Ipg025Arqw/viewform"
+               target="_blank">
+              <Button
+                  class="card-form__button w-1/3 justify-center"
+                  @click="active = 1"
+                  warn
+              >
+                Plus d'infos
+              </Button>
+            </a>
+
           </div>
         </div>
         <div class="p-10">
           <img
               alt="..."
               class="mx-auto vertical-middle"
-              src="~/assets/img/burger_franchise.png"
+              src="@/assets/img/burger_franchise.png"
           />
         </div>
       </div>
@@ -128,7 +132,10 @@
         </div>
       </div>
       <div class="text-center">
-        <Button @click="active = 1" class="mt-10"> Je souhaite me lancer</Button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAyiFcOPdV3v_kep3SOwemGXy-hPqAs5ti6Zy0Ipg025Arqw/viewform"
+           target="_blank">
+          <Button @click="active = 1" class="mt-10"> Je souhaite me lancer</Button>
+        </a>
       </div>
     </div>
   </div>
