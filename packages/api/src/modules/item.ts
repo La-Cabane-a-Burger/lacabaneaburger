@@ -122,8 +122,6 @@ export const ItemResolver = {
                 }
             })
 
-            console.log(store);
-
             return await prisma.item.findMany({
                 where: {
                     OR: [{
