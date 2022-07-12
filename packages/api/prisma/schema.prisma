@@ -36,7 +36,7 @@ enum Allergen {
   FISH
 }
 
-enum Category {
+enum ItemType {
     BURGER
     SALAD
     NUGGETS
@@ -44,6 +44,14 @@ enum Category {
     DESSERT
     SIDE
     BEVERAGE
+    KID
+}
+
+enum ItemCategory {
+    UNMISSABLE
+    LEGENDARY
+    CREATIVE
+    VEGGIE
     KID
 }
 
@@ -116,7 +124,7 @@ model Menu {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name        String
   price       Float
-  category    Category
+  type        ItemType?
   description String?
   menuItems   Item[]
   orderMenus  OrderItem[]
@@ -137,7 +145,8 @@ model Item {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name        String
   price       Float
-  category    Category
+  type        ItemType
+  category    ItemCategory?
   description String?
   capacity    Float?
   ingredients Recipe[]

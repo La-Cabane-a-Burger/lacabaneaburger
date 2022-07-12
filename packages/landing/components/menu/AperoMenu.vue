@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import {useStoreItemsByCategoryQuery} from "@/generated/graphql";
+import {useStoreItemsByTypeQuery} from "@/generated/graphql";
 import MenuItem from "@/components/menu/MenuItem.vue";
 import {computed} from "vue";
 
@@ -27,10 +27,10 @@ const props = defineProps({
   }
 })
 
-const {result, loading} = useStoreItemsByCategoryQuery({
+const {result, loading} = useStoreItemsByTypeQuery({
   storeId: props.storeId,
-  category: 'APPETIZER',
+  type: 'APPETIZER',
 });
 
-const appetizers = computed(() => result?.value?.storeItemsByCategory ?? [])
+const appetizers = computed(() => result?.value?.storeItemsByType ?? [])
 </script>

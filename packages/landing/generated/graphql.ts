@@ -63,10 +63,10 @@ export type CreateItemInput = {
 
 export type CreateMenuInput = {
   MenuItems?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  category?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Float']>;
+  type?: InputMaybe<Scalars['String']>;
 };
 
 export type CreateOpeningInput = {
@@ -114,16 +114,17 @@ export type Item = {
   price?: Maybe<Scalars['String']>;
   store?: Maybe<Store>;
   storeId?: Maybe<Scalars['ID']>;
+  type?: Maybe<Scalars['String']>;
 };
 
 export type Menu = {
   __typename?: 'Menu';
   MenuItems?: Maybe<Array<Maybe<Scalars['String']>>>;
-  category?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   name?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['Float']>;
+  type?: Maybe<Scalars['String']>;
 };
 
 export type Mutation = {
@@ -281,6 +282,7 @@ export type Query = {
   getIngredients?: Maybe<Array<Maybe<Ingredient>>>;
   getItem?: Maybe<Item>;
   getItems?: Maybe<Array<Maybe<Item>>>;
+  getKidMenuByStore?: Maybe<Menu>;
   getMenu?: Maybe<Menu>;
   getMenus?: Maybe<Array<Maybe<Menu>>>;
   getOpening?: Maybe<Opening>;
@@ -293,7 +295,7 @@ export type Query = {
   getUser?: Maybe<User>;
   getUsers?: Maybe<Array<Maybe<User>>>;
   landingItems?: Maybe<Array<Maybe<Item>>>;
-  storeItemsByCategory?: Maybe<Array<Maybe<Item>>>;
+  storeItemsByType?: Maybe<Array<Maybe<Item>>>;
 };
 
 
@@ -304,6 +306,11 @@ export type QueryGetIngredientArgs = {
 
 export type QueryGetItemArgs = {
   id: Scalars['ID'];
+};
+
+
+export type QueryGetKidMenuByStoreArgs = {
+  storeId: Scalars['ID'];
 };
 
 
@@ -337,9 +344,9 @@ export type QueryGetUserArgs = {
 };
 
 
-export type QueryStoreItemsByCategoryArgs = {
-  category: Scalars['String'];
+export type QueryStoreItemsByTypeArgs = {
   storeId: Scalars['ID'];
+  type: Scalars['String'];
 };
 
 export type Recipe = {
@@ -388,10 +395,10 @@ export type UpdateItemInput = {
 
 export type UpdateMenuInput = {
   MenuItems?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  category?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Float']>;
+  type?: InputMaybe<Scalars['String']>;
 };
 
 export type UpdateOpeningInput = {
@@ -442,13 +449,20 @@ export type LandingItemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type LandingItemsQuery = { __typename?: 'Query', landingItems?: Array<{ __typename?: 'Item', id: string, name?: string | null | undefined, category?: string | null | undefined, description?: string | null | undefined, capacity?: number | null | undefined, ingredients?: Array<{ __typename?: 'Recipe', ingredient?: { __typename?: 'Ingredient', name: string, id: string } | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
-export type StoreItemsByCategoryQueryVariables = Exact<{
+export type GetKidMenuByStoreQueryVariables = Exact<{
   storeId: Scalars['ID'];
-  category: Scalars['String'];
 }>;
 
 
-export type StoreItemsByCategoryQuery = { __typename?: 'Query', storeItemsByCategory?: Array<{ __typename?: 'Item', id: string, name?: string | null | undefined, price?: string | null | undefined, category?: string | null | undefined, description?: string | null | undefined, capacity?: number | null | undefined, ingredients?: Array<{ __typename?: 'Recipe', ingredient?: { __typename?: 'Ingredient', name: string, id: string } | null | undefined } | null | undefined> | null | undefined, menu?: { __typename?: 'Menu', id: string, name?: string | null | undefined, price?: number | null | undefined } | null | undefined } | null | undefined> | null | undefined };
+export type GetKidMenuByStoreQuery = { __typename?: 'Query', getKidMenuByStore?: { __typename?: 'Menu', id: string, name?: string | null | undefined, price?: number | null | undefined } | null | undefined };
+
+export type StoreItemsByTypeQueryVariables = Exact<{
+  storeId: Scalars['ID'];
+  type: Scalars['String'];
+}>;
+
+
+export type StoreItemsByTypeQuery = { __typename?: 'Query', storeItemsByType?: Array<{ __typename?: 'Item', id: string, name?: string | null | undefined, price?: string | null | undefined, category?: string | null | undefined, type?: string | null | undefined, description?: string | null | undefined, capacity?: number | null | undefined, ingredients?: Array<{ __typename?: 'Recipe', ingredient?: { __typename?: 'Ingredient', name: string, id: string } | null | undefined } | null | undefined> | null | undefined, menu?: { __typename?: 'Menu', id: string, name?: string | null | undefined, price?: number | null | undefined } | null | undefined } | null | undefined> | null | undefined };
 
 export type GetStoreBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -529,13 +543,46 @@ export function useLandingItemsLazyQuery(options: VueApolloComposable.UseQueryOp
   return VueApolloComposable.useLazyQuery<LandingItemsQuery, LandingItemsQueryVariables>(LandingItemsDocument, {}, options);
 }
 export type LandingItemsQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<LandingItemsQuery, LandingItemsQueryVariables>;
-export const StoreItemsByCategoryDocument = gql`
-    query StoreItemsByCategory($storeId: ID!, $category: String!) {
-  storeItemsByCategory(storeId: $storeId, category: $category) {
+export const GetKidMenuByStoreDocument = gql`
+    query GetKidMenuByStore($storeId: ID!) {
+  getKidMenuByStore(storeId: $storeId) {
+    id
+    name
+    price
+  }
+}
+    `;
+
+/**
+ * __useGetKidMenuByStoreQuery__
+ *
+ * To run a query within a Vue component, call `useGetKidMenuByStoreQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetKidMenuByStoreQuery` returns an object from Apollo Client that contains result, loading and error properties
+ * you can use to render your UI.
+ *
+ * @param variables that will be passed into the query
+ * @param options that will be passed into the query, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/query.html#options;
+ *
+ * @example
+ * const { result, loading, error } = useGetKidMenuByStoreQuery({
+ *   storeId: // value for 'storeId'
+ * });
+ */
+export function useGetKidMenuByStoreQuery(variables: GetKidMenuByStoreQueryVariables | VueCompositionApi.Ref<GetKidMenuByStoreQueryVariables> | ReactiveFunction<GetKidMenuByStoreQueryVariables>, options: VueApolloComposable.UseQueryOptions<GetKidMenuByStoreQuery, GetKidMenuByStoreQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetKidMenuByStoreQuery, GetKidMenuByStoreQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetKidMenuByStoreQuery, GetKidMenuByStoreQueryVariables>> = {}) {
+  return VueApolloComposable.useQuery<GetKidMenuByStoreQuery, GetKidMenuByStoreQueryVariables>(GetKidMenuByStoreDocument, variables, options);
+}
+export function useGetKidMenuByStoreLazyQuery(variables: GetKidMenuByStoreQueryVariables | VueCompositionApi.Ref<GetKidMenuByStoreQueryVariables> | ReactiveFunction<GetKidMenuByStoreQueryVariables>, options: VueApolloComposable.UseQueryOptions<GetKidMenuByStoreQuery, GetKidMenuByStoreQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetKidMenuByStoreQuery, GetKidMenuByStoreQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetKidMenuByStoreQuery, GetKidMenuByStoreQueryVariables>> = {}) {
+  return VueApolloComposable.useLazyQuery<GetKidMenuByStoreQuery, GetKidMenuByStoreQueryVariables>(GetKidMenuByStoreDocument, variables, options);
+}
+export type GetKidMenuByStoreQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<GetKidMenuByStoreQuery, GetKidMenuByStoreQueryVariables>;
+export const StoreItemsByTypeDocument = gql`
+    query StoreItemsByType($storeId: ID!, $type: String!) {
+  storeItemsByType(storeId: $storeId, type: $type) {
     id
     name
     price
     category
+    type
     description
     capacity
     ingredients {
@@ -554,28 +601,28 @@ export const StoreItemsByCategoryDocument = gql`
     `;
 
 /**
- * __useStoreItemsByCategoryQuery__
+ * __useStoreItemsByTypeQuery__
  *
- * To run a query within a Vue component, call `useStoreItemsByCategoryQuery` and pass it any options that fit your needs.
- * When your component renders, `useStoreItemsByCategoryQuery` returns an object from Apollo Client that contains result, loading and error properties
+ * To run a query within a Vue component, call `useStoreItemsByTypeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useStoreItemsByTypeQuery` returns an object from Apollo Client that contains result, loading and error properties
  * you can use to render your UI.
  *
  * @param variables that will be passed into the query
  * @param options that will be passed into the query, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/query.html#options;
  *
  * @example
- * const { result, loading, error } = useStoreItemsByCategoryQuery({
+ * const { result, loading, error } = useStoreItemsByTypeQuery({
  *   storeId: // value for 'storeId'
- *   category: // value for 'category'
+ *   type: // value for 'type'
  * });
  */
-export function useStoreItemsByCategoryQuery(variables: StoreItemsByCategoryQueryVariables | VueCompositionApi.Ref<StoreItemsByCategoryQueryVariables> | ReactiveFunction<StoreItemsByCategoryQueryVariables>, options: VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>> = {}) {
-  return VueApolloComposable.useQuery<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>(StoreItemsByCategoryDocument, variables, options);
+export function useStoreItemsByTypeQuery(variables: StoreItemsByTypeQueryVariables | VueCompositionApi.Ref<StoreItemsByTypeQueryVariables> | ReactiveFunction<StoreItemsByTypeQueryVariables>, options: VueApolloComposable.UseQueryOptions<StoreItemsByTypeQuery, StoreItemsByTypeQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<StoreItemsByTypeQuery, StoreItemsByTypeQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<StoreItemsByTypeQuery, StoreItemsByTypeQueryVariables>> = {}) {
+  return VueApolloComposable.useQuery<StoreItemsByTypeQuery, StoreItemsByTypeQueryVariables>(StoreItemsByTypeDocument, variables, options);
 }
-export function useStoreItemsByCategoryLazyQuery(variables: StoreItemsByCategoryQueryVariables | VueCompositionApi.Ref<StoreItemsByCategoryQueryVariables> | ReactiveFunction<StoreItemsByCategoryQueryVariables>, options: VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>> = {}) {
-  return VueApolloComposable.useLazyQuery<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>(StoreItemsByCategoryDocument, variables, options);
+export function useStoreItemsByTypeLazyQuery(variables: StoreItemsByTypeQueryVariables | VueCompositionApi.Ref<StoreItemsByTypeQueryVariables> | ReactiveFunction<StoreItemsByTypeQueryVariables>, options: VueApolloComposable.UseQueryOptions<StoreItemsByTypeQuery, StoreItemsByTypeQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<StoreItemsByTypeQuery, StoreItemsByTypeQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<StoreItemsByTypeQuery, StoreItemsByTypeQueryVariables>> = {}) {
+  return VueApolloComposable.useLazyQuery<StoreItemsByTypeQuery, StoreItemsByTypeQueryVariables>(StoreItemsByTypeDocument, variables, options);
 }
-export type StoreItemsByCategoryQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<StoreItemsByCategoryQuery, StoreItemsByCategoryQueryVariables>;
+export type StoreItemsByTypeQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<StoreItemsByTypeQuery, StoreItemsByTypeQueryVariables>;
 export const GetStoreBySlugDocument = gql`
     query GetStoreBySlug($slug: String!) {
   getStoreBySlug(slug: $slug) {

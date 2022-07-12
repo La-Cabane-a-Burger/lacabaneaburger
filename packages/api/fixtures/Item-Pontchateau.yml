@@ -4,116 +4,129 @@ items:
   nordique-pontchateau:
     name: 'La Nordique'
     price: 8.9
-    category: 'SALAD'
+    type: 'SALAD'
     description: ''
     store: "@pontchateau"
   poulette-pontchateau:
     name: 'La Poulette'
     price: 8.9
-    category: 'SALAD'
+    type: 'SALAD'
     description: ''
     store: "@pontchateau"
   cowboy-pontchateau:
     name: 'Cowboy'
     price: 8.9
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'UNMISSABLE'
     description: ''
     store: "@pontchateau"
     menu: "@menu-cowboy-pontchateau"
   kebab-pontchateau:
     name: 'Kebab'
     price: 8.9
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'UNMISSABLE'
     store: "@pontchateau"
     menu: "@menu-kebab-pontchateau"
   cab-pontchateau:
     name: 'Cab'
     price: 9.5
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'UNMISSABLE'
     store: "@pontchateau"
     menu: "@menu-cab-pontchateau"
   nuggets6-pontchateau:
     name: '6 Nuggets de filet de poulet'
     price: 6.9
-    category: 'NUGGETS'
+    type: 'NUGGETS'
     description: ''
     store: "@pontchateau"
     menu: "@menu-nuggets6-pontchateau"
   nuggets9-pontchateau:
     name: '9 Nuggets de filet de poulet'
     price: 8.9
-    category: 'NUGGETS'
+    type: 'NUGGETS'
     description: ''
     store: "@pontchateau"
     menu: "@menu-nuggets9-pontchateau"
   savoyard-pontchateau:
     name: 'Savoyard'
     price: 9.9
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'LEGENDARY'
     store: "@pontchateau"
     menu: "@menu-savoyard-pontchateau"
   normand-pontchateau:
     name: 'Normand'
     price: 9.5
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'LEGENDARY'
     store: "@pontchateau"
     menu: "@menu-normand-pontchateau"
   montagnard-pontchateau:
     name: 'Montagnard'
     price: 10.9
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'LEGENDARY'
     store: "@pontchateau"
     menu: "@menu-montagnard-pontchateau"
   viking-pontchateau:
     name: 'Viking'
     price: 9.9
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'LEGENDARY'
     store: "@pontchateau"
     menu: "@menu-viking-pontchateau"
   gaulois-pontchateau:
     name: 'Gaulois'
     price: 9.9
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'LEGENDARY'
     store: "@pontchateau"
     menu: "@menu-gaulois-pontchateau"
   andalou-pontchateau:
     name: "L'Andalou"
     price: 9.5
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'LEGENDARY'
     store: "@pontchateau"
     menu: "@menu-andalou-pontchateau"
   nantais-pontchateau:
     name: 'Nantais'
     price: 9.9
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'CREATIVE'
     description: ''
     store: "@pontchateau"
     menu: "@menu-nantais-pontchateau"
   indien-pontchateau:
     name: 'Indien'
     price: 10.5
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'CREATIVE'
     description: ''
     store: "@pontchateau"
     menu: "@menu-indien-pontchateau"
   vegetarien-pontchateau:
     name: 'Végétarien'
     price: 7.5
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'VEGGIE'
     store: "@pontchateau"
     menu: "@menu-vegetarien-pontchateau"
   burger-kid-pontchateau:
     name: 'Burger enfant'
     price: 5.5
+    type: 'KID'
     category: 'KID'
     description: ''
     store: "@pontchateau"
@@ -121,20 +134,20 @@ items:
   nuggets-kid-pontchateau:
     name: '4 nuggets de filet de poulet'
     price: 5.5
-    category: 'KID'
+    type: 'KID'
     description: ''
     store: "@pontchateau"
     menu: "@menu-kids-pontchateau"
   frites-pontchateau:
     name: 'Frites fraîches'
     price: 2.5
-    category: 'SIDE'
+    type: 'SIDE'
     description: 'Nature ou ail/paprika doux'
     store: "@pontchateau"
   jus-kid-pontchateau:
     name: 'Jus de fruit'
     price: 2
-    category: 'KID'
+    type: 'KID'
     description: ''
     capacity: 20
     store: "@pontchateau"
@@ -142,132 +155,132 @@ items:
   terminus-pontchateau:
     name: 'Terminus'
     price: 5.5
-    category: 'SIDE'
+    type: 'SIDE'
     description: 'Mini burger'
     store: "@pontchateau"
   eau-pontchateau:
     name: 'Eau de source'
     price: 1
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 50
     store: "@pontchateau"
   coca-pontchateau:
     name: 'Coca Cola'
     price: 2
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   coca-cherry-pontchateau:
     name: 'Coca Cola Cherry'
     price: 2
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   coca-zero-pontchateau:
     name: 'Coca Cola Zero'
     price: 2
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   orangina-pontchateau:
     name: 'Orangina'
     price: 2
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   oasis-pontchateau:
     name: 'Oasis tropical'
     price: 2
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   perrier-pontchateau:
     name: 'Perrier'
     price: 2
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   minute-maid-pontchateau:
     name: 'Minute Maid Orange'
     price: 2
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   ice-tea-pontchateau:
     name: 'Ice Tea'
     price: 2
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   schweppes-pontchateau:
     name: 'Schweppes agrumes'
     price: 2
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   heineken-pontchateau:
     name: 'Bière Heineken'
     price: 2.5
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   desperados-pontchateau:
     name: 'Desperados'
     price: 3.5
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@pontchateau"
   glaces-pontchateau:
     name: 'Glaces et sorbets de fabrication artisanale et locale'
     price: 3.5
-    category: 'DESSERT'
+    type: 'DESSERT'
     description: 'Vanille Bourbon, chocolat craquant, caramel au sel de Guérande, citron jaune ou fraise.'
     store: "@pontchateau"
   cookie-pontchateau:
     name: 'Grand cookie'
     price: 1.9
-    category: 'DESSERT'
+    type: 'DESSERT'
     description: ''
     store: "@pontchateau"
   donut-pontchateau:
     name: 'Donut'
     price: 1.9
-    category: 'DESSERT'
+    type: 'DESSERT'
     description: ''
     store: "@pontchateau"
   box-mozza-pontchateau:
     name: 'Box sticks mozza x5'
     price: 5.5
-    category: 'APPETIZER'
+    type: 'APPETIZER'
     description: ''
     store: "@pontchateau"
   box-cam-pontchateau:
     name: 'Box bouchées au camembert x5'
     price: 5.5
-    category: 'APPETIZER'
+    type: 'APPETIZER'
     description: ''
     store: "@pontchateau"
   box-oignon-pontchateau:
     name: 'Box oignons rings x5'
     price: 5.5
-    category: 'APPETIZER'
+    type: 'APPETIZER'
     description: ''
     store: "@pontchateau"
   box-xxl-pontchateau:
     name: 'Box XXL'
     price: 16.5
-    category: 'APPETIZER'
+    type: 'APPETIZER'
     description: '5 sticks mozza, 5 bouchées au camembert, 5 oignons rings, 5 nuggets de filet de poulet (sauce au choix).'
     store: "@pontchateau"

@@ -1,0 +1,7 @@
+query GetKidMenuByStore($storeId: ID!) {
+    getKidMenuByStore(storeId: $storeId) {
+        id
+        name
+        price
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-20">
     <div class="pb-5 border-b border-gray-200">
       <h3 class="text-3xl leading-6 font-black text-gray-900 uppercase ml-2">Nos burgers</h3>
     </div>
@@ -10,16 +10,26 @@
           :key="n"
       />
     </div>
-    <div v-else-if="burgers && !loading" class="py-5 flex flex-wrap gap-4">
-      <MenuItem v-for="burger in burgers" :key="burger.id" :item="burger"/>
+    <div v-else-if="burgersByCategory && !loading">
+      <div class="mt-6 mx-2" v-for="(burgers, category) of burgersByCategory" :key="category">
+        <p class="font-medium text-lg uppercase text-primary-900">{{ categories[category] }}</p>
+        <div class="flex flex-wrap gap-4">
+          <MenuItem v-for="burger in burgers" :key="burger.id" :item="burger"/>
+        </div>
+      </div>
+      <p class="font-medium text-lg uppercase text-primary-900 mt-6">KIDS</p>
+      <MenuItem :item="kidMenu"/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {useStoreItemsByCategoryQuery} from "@/generated/graphql";
+import {useStoreItemsByTypeQuery} from "@/generated/graphql";
 import MenuItem from "@/components/menu/MenuItem.vue";
 import {computed} from "vue";
+import useUtils from "~/composables/useUtils";
+
+const {groupBy} = useUtils();
 
 const props = defineProps({
   storeId: {
@@ -27,10 +37,24 @@ const props = defineProps({
   }
 })
 
-const {result, loading} = useStoreItemsByCategoryQuery({
+const {result, loading} = useStoreItemsByTypeQuery({
   storeId: props.storeId,
-  category: 'BURGER',
+  type: 'BURGER',
 });
 
-const burgers = computed(() => result?.value?.storeItemsByCategory ?? [])
+const categories = {
+  UNMISSABLE: "Les Incontournables",
+  LEGENDARY: "Les Légendaires",
+  CREATIVE: "Les Créatifs",
+  VEGGIE: "Le Végé",
+
+}
+
+const burgersByCategory = computed(() => groupBy(result?.value?.storeItemsByType, 'category') ?? [])
+
+const kidMenu = {
+  name: "Menu kids",
+  price: 6.5,
+  description: "Burger steak haché, cheddar, ketchup ou 4 nuggets de filet de poulet / frites fraîches / compote à boire / jus de fruits 20 cl ou eau de source 50 cl / surprise."
+}
 </script>

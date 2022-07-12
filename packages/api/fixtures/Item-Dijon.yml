@@ -4,116 +4,129 @@ items:
   nordique-dijon:
     name: 'La Nordique'
     price: 8.9
-    category: 'SALAD'
+    type: 'SALAD'
     description: ''
     store: "@dijon"
   poulette-dijon:
     name: 'La Poulette'
     price: 9.5
-    category: 'SALAD'
+    type: 'SALAD'
     description: ''
     store: "@dijon"
   cowboy-dijon:
     name: 'Cowboy'
     price: 9.5
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'UNMISSABLE'
     description: ''
     store: "@dijon"
     menu: "@menu-cowboy-dijon"
   kebab-dijon:
     name: 'Kebab'
     price: 8.9
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'UNMISSABLE'
     description: ''
     store: "@dijon"
     menu: "@menu-kebab-dijon"
   cab-dijon:
     name: 'Cab'
     price: 10.9
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'UNMISSABLE'
     description: ''
     store: "@dijon"
     menu: "@menu-cab-dijon"
   nuggets6-dijon:
     name: '6 Nuggets de filet de poulet'
     price: 7.5
-    category: 'NUGGETS'
+    type: 'NUGGETS'
     description: ''
     store: "@dijon"
     menu: "@menu-nuggets6-dijon"
   nuggets9-dijon:
     name: '9 Nuggets de filet de poulet'
     price: 9.5
-    category: 'NUGGETS'
+    type: 'NUGGETS'
     description: ''
     store: "@dijon"
     menu: "@menu-nuggets9-dijon"
   savoyard-dijon:
     name: 'Savoyard'
     price: 11.5
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'LEGENDARY'
     description: ''
     store: "@dijon"
     menu: "@menu-savoyard-dijon"
   normand-dijon:
     name: 'Normand'
     price: 10.5
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'LEGENDARY'
     description: ''
     store: "@dijon"
     menu: "@menu-normand-dijon"
   montagnard-dijon:
     name: 'Montagnard'
     price: 11.5
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'LEGENDARY'
     description: ''
     store: "@dijon"
     menu: "@menu-montagnard-dijon"
   viking-dijon:
     name: 'Viking'
     price: 9.9
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'LEGENDARY'
     description: ''
     store: "@dijon"
     menu: "@menu-viking-dijon"
   gaulois-dijon:
     name: 'Gaulois'
     price: 10.5
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'LEGENDARY'
     description: ''
     store: "@dijon"
     menu: "@menu-gaulois-dijon"
   andalou-dijon:
     name: "L'andalou"
     price: 10.9
-    category: 'BURGER'
+    type: 'BURGER'
     description: ''
+    category: 'LEGENDARY'
     store: "@dijon"
     menu: "@menu-andalou-dijon"
   bourguignon-dijon:
     name: 'Bourguignon'
     price: 11.5
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'CREATIVE'
     description: ''
     store: "@dijon"
     menu: "@menu-bourguignon-dijon"
   comtois-dijon:
     name: 'Comtois'
     price: 10.9
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'CREATIVE'
     description: ''
     store: "@dijon"
     menu: "@menu-comtois-dijon"
   vegetarien-dijon:
     name: 'Végétarien'
     price: 7.5
-    category: 'BURGER'
+    type: 'BURGER'
+    category: 'VEGGIE'
     description: ''
     store: "@dijon"
     menu: "@menu-vegetarien-dijon"
   burger-kid-dijon:
     name: 'Burger enfant'
     price: 5.5
+    type: 'KID'
     category: 'KID'
     description: ''
     store: "@dijon"
@@ -121,20 +134,20 @@ items:
   nuggets-kid-dijon:
     name: '4 nuggets de filet de poulet'
     price: 5.5
-    category: 'KID'
+    type: 'KID'
     description: ''
     store: "@dijon"
     menu: "@menu-kids-dijon"
   frites-dijon:
     name: 'Frites fraîches'
     price: 2.5
-    category: 'SIDE'
+    type: 'SIDE'
     description: 'Nature ou ail/paprika doux'
     store: "@dijon"
   jus-kid-dijon:
     name: 'Jus de fruit'
     price: 1.9
-    category: 'KID'
+    type: 'KID'
     description: ''
     capacity: 20
     store: "@dijon"
@@ -142,139 +155,139 @@ items:
   terminus-dijon:
     name: 'Terminus'
     price: 5.5
-    category: 'SIDE'
+    type: 'SIDE'
     description: 'Mini burger'
     store: "@dijon"
   eau-dijon:
     name: 'Eau de source'
     price: 1
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 50
     store: "@dijon"
   coca-dijon:
     name: 'Coca Cola'
     price: 1.9
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   coca-cherry-dijon:
     name: 'Coca Cola Cherry'
     price: 1.9
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   coca-zero-dijon:
     name: 'Coca Cola Zero'
     price: 1.9
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   orangina-dijon:
     name: 'Orangina'
     price: 1.9
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   oasis-dijon:
     name: 'Oasis tropical'
     price: 1.9
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   perrier-dijon:
     name: 'Perrier'
     price: 1.9
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   minute-maid-dijon:
     name: 'Minute Maid Orange'
     price: 1.9
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   ice-tea-dijon:
     name: 'Ice Tea'
     price: 1.9
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   schweppes-dijon:
     name: 'Schweppes agrumes'
     price: 1.9
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   biere-locale-dijon:
     name: 'Bière locale'
     price: 4.5
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: 'En supplément menu 2.50€'
     capacity: 33
     store: "@dijon"
   heineken-dijon:
     name: 'Bière Heineken'
     price: 2.5
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   desperados-dijon:
     name: 'Desperados'
     price: 3.5
-    category: 'BEVERAGE'
+    type: 'BEVERAGE'
     description: ''
     capacity: 33
     store: "@dijon"
   glaces-dijon:
     name: 'Glaces et sorbets de fabrication artisanale et locale'
     price: 3.6
-    category: 'DESSERT'
+    type: 'DESSERT'
     description: 'Vanille, chocolat, cookie ou fraise.'
     store: "@dijon"
   cookie-dijon:
     name: 'Grand cookie'
     price: 1.9
-    category: 'DESSERT'
+    type: 'DESSERT'
     description: ''
     store: "@dijon"
   donut-dijon:
     name: 'Donut'
     price: 1.9
-    category: 'DESSERT'
+    type: 'DESSERT'
     description: ''
     store: "@dijon"
   box-mozza-dijon:
     name: 'Box sticks mozza x5'
     price: 5.5
-    category: 'APPETIZER'
+    type: 'APPETIZER'
     description: ''
     store: "@dijon"
   box-cam-dijon:
     name: 'Box bouchées au camembert x5'
     price: 5.5
-    category: 'APPETIZER'
+    type: 'APPETIZER'
     description: ''
     store: "@dijon"
   box-oignon-dijon:
     name: 'Box oignons rings x5'
     price: 5.5
-    category: 'APPETIZER'
+    type: 'APPETIZER'
     description: ''
     store: "@dijon"
   box-xxl-dijon:
     name: 'Box XXL'
     price: 17.9
-    category: 'APPETIZER'
+    type: 'APPETIZER'
     description: '5 sticks mozza, 5 bouchées au camembert, 5 oignons rings, 5 nuggets de filet de poulet (sauce au choix).'
     store: "@dijon"

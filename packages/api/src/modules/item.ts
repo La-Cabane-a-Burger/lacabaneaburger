@@ -1,6 +1,5 @@
 import {Context, prisma} from "../context";
-import {Category} from '@prisma/client'
-import {Ingredient} from "@lacabaneaburger/landing/generated/graphql";
+import {Ingredient, ItemType} from '@prisma/client'
 
 export const Item = `
 
@@ -14,6 +13,7 @@ export const Item = `
         name: String
         price: String
         category: String
+        type: String
         description: String
         capacity: Float
         ingredients: [Recipe]
@@ -24,7 +24,7 @@ export const Item = `
     
     type Query {
         getItems: [Item]
-        storeItemsByCategory(storeId: ID!, category: String!): [Item]
+        storeItemsByType(storeId: ID!, type: String!): [Item]
         landingItems: [Item]
         getItem(id: ID!): Item
         }
@@ -59,7 +59,8 @@ export const Item = `
 interface CreateItemInput {
     name: string,
     price: number,
-    category: Category,
+    category: ItemCategory,
+    type: ItemType,
     description: string,
     ingredients: [Ingredient],
     storeId: string
@@ -68,7 +69,8 @@ interface CreateItemInput {
 interface UpdateItemInput {
     name: string,
     price: number,
-    category: Category,
+    category: ItemCategory,
+    type: ItemType,
     description: string
 }
 
@@ -87,7 +89,7 @@ export const ItemResolver = {
                 }
             });
         },
-        storeItemsByCategory: async (_parents: any, _args: { storeId: string, category: Category }, ctx: Context) => {
+        storeItemsByType: async (_parents: any, _args: { storeId: string, type: ItemType }, ctx: Context) => {
             return await ctx.prisma.item.findMany({
                 where: {
                     OR: [{
@@ -95,7 +97,7 @@ export const ItemResolver = {
                     }, {
                         storeId: null,
                     }],
-                    category: _args.category
+                    type: _args.type
                 },
                 include: {
                     ingredients: {

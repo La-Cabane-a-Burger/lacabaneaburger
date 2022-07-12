@@ -38,7 +38,7 @@
           </div>
           <div class="bg-primary-900 text-white rounded w-fit px-3 py-1 font-bold">{{ formatPrice(item.price) }} €</div>
         </div>
-        <div class=" text-gray-800" v-if="item.menu"><span>MENU</span> <span class="text-xs text-gray-500 mr-1">{{ categories[item.category]}} / Frite / Soda 33cl </span>
+        <div class=" text-gray-800" v-if="item.menu"><span>MENU</span> <span class="text-xs text-gray-500 mr-1">{{ types[item.type]}} / Frite / Soda 33cl </span>
           <span class="font-bold">+ {{ formatPrice(item.menu.price - item.price) }} €</span></div>
       </div>
     </div>
@@ -57,7 +57,7 @@ const props = defineProps({
   }
 });
 
-const categories = {
+const types = {
   BURGER: "Burger",
   NUGGETS: "Nuggets"
 }

@@ -3,60 +3,60 @@ items:
   menu-cowboy-dijon:
     name: 'Menu Cowboy'
     price: 13
-    category: 'BURGER'
+    type: 'BURGER'
   menu-kebab-dijon:
     name: 'Menu Kebab'
     price: 12.4
-    category: 'BURGER'
+    type: 'BURGER'
   menu-cab-dijon:
     name: 'Menu Cab'
     price: 14.4
-    category: 'BURGER'
+    type: 'BURGER'
   menu-nuggets6-dijon:
     name: 'Menu Nuggets x6'
     price: 11
-    category: 'NUGGETS'
+    type: 'NUGGETS'
   menu-nuggets9-dijon:
     name: 'Menu Nuggets x9'
     price: 13
-    category: 'NUGGETS'
+    type: 'NUGGETS'
   menu-savoyard-dijon:
     name: 'Menu Savoyard'
     price: 15
-    category: 'BURGER'
+    type: 'BURGER'
   menu-montagnard-dijon:
     name: 'Menu Montagnard'
     price: 15
-    category: 'BURGER'
+    type: 'BURGER'
   menu-normand-dijon:
     name: 'Menu Normand'
     price: 14
-    category: 'BURGER'
+    type: 'BURGER'
   menu-viking-dijon:
     name: 'Menu Viking'
     price: 13.4
-    category: 'BURGER'
+    type: 'BURGER'
   menu-gaulois-dijon:
     name: 'Menu Gaulois'
     price: 14
-    category: 'BURGER'
+    type: 'BURGER'
   menu-andalou-dijon:
     name: 'Menu Andalou'
     price: 14.4
-    category: 'BURGER'
+    type: 'BURGER'
   menu-bourguignon-dijon:
     name: 'Menu Bourguignon'
     price: 15
-    category: 'BURGER'
+    type: 'BURGER'
   menu-comtois-dijon:
     name: 'Menu Comtois'
     price: 14.4
-    category: 'BURGER'
+    type: 'BURGER'
   menu-vegetarien-dijon:
     name: 'Menu Végétarien'
     price: 11
-    category: 'BURGER'
+    type: 'BURGER'
   menu-kids-dijon:
     name: 'Menu Kids'
     price: 6.5
-    category: 'KID'
+    type: 'KID'

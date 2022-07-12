@@ -1,9 +1,10 @@
-query StoreItemsByCategory($storeId: ID!, $category: String!) {
-    storeItemsByCategory(storeId: $storeId, category: $category) {
+query StoreItemsByType($storeId: ID!, $type: String!) {
+    storeItemsByType(storeId: $storeId, type: $type) {
         id
         name
         price
         category
+        type
         description
         capacity
         ingredients {
