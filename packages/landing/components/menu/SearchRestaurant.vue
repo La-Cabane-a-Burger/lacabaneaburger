@@ -13,7 +13,7 @@
       </h3>
       <Input
           :name="'storeSearch'"
-          :placeholder="'Saisir un ville'"
+          :placeholder="'Saisir une ville'"
           v-model:modelValue="storeSearch"
       >
         <SearchIcon class="text-gray-500 h-4"/>
