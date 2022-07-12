@@ -17,7 +17,7 @@
     "@vue/cli-plugin-typescript": "~4.5.0",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.13",
+    "tailwindcss": "^3.1.6",
     "vite": "^2.7.2"
   }
 }

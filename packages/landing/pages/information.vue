@@ -1,35 +1,58 @@
 <template>
   <div>
-    <div
-        class="flex items-center justify-center w-full h-screen"
-    >
-      <div
-          class="flex flex-row w-10/12 mt-48 bg-white shadow-lg h-4/6 rounded-xl"
-      >
-        <div class="relative flex-1 p-10">
-          <h3 class="text-lg font-semibold font-text">
-            Selectionnez une Cabane à Burger
-          </h3>
-<!--          <GeoSearch @geolocate="onGeolocate" @stop="onStop"/>-->
-          <div class="relative z-0 w-full overflow-scroll h-full">
-            <LocationCard
-                v-for="(location, index) in sortedLocations"
-                :key="index"
-                :location="location"
-                :isSelected="selected === location.id"
-                @click="selected = location.id"
-            />
-          </div>
-        </div>
-        <div class="flex-1">
-          <Map
-              :selected="selected"
-              :position="position"
-              :locations="sortedLocations"
-              @selected="selected = $event.id"
-              class="rounded-r-xl"
+    <!--    <div-->
+    <!--        class="flex items-center justify-center w-full"-->
+    <!--    >-->
+    <!--      <div-->
+    <!--          class="flex flex-col w-10/12 mt-48 bg-white shadow-lg h-4/6 rounded-xl"-->
+    <!--      >-->
+    <!--        <div class="flex-1 p-10">-->
+    <!--          <h3 class="text-lg font-semibold font-text">-->
+    <!--            Selectionnez une Cabane à Burger-->
+    <!--          </h3>-->
+    <!--&lt;!&ndash;          <GeoSearch @geolocate="onGeolocate" @stop="onStop"/>&ndash;&gt;-->
+    <!--          <div class="w-full overflow-scroll h-full">-->
+    <!--            <LocationCard-->
+    <!--                v-for="(location, index) in sortedLocations"-->
+    <!--                :key="index"-->
+    <!--                :location="location"-->
+    <!--                :isSelected="selected === location.id"-->
+    <!--                @click="selected = location.id"-->
+    <!--            />-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--          <Map-->
+    <!--              :selected="selected"-->
+    <!--              :position="position"-->
+    <!--              :locations="sortedLocations"-->
+    <!--              @selected="selected = $event.id"-->
+    <!--              class="rounded-r-xl flex-1"-->
+    <!--          />-->
+
+    <!--      </div>-->
+    <!--    </div>-->
+    <div class="pt-48 flex flex-col md:flex-row h-fit px-2 mb-10">
+      <div class="flex-1">
+        <p class=" uppercase text-4xl font-extrabold text-center">Nos cabane à burger</p>
+        <div class="px-2">
+          <LocationCard
+              v-for="(location, index) in sortedLocations"
+              :key="index"
+              :location="location"
+              :isSelected="selected === location.id"
+              @click="selected = location.id"
           />
         </div>
+
+      </div>
+      <div class="flex-1">
+        <Map
+            :selected="selected"
+            :position="position"
+            :locations="sortedLocations"
+            @selected="selected = $event.id"
+            class="rounded-xl -z-20"
+        />
       </div>
     </div>
   </div>
