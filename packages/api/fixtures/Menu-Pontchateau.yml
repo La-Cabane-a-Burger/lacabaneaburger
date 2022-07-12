@@ -2,7 +2,7 @@ entity: Menu
 items:
   menu-cowboy-pontchateau:
     name: 'Menu Cowboy'
-    price: 13
+    price: 12.4
     category: 'BURGER'
   menu-kebab-pontchateau:
     name: 'Menu Kebab'

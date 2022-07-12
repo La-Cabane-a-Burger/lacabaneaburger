@@ -1,35 +1,35 @@
 entity: Item
-connectedFields: ['store', 'menu']
+connectedFields: [ 'store', 'menu' ]
 items:
   nordique-pontchateau:
     name: 'La Nordique'
-    price: 7.9
+    price: 8.9
     category: 'SALAD'
     description: ''
     store: "@pontchateau"
   poulette-pontchateau:
     name: 'La Poulette'
-    price: 7.9
+    price: 8.9
     category: 'SALAD'
     description: ''
     store: "@pontchateau"
   cowboy-pontchateau:
     name: 'Cowboy'
-    price: 7.9
+    price: 8.9
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-cowboy-pontchateau"
   kebab-pontchateau:
     name: 'Kebab'
-    price: 8.5
+    price: 8.9
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-kebab-pontchateau"
   cab-pontchateau:
     name: 'Cab'
-    price: 8.9
+    price: 9.5
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
@@ -43,84 +43,84 @@ items:
     menu: "@menu-nuggets6-pontchateau"
   nuggets9-pontchateau:
     name: '9 Nuggets de filet de poulet'
-    price: 9.9
+    price: 8.9
     category: 'NUGGETS'
     description: ''
     store: "@pontchateau"
     menu: "@menu-nuggets9-pontchateau"
   savoyard-pontchateau:
     name: 'Savoyard'
-    price: 8.9
+    price: 9.9
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-savoyard-pontchateau"
   normand-pontchateau:
     name: 'Normand'
-    price: 8.5
+    price: 9.5
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-normand-pontchateau"
   montagnard-pontchateau:
     name: 'Montagnard'
-    price: 9.9
+    price: 10.9
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-montagnard-pontchateau"
   viking-pontchateau:
     name: 'Viking'
-    price: 9.5
+    price: 9.9
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-viking-pontchateau"
   gaulois-pontchateau:
     name: 'Gaulois'
-    price: 9.5
+    price: 9.9
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-gaulois-pontchateau"
   andalou-pontchateau:
     name: "L'Andalou"
-    price: 8.9
+    price: 9.5
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-andalou-pontchateau"
   nantais-pontchateau:
     name: 'Nantais'
-    price: 8.9
+    price: 9.9
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-nantais-pontchateau"
   indien-pontchateau:
     name: 'Indien'
-    price: 9.9
+    price: 10.5
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-indien-pontchateau"
   vegetarien-pontchateau:
     name: 'Végétarien'
-    price: 6.9
+    price: 7.5
     category: 'BURGER'
     description: ''
     store: "@pontchateau"
     menu: "@menu-vegetarien-pontchateau"
   burger-kid-pontchateau:
     name: 'Burger enfant'
-    price: 4.9
+    price: 5.5
     category: 'KID'
     description: ''
     store: "@pontchateau"
     menu: "@menu-kids-pontchateau"
   nuggets-kid-pontchateau:
     name: '4 nuggets de filet de poulet'
-    price: 4.9
+    price: 5.5
     category: 'KID'
     description: ''
     store: "@pontchateau"
@@ -141,7 +141,7 @@ items:
     menu: "@menu-kids-pontchateau"
   terminus-pontchateau:
     name: 'Terminus'
-    price: 4.9
+    price: 5.5
     category: 'SIDE'
     description: 'Mini burger'
     store: "@pontchateau"
@@ -233,17 +233,17 @@ items:
     name: 'Glaces et sorbets de fabrication artisanale et locale'
     price: 3.5
     category: 'DESSERT'
-    description: 'Vanille, chocolat, caramel, citron ou fraise.'
+    description: 'Vanille Bourbon, chocolat craquant, caramel au sel de Guérande, citron jaune ou fraise.'
     store: "@pontchateau"
   cookie-pontchateau:
     name: 'Grand cookie'
-    price: 1.5
+    price: 1.9
     category: 'DESSERT'
     description: ''
     store: "@pontchateau"
   donut-pontchateau:
     name: 'Donut'
-    price: 1.5
+    price: 1.9
     category: 'DESSERT'
     description: ''
     store: "@pontchateau"
