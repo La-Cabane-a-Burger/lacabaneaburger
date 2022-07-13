@@ -117,31 +117,39 @@
     >
       <div class="w-10/12 py-20">
         <Subtitle topText="Decouvrez" bottomText="nos burgers"/>
-        <CardCarrousel :loading="loading" :cards="burgersIntroduction"/>
-<!--        <div-->
-<!--            class="flex-row justify-between hidden p-10 my-20 lg:flex rounded-3xl bg-primary-400 font-headline"-->
-<!--        >-->
-<!--          <div class="flex-1">-->
-<!--            <h4 class="mb-2 text-lg font-extrabold uppercase text-dark">-->
-<!--              Le Burger du Mois-->
-<!--            </h4>-->
-<!--            <p class="text-xs text-dark lg:text-base">-->
-<!--              Chaque mois une nouvelle recette, imaginée par nos chefs pour vous-->
-<!--              proposer un burger de saison.-->
-<!--            </p>-->
-<!--          </div>-->
-<!--          <div class="flex items-center justify-center flex-1">-->
-<!--            <img-->
-<!--                src="@/assets/img/burger-board.png"-->
-<!--                alt="Burger sur une planche en bois"-->
-<!--            />-->
-<!--          </div>-->
-<!--          <div class="flex items-center justify-end flex-1">-->
-<!--            <Button secondary-->
-<!--            >Découvrir le burger du mois-->
-<!--            </Button>-->
-<!--          </div>-->
-<!--        </div>-->
+        <client-only>
+          <!-- this component will only be rendered on client-side -->
+          <CardCarrousel :loading="loading" :cards="burgersIntroduction"/>
+
+          <!-- loading indicator, rendered on server-side -->
+          <template #placeholder>
+            <CardCarrousel loading/>
+          </template>
+        </client-only>
+        <!--        <div-->
+        <!--            class="flex-row justify-between hidden p-10 my-20 lg:flex rounded-3xl bg-primary-400 font-headline"-->
+        <!--        >-->
+        <!--          <div class="flex-1">-->
+        <!--            <h4 class="mb-2 text-lg font-extrabold uppercase text-dark">-->
+        <!--              Le Burger du Mois-->
+        <!--            </h4>-->
+        <!--            <p class="text-xs text-dark lg:text-base">-->
+        <!--              Chaque mois une nouvelle recette, imaginée par nos chefs pour vous-->
+        <!--              proposer un burger de saison.-->
+        <!--            </p>-->
+        <!--          </div>-->
+        <!--          <div class="flex items-center justify-center flex-1">-->
+        <!--            <img-->
+        <!--                src="@/assets/img/burger-board.png"-->
+        <!--                alt="Burger sur une planche en bois"-->
+        <!--            />-->
+        <!--          </div>-->
+        <!--          <div class="flex items-center justify-end flex-1">-->
+        <!--            <Button secondary-->
+        <!--            >Découvrir le burger du mois-->
+        <!--            </Button>-->
+        <!--          </div>-->
+        <!--        </div>-->
         <div class="flex justify-center w-full">
           <Button @click="goToMenu">Voir la carte</Button>
         </div>
@@ -174,7 +182,7 @@ const goToFranchise = () => {
   router.push('/franchise')
 }
 
-const { result, loading } = useLandingItemsQuery();
+const {result, loading} = useLandingItemsQuery();
 
 const burgersIntroduction = computed(() => result?.value?.landingItems ?? []);
 
