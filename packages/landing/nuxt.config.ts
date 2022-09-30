@@ -67,6 +67,6 @@ export default defineNuxtConfig({
     ],
   },
   nitro: {
-    preset: "netlify",
+    preset: "heroku",
   },
 });
