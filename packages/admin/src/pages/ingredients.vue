@@ -44,7 +44,7 @@
               </label>
             </div>
             <div class="sm:col-span-2">
-              <AllergensInput :items="formData.allergens"/>
+              <AllergensInput v-model="formData.allergens"/>
             </div>
           </div>
         </div>
@@ -56,11 +56,7 @@
                     class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
               Annuler
             </button>
-            <button type="submit"
-                    @click="onUpdateSubmit"
-                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary-900 hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
-              Enregistrer
-            </button>
+            <Button :loading="updateLoading" @click="updateIngredients">Enregistrer</Button>
           </div>
         </div>
 
@@ -226,9 +222,10 @@ import SlideOver from "../components/SlideOver.vue";
 import Select from "../components/Select.vue";
 import AllergensInput from "../components/AllergensInput.vue";
 import {Ingredient} from "@lacabaneaburger/landing/generated/graphql";
+import Button from "../components/Button.vue";
 
 export default defineComponent({
-  components: {AllergensInput, Select, SlideOver, TopBar, ChevronRightIcon},
+  components: {Button, AllergensInput, Select, SlideOver, TopBar, ChevronRightIcon},
   setup() {
 
     const selectedId = ref('')
@@ -246,7 +243,7 @@ export default defineComponent({
 
     const {result: ingredientsResult} = useGetIngredientsQuery();
 
-    const ingredients = useResult(ingredientsResult, [])
+    const ingredients = computed(() => ingredientsResult.value?.getIngredients ?? [])
 
     const {result: ingredientResult, loading: getIngredientLoading, onResult} = useGetIngredientQuery(() => ({
       getIngredientId: selectedId.value
@@ -254,7 +251,7 @@ export default defineComponent({
       enabled: isSelectedIngredient.value
     }))
     //
-    const ingredient = useResult(ingredientResult, {});
+    const ingredient = computed(() => ingredientResult.value?.getIngredient ?? {})
 
     onResult(result => {
       if (!result.loading && formData.value && result?.data?.getIngredient) {
@@ -271,16 +268,15 @@ export default defineComponent({
 
     // Update Ingredient
 
-    const {mutate} = useUpdateIngredientMutation(() => ({
-      variables: {
-        id: selectedId.value,
-        input: formData.value
-      }
-    }))
+    const {mutate: updateIngredientMutation, loading: updateLoading} = useUpdateIngredientMutation(() => ({ refetchQueries:['GetIngredients']}))
 
-    const onUpdateSubmit = async () => {
+    const updateIngredients = async () => {
+      console.log('hello')
       try {
-        await mutate();
+        await updateIngredientMutation({
+          id: selectedId.value,
+          input: formData.value
+        });
       } catch (e) {
         console.log(e)
       }
@@ -333,7 +329,8 @@ export default defineComponent({
       ingredient,
       formData,
       getIngredientLoading,
-      onUpdateSubmit
+      updateIngredients,
+      updateLoading
     }
   }
 })

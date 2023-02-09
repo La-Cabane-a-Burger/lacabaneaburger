@@ -1,9 +1,9 @@
-import { defineNuxtConfig } from "nuxt";
+import { defineNuxtConfig } from 'nuxt/config';
 import '@nuxt3/apollo-module';
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  buildModules: [
+  modules: [
     '@nuxt3/apollo-module'
   ],
   apollo: {
@@ -47,15 +47,13 @@ export default defineNuxtConfig({
       mapboxToken: process.env.MAPBOX_TOKEN || "",
     },
   },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    }
+  },
   build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
     transpile: [
       "@turf/distance",
       "@turf/helpers",

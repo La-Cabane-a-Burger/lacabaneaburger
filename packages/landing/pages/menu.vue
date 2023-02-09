@@ -8,7 +8,7 @@
         </template>
       </suspense>
     </div>
-    <NuxtChild v-else />
+    <NuxtPage v-else />
   </div>
 </template>
 <script setup lang="ts">

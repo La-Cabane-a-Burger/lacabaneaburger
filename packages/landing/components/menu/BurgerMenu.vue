@@ -10,8 +10,8 @@
           :key="n"
       />
     </div>
-    <div v-else-if="burgersByCategory && !loading">
-      <div class="mt-6 mx-2" v-for="(burgers, category) of burgersByCategory" :key="category">
+    <div v-else-if="burgers && !loading">
+      <div class="mt-6 mx-2" v-for="(burgers, category) of groupBy(burgers, 'category')" :key="category">
         <p class="font-medium text-lg uppercase text-primary-900">{{ categories[category] }}</p>
         <div class="flex flex-wrap gap-4">
           <MenuItem v-for="burger in burgers" :key="burger.id" :item="burger"/>
@@ -50,7 +50,7 @@ const categories = {
 
 }
 
-const burgersByCategory = computed(() => groupBy(result?.value?.storeItemsByType, 'category') ?? [])
+const burgers = computed(() => result?.value?.storeItemsByType ?? []);
 
 const kidMenu = {
   name: "Menu kids",

@@ -20,7 +20,7 @@
     "@types/leaflet": "^1.7.9",
     "@types/node": "13.11.1",
     "autoprefixer": "^10.4.0",
-    "nuxt": "^3.0.0-rc.4",
+    "nuxt": "^3.0.0-rc.14",
     "postcss": "^8.4.4",
     "sass": "1.43.4",
     "sass-loader": "12.3.0",
