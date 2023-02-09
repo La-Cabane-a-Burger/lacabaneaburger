@@ -40,6 +40,6 @@
     "@getbigger-io/prisma-fixtures-cli": "^2.0.1"
   },
   "engines": {
-    "node": "^16.15.1 || ^14.18.0"
+    "node": "^14.18.0"
   }
 }
